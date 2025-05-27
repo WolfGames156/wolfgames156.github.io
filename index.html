@@ -29,6 +29,7 @@
       margin: 20px 0;
       text-decoration: none;
       border-radius: 8px;
+      cursor: pointer;
     }
     code {
       background-color: #333;
@@ -52,7 +53,7 @@
 </head>
   
 <body>
-  <div class="download-info">Toplam İndirme Sayısı: Zoream v4.3</div>
+  <div class="download-info">Toplam İndirme Sayısı: Yükleniyor...</div>
 
   <h1>Zoream Yardım Rehberi</h1>
 
@@ -96,6 +97,74 @@
   </a>
 
   <amp-auto-ads type="adsense" data-ad-client="ca-pub-5159798367356950"></amp-auto-ads>
+
+  <!-- Firebase ve sayaç scripti -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+    import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
+
+    // Firebase yapılandırması
+    const firebaseConfig = {
+      apiKey: "AIzaSyAiggO2LJd3JL8asBQen0x82Gc-M5paqiU",
+      authDomain: "zoreamsayac.firebaseapp.com",
+      databaseURL: "https://zoreamsayac-default-rtdb.firebaseio.com",
+      projectId: "zoreamsayac",
+      storageBucket: "zoreamsayac.firebasestorage.app",
+      messagingSenderId: "678855378469",
+      appId: "1:678855378469:web:480411af25972e4ca721cc",
+      measurementId: "G-7G975SP4YG"
+    };
+
+    // Firebase başlatma
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const counterRef = ref(db, 'downloadCount');
+
+    const downloadInfo = document.querySelector('.download-info');
+    const downloadButton = document.querySelector('a.button');
+
+    // Sayacı yükle ve ekranda göster
+    async function loadCounter() {
+      try {
+        const snapshot = await get(counterRef);
+        if (snapshot.exists()) {
+          downloadInfo.textContent = `Toplam İndirme Sayısı: ${snapshot.val()}`;
+        } else {
+          downloadInfo.textContent = `Toplam İndirme Sayısı: 0`;
+          await set(counterRef, 0);
+        }
+      } catch (error) {
+        console.error('Sayaç yüklenirken hata:', error);
+        downloadInfo.textContent = 'Sayaç bilgisi alınamadı.';
+      }
+    }
+
+    // Sayacı 1 artır
+    async function increaseCounter() {
+      try {
+        const snapshot = await get(counterRef);
+        let currentCount = 0;
+        if (snapshot.exists()) {
+          currentCount = snapshot.val();
+        }
+        const newCount = currentCount + 1;
+        await set(counterRef, newCount);
+        downloadInfo.textContent = `Toplam İndirme Sayısı: ${newCount}`;
+      } catch (error) {
+        console.error('Sayaç artırılırken hata:', error);
+      }
+    }
+
+    // Sayacı yükle
+    loadCounter();
+
+    // Butona tıklanınca sayacı artır ve normal linke git
+    downloadButton.addEventListener('click', (e) => {
+      increaseCounter();
+      // İstersen buraya e.preventDefault() koyabilirsin ama o zaman indirme olmaz
+      // Biz sadece sayaç artmasını istiyoruz, indirme aksamasın diye engellemiyoruz
+    });
+  </script>
+
 </body>
 </html>
-
