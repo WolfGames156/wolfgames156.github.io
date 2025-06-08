@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Nasıl Kullanılır - Zoream</title>
+  <style>
+    h1 {
+      background-color: #111;
+      color: #4caf50;
+      font-family: sans-serif;
+      padding: 20px;
+
+    }
+  
+    
+    body {
+      background-color: #111;
+      color: #ffffff;
+      font-family: sans-serif;
+      padding: 10px 20px;
+      margin: 40px;
+      text-align: center;
+      border-radius: 8px;
+    }
+    a {
+      color: cyan;
+    }
+    .download-info {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-weight: bold;
+  color: yellow;
+  animation: glow 1s infinite alternate;
+  font-size: 24px;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #ff0; }
+  to   { text-shadow: 0 0 20px #ffd700; }
+}
+  </style>
+</head>
+<body>
+<ul>
+  <li><a href="index.html">Ana Sayfa</a></li>
+  <li><a href="nasil-kullanilir.html">Nasıl Kullanılır</a></li>
+  <li><a href="zoream.html">Zoream</a></li>
+  <li><a href="emegi-gecenler.html">Emeği Geçenler</a></li>
+  <li><a href="discord.html">Discord</a></li>
+</ul>
+
+<style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    padding: 12px 14px;
+    background-color: #2e2e2e;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+
+  li a:hover {
+    background-color: #23834c;
+  }
+</style>
+
+  <h1>Nasıl Kullanılır</h1>
+  <p>Öncelikle Zoream’i açıyorsunuz.</p>
+  <p> Zoream'in yeni sürümünü açtıktan sonra arama çubuğundan istediğiniz oyunu yazıyorsunuz mesela <strong>"Undertale"</strong> gibi... İstediğiniz oyunu arattıktan sonra alttaki butona basıyorsunuz ve steam yeniden başlatılıyor. Steam yeniden başlatıldıktan sonra seçtiğiniz oyun kütüphanenize gelmiş olmalı. Kütüphanenize girerek oyunu indirip oynayabilirsiniz. Eğer yeniden başlatmanıza rağmen oyun kütüphanenize gelmiyorsa Discord sunucumuza gelerek Discord ekibimizden yardım alabilirsiniz. İyi Oyunlar!</p>
+
+  
+<div class="download-info">Toplam İndirme Sayısı: Yükleniyor...</div>
+
+</body>
+</html>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+  import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAiggO2LJd3JL8asBQen0x82Gc-M5paqiU",
+    authDomain: "zoreamsayac.firebaseapp.com",
+    databaseURL: "https://zoreamsayac-default-rtdb.firebaseio.com",
+    projectId: "zoreamsayac",
+    storageBucket: "zoreamsayac.firebasestorage.app",
+    messagingSenderId: "678855378469",
+    appId: "1:678855378469:web:480411af25972e4ca721cc",
+    measurementId: "G-7G975SP4YG"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const counterRef = ref(db, 'downloadCount');
+
+  const downloadInfo = document.querySelector('.download-info');
+
+  async function loadCounter() {
+    try {
+      const snapshot = await get(counterRef);
+      if (snapshot.exists()) {
+        downloadInfo.textContent = `Toplam İndirme Sayısı: ${snapshot.val()}`;
+      } else {
+        downloadInfo.textContent = `Toplam İndirme Sayısı: 0`;
+      }
+    } catch (error) {
+      console.error('Sayaç yüklenirken hata:', error);
+      downloadInfo.textContent = 'Sayaç bilgisi alınamadı.';
+    }
+  }
+
+  loadCounter();
+</script>

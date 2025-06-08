@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Nasıl Kullanılır - Zoream</title>
+  <style>
+    h1 {
+      background-color: #111;
+      color: #4caf50;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    body {
+      background-color: #111;
+      color: #ffffff;
+      font-family: sans-serif;
+      padding: 10px 20px;
+      margin: 10px 20px; 
+      text-align: center;
+      border-radius: 8px;
+    }
+    a {
+      color: cyan;
+    }
+    .download-info {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-weight: bold;
+      color: yellow;
+      animation: glow 1s infinite alternate;
+      font-size: 24px;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ff0; }
+      to   { text-shadow: 0 0 20px #ffd700; }
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    li {
+      float: left;
+    }
+    li a {
+      display: block;
+      padding: 12px 14px;
+      background-color: #2e2e2e;
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+    }
+    li a:hover {
+      background-color: #23834c;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WolfGames</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" id="favicon" href="">
+</head>
+<body>
+
+<ul>
+  <li><a href="index.html">Ana Sayfa</a></li>
+  <li><a href="nasil-kullanilir.html">Nasıl Kullanılır</a></li>
+  <li><a href="zoream.html">Zoream</a></li>
+  <li><a href="emegi-gecenler.html">Emeği Geçenler</a></li>
+  <li><a href="discord.html">Discord</a></li>
+</ul>
+
+<div class="background-overlay"></div>
+
+<div class="background-lights">
+  <div class="light blue"></div>
+  <div class="light red"></div>
+  <div class="light purple"></div>
+</div>
+
+<section class="profile-section">
+  <div class="profile-container">
+    <div class="profile-card">
+      <div class="profile-left">
+        <div class="avatar-frame">
+          <div class="avatar-inner">
+            <img src="" alt="Profile Avatar" class="avatar-image" id="profile-avatar">
+          </div>
+          <div class="status-indicator" id="status-indicator"></div>
+        </div>
+        <h1 class="username">HunterWolfツ</h1>
+      </div>
+      <div class="profile-right">
+        <div class="activities" id="activities"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="https://discord.gg/xFxbBKvyjH" class="pricing-button">Sunucumuza Katıl</a>
+
+<footer>
+  &copy; 2025 WolfGames. Tüm hakları saklıdır.
+</footer>
+
+<div class="download-info">Toplam İndirme Sayısı: Yükleniyor...</div>
+
+<script src="script.js"></script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+  import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAiggO2LJd3JL8asBQen0x82Gc-M5paqiU",
+    authDomain: "zoreamsayac.firebaseapp.com",
+    databaseURL: "https://zoreamsayac-default-rtdb.firebaseio.com",
+    projectId: "zoreamsayac",
+    storageBucket: "zoreamsayac.firebasestorage.app",
+    messagingSenderId: "678855378469",
+    appId: "1:678855378469:web:480411af25972e4ca721cc",
+    measurementId: "G-7G975SP4YG"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const counterRef = ref(db, 'downloadCount');
+
+  const downloadInfo = document.querySelector('.download-info');
+
+  async function loadCounter() {
+    try {
+      const snapshot = await get(counterRef);
+      if (snapshot.exists()) {
+        downloadInfo.textContent = `Toplam İndirme Sayısı: ${snapshot.val()}`;
+      } else {
+        downloadInfo.textContent = `Toplam İndirme Sayısı: 0`;
+      }
+    } catch (error) {
+      console.error('Sayaç yüklenirken hata:', error);
+      downloadInfo.textContent = 'Sayaç bilgisi alınamadı.';
+    }
+  }
+
+  loadCounter();
+</script>
+
+</body>
+</html>
