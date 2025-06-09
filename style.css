@@ -1262,16 +1262,18 @@ footer {
 
 .pricing-button {
     display: inline-block;
-    padding: 1rem 2.5rem;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    padding: 1.5rem 3.5rem; /* Buton daha büyük */
+    font-size: 1.25rem;     /* Yazı daha büyük */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;    /* Daha yuvarlak */
     color: var(--text-color);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2); /* Hafif ışıltı */
 }
 
 .pricing-button::before {

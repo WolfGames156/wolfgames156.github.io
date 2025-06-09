@@ -1,12 +1,3 @@
-const userId = '1239262498239287427';
-const BANNER_URL = 'https://cdn.discordapp.com/banners/1239262498239287427/20f72484188d593512240a411ef72c11.webp?size=1024&width=922&height=0';
-
-
-let isSoundEnabled = false;
-
-
-
-
 const ANIMATION_CONFIG = {
     fadeIn: {
         opacity: [0, 1],
@@ -14,138 +5,121 @@ const ANIMATION_CONFIG = {
     }
 };
 
+let soundEnabled = false;
+let spotifyIntervals = {};
 
-let ws;
-let heartbeat;
+function connectWebSocket(section, userId) {
+    const ws = new WebSocket('wss://api.lanyard.rest/socket');
+    let heartbeat;
 
-function connectWebSocket() {
-    ws = new WebSocket('wss://api.lanyard.rest/socket');
-    
     ws.onopen = () => {
-        console.log('Connected to Lanyard WebSocket');
         ws.send(JSON.stringify({
             op: 2,
-            d: {
-                subscribe_to_id: userId
-            }
+            d: { subscribe_to_id: userId }
         }));
     };
-    
+
     ws.onmessage = (event) => {
         const data = JSON.parse(event.data);
-        
-        switch (data.op) {
-            case 1:
-                // Heartbeat
-                heartbeat = setInterval(() => {
-                    ws.send(JSON.stringify({ op: 3 }));
-                }, data.d.heartbeat_interval);
+        if (data.op === 1) {
+            heartbeat = setInterval(() => {
                 ws.send(JSON.stringify({ op: 3 }));
-                break;
-            case 0:
-                // Event
-                if (data.t === 'INIT_STATE' || data.t === 'PRESENCE_UPDATE') {
-                    updateProfile(data.d[userId]);
-                }
-                break;
+            }, data.d.heartbeat_interval);
+        } else if (data.op === 0 && (data.t === 'INIT_STATE' || data.t === 'PRESENCE_UPDATE')) {
+            updateProfile(section, userId);
         }
     };
-    
+
     ws.onclose = () => {
-        console.log('WebSocket connection closed, reconnecting...');
         clearInterval(heartbeat);
-        setTimeout(connectWebSocket, 1000);
+        setTimeout(() => connectWebSocket(section, userId), 1000);
     };
 }
 
-async function fetchDiscordProfile() {
+async function fetchDiscordProfile(userId) {
     try {
         const response = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
-        if (!response.ok) throw new Error('Profil bilgileri alınamadı');
+        if (!response.ok) throw new Error('API Hatası');
         const data = await response.json();
         return data.data;
     } catch (error) {
-        console.error('Hata:', error);
+        console.error(error);
         return null;
     }
 }
 
-function updateStatusIndicator(status) {
-    const statusIndicator = document.getElementById('status-indicator');
-    
-    statusIndicator.className = 'status-indicator ' + status;
+function updateStatusIndicator(section, status) {
+    const indicator = section.querySelector('.status-indicator');
+    if (indicator) {
+        indicator.className = `status-indicator ${status}`;
+    }
 }
 
+function calculateProgress(start, end) {
+    const now = Date.now();
+    const total = end - start;
+    const current = now - start;
+    return Math.min((current / total) * 100, 100);
+}
 
-let spotifyInterval = null;
+function formatTime(ms) {
+    const seconds = Math.floor((ms / 1000) % 60);
+    const minutes = Math.floor(ms / 1000 / 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+}
 
-function createSpotifyActivity(spotify) {
+function createSpotifyActivity(spotify, section, userId) {
     const activity = document.createElement('div');
     activity.className = 'activity spotify';
-    
-    const albumArt = document.createElement('img');
-    albumArt.className = 'album-art';
-    albumArt.src = spotify.album_art_url;
-    albumArt.alt = 'Album Art';
 
-    const spotifyInfo = document.createElement('div');
-    spotifyInfo.className = 'spotify-info';
-    spotifyInfo.innerHTML = `
-        <div class="song-name">${spotify.song}</div>
-        <div class="artist-name">${spotify.artist}</div>
-        <div class="progress-container">
-            <div class="progress-bar" style="width: 0%">
-                <div class="progress-glow"></div>
+    activity.innerHTML = `
+        <img src="${spotify.album_art_url}" alt="Album Art" class="album-art">
+        <div class="spotify-info">
+            <div class="song-name">${spotify.song}</div>
+            <div class="artist-name">${spotify.artist}</div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 0%">
+                    <div class="progress-glow"></div>
+                </div>
             </div>
-        </div>
-        <div class="time-info">
-            <span class="current-time">0:00</span>
-            <span class="total-time">0:00</span>
+            <div class="time-info">
+                <span class="current-time">0:00</span>
+                <span class="total-time">0:00</span>
+            </div>
         </div>
     `;
 
-    activity.appendChild(albumArt);
-    activity.appendChild(spotifyInfo);
-
-    const progressBar = spotifyInfo.querySelector('.progress-bar');
-    const currentTimeSpan = spotifyInfo.querySelector('.current-time');
-    const totalTimeSpan = spotifyInfo.querySelector('.total-time');
+    const progressBar = activity.querySelector('.progress-bar');
+    const currentTimeSpan = activity.querySelector('.current-time');
+    const totalTimeSpan = activity.querySelector('.total-time');
 
     const updateSpotifyProgress = () => {
-        const progressPercent = calculateProgress(spotify.timestamps.start, spotify.timestamps.end);
+        const progress = calculateProgress(spotify.timestamps.start, spotify.timestamps.end);
         const currentTime = Date.now() - spotify.timestamps.start;
         const totalTime = spotify.timestamps.end - spotify.timestamps.start;
-        
-        progressBar.style.width = `${progressPercent}%`;
+
+        progressBar.style.width = `${progress}%`;
         currentTimeSpan.textContent = formatTime(currentTime);
         totalTimeSpan.textContent = formatTime(totalTime);
 
-      
-        if (progressPercent >= 100) {
-            clearInterval(spotifyInterval);
-            spotifyInterval = null;
+        if (progress >= 100) {
+            clearInterval(spotifyIntervals[userId]);
+            spotifyIntervals[userId] = null;
         }
     };
 
-
+    if (spotifyIntervals[userId]) clearInterval(spotifyIntervals[userId]);
     updateSpotifyProgress();
+    spotifyIntervals[userId] = setInterval(updateSpotifyProgress, 1000);
 
-
-    if (spotifyInterval) {
-        clearInterval(spotifyInterval);
-    }
-
-
-    spotifyInterval = setInterval(updateSpotifyProgress, 1000);
-    
     return activity;
 }
 
 function createGameActivity(activity) {
-    const gameIcon = activity.assets?.large_image 
+    const gameIcon = activity.assets?.large_image
         ? `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png`
         : 'default-game-icon.png';
-    
+
     return `
         <div class="activity game">
             <img src="${gameIcon}" alt="Game Icon" class="game-icon">
@@ -158,132 +132,59 @@ function createGameActivity(activity) {
     `;
 }
 
-function calculateProgress(start, end) {
-    const now = Date.now();
-    const total = end - start;
-    const current = now - start;
-    return Math.min((current / total) * 100, 100);
-}
-
-function formatTime(ms) {
-    const seconds = Math.floor((ms / 1000) % 60);
-    const minutes = Math.floor((ms / 1000 / 60));
-    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-}
-
-async function updateProfile() {
-    const data = await fetchDiscordProfile();
+async function updateProfile(section, userId) {
+    const data = await fetchDiscordProfile(userId);
     if (!data) return;
 
-   
-    const avatarUrl = `https://cdn.discordapp.com/avatars/${userId}/${data.discord_user.avatar}`;
-    const avatar = document.getElementById('profile-avatar');
-    if (avatar) {
-        avatar.src = avatarUrl;
-    }
+    const avatarUrl = `https://cdn.discordapp.com/avatars/${userId}/${data.discord_user.avatar}.png`;
+    const avatar = section.querySelector('.avatar-image');
+    if (avatar) avatar.src = avatarUrl;
 
+    const username = section.querySelector('.username');
+    if (username) username.textContent = data.discord_user.username;
 
-    const favicon = document.getElementById('favicon');
-    if (favicon) {
-        favicon.href = avatarUrl;
-    }
+    updateStatusIndicator(section, data.discord_status);
 
-    
-    const username = document.getElementById('username');
-    if (username) {
-        username.textContent = data.discord_user.username;
-    }
-
-
-    updateStatusIndicator(data.discord_status);
-
-
-    const activitiesContainer = document.getElementById('activities');
+    const activitiesContainer = section.querySelector('.activities');
     if (activitiesContainer) {
         activitiesContainer.innerHTML = '';
 
-   
-        if (!data.spotify && spotifyInterval) {
-             clearInterval(spotifyInterval);
-             spotifyInterval = null;
+        if (!data.spotify && spotifyIntervals[userId]) {
+            clearInterval(spotifyIntervals[userId]);
+            spotifyIntervals[userId] = null;
         }
-
 
         if (data.spotify) {
-            activitiesContainer.appendChild(createSpotifyActivity(data.spotify));
+            activitiesContainer.appendChild(createSpotifyActivity(data.spotify, section, userId));
         }
 
+        const gameActivities = (data.activities || []).filter(
+            a => a.type === 0 && a.application_id !== 'spotify:1'
+        );
+        gameActivities.forEach(activity => {
+            activitiesContainer.insertAdjacentHTML('beforeend', createGameActivity(activity));
+        });
 
-        if (data.activities && data.activities.length > 0) {
-            const gameActivities = data.activities.filter(activity => activity.type === 0 && activity.application_id !== 'spotify:1'); 
-            gameActivities.forEach(activity => {
-                const gameActivityElement = createGameActivity(activity);
-          
-                if (typeof gameActivityElement === 'string') {
-                    activitiesContainer.insertAdjacentHTML('beforeend', gameActivityElement);
-                } else if (gameActivityElement instanceof HTMLElement) {
-                    activitiesContainer.appendChild(gameActivityElement);
-                }
-            });
-        }
-
-        const activities = data.activities || [];
-        const nonSpotifyActivities = activities.filter(a => a.application_id !== 'spotify:1' && a.type === 0);
-        const hasNoActivity = !data.spotify && nonSpotifyActivities.length === 0;
-        if (hasNoActivity) {
+        if (!data.spotify && gameActivities.length === 0) {
             activitiesContainer.innerHTML = `
                 <div class="activity no-activity">
                     <span>Şu anda bir aktivite yok.</span>
                 </div>
             `;
-        
-            if (spotifyInterval) {
-                clearInterval(spotifyInterval);
-                spotifyInterval = null;
-            }
         }
     }
 }
 
-
-
-const languageIcons = {
-    javascript: 'fab fa-js-square',
-    python: 'fab fa-python',
-    html: 'fab fa-html5',
-    css: 'fab fa-css3-alt',
-    java: 'fab fa-java',
-    csharp: 'fas fa-code', 
-    php: 'fab fa-php',
-    ruby: 'fas fa-gem',
-    go: 'fab fa-golang',
-    typescript: 'fas fa-code', 
-    swift: 'fab fa-swift',
-    kotlin: 'fab fa-kotlin',
-    cplusplus: 'fas fa-code', 
-    c: 'fas fa-code', 
-    shell: 'fas fa-terminal',
-    dockerfile: 'fab fa-docker',
-    vue: 'fab fa-vuejs',
-    react: 'fab fa-react',
-    angular: 'fab fa-angular',
-    dart: 'fas fa-code', 
-    flutter: 'fas fa-mobile-alt' 
-};
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    connectWebSocket();
-    updateProfile(); 
-    displayGitHubProjects('wasetrox'); 
+    document.querySelectorAll('.profile-section').forEach(section => {
+        const userId = section.getAttribute('data-user');
+        connectWebSocket(section, userId);
+        updateProfile(section, userId);
+    });
 
-
-    updateProfile();
-
-
+    // Animasyonlar
     const animatedElements = document.querySelectorAll('.section-header, .about-content, .contact-container, .pricing-card');
-    
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.animate(ANIMATION_CONFIG.fadeIn, {
@@ -294,59 +195,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         observer.observe(el);
     });
 
-
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // Smooth scroll
+    // Scroll animasyonu
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                target.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
 
+    // Sesli hover
+    const hoverSound = new Audio('hover.mp3'); // Hover efekti sesi
+    const soundToggle = document.getElementById('sound-toggle');
     if (soundToggle) {
         soundToggle.addEventListener('click', () => {
-            isSoundEnabled = !isSoundEnabled;
-            soundToggle.innerHTML = `<i class="fas fa-volume-${isSoundEnabled ? 'up' : 'mute'}"></i>`;
+            soundEnabled = !soundEnabled;
+            soundToggle.innerHTML = `<i class="fas fa-volume-${soundEnabled ? 'up' : 'mute'}"></i>`;
         });
     }
 
-    document.querySelectorAll('a, button').forEach(element => {
-        element.addEventListener('mouseenter', () => {
-            if (isSoundEnabled) {
+    document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            if (soundEnabled) {
                 hoverSound.currentTime = 0;
-                hoverSound.play().catch(error => {
-                    console.error('Ses çalma hatası:', error);
-                });
+                hoverSound.play().catch(() => {});
             }
         });
     });
-
-
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleContactForm);
-    }
 });
