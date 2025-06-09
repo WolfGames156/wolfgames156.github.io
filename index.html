@@ -9,112 +9,18 @@
   <meta name="google-adsense-account" content="ca-pub-5159798367356950">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5159798367356950"
      crossorigin="anonymous"></script>
+
   <title>Zoream Yardım</title>
+  <link rel="stylesheet" href="styles.css">
 
   
-  <style>
-
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  ul {
-    list-style-type: none;
-
-    margin: 0;
-
-    padding: 0;
-
-    overflow: hidden;
-}
-li {
-    float: left;
-}
-
-.aktif {
-    background-color: #666666;
-}
-li a {
-    display: block;
-
-    padding:12px 16px;
-
-    background-color: #27ae60;
-
-    color:white;
-
-    text-decoration:none; 
-}
-li a:hover{
-    background-color:#23834c; 
-}
-
-  li {
-    float: left;
-}
-
-li a {
-    display: block;
-
-    padding:12px 14px;
-
-    background-color: #2e2e2e;
-}
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #f5f5f5;
-  
-      margin: 40px auto;
-      padding: 20px;
-      line-height: 1.6;
-      position: relative;
-    }
-    h1 {
-      color: #4caf50;
-      text-align: center;
-    }
-    
-    a.button {
-      display: inline-block;
-      background-color: #4caf50;
-      color: white;
-      padding: 10px 20px;
-      margin: 20px 0;
-      text-decoration: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    code {
-      background-color: #333;
-      padding: 2px 6px;
-      border-radius: 4px;
-      color: #ff9800;
-    }
-    .download-info {
-      position: absolute;
-      top: 15px;
-      right: 25px;
-      font-weight: bold;
-      color: yellow;
-      animation: glow 1s infinite alternate;
-      font-size: 24px;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 5px #ff0; }
-      to   { text-shadow: 0 0 20px #ffd700; }
-    }
-  </style>
 
   
 
 <ul>
   <li><a href="index.html">Ana sayfa</a></li>
   <li><a href="nasil-kullanilir.html">Nasıl Kullanılır</a></li>
-  <li><a href="zoream.html">Zoream</a></li>
+  <li><a href="Zoream.html">Zoream</a></li>
   <li><a href="emegi-gecenler.html">Emeği Geçenler</a></li>
   <li><a href="discord.html">Discord</a></li>
 </ul>
@@ -135,8 +41,8 @@ li a {
   <h2>Satın Almadan, Beklemeden, Doğrudan Oyna</h2>
   <p>Zoream ile artık oyunları edinmek için ücret ödemenize gerek yok. İstediğiniz oyunu indirin, Zoream’i çalıştırın ve sınırsız erişimin tadını çıkarın. Beklemeye son, özgür oyun keyfine merhaba!</p>
 
-  <h3>🔓 Korumaları Kaldır – Tüm İçeriğe Ulaş</h3>
-  <p>Zoream, oyunların dijital koruma sistemlerini (DRM) etkili biçimde aşarak tam sürüme erişim sağlar. Kampanya modları, ekstra içerikler, DLC’ler – hepsi tek bir uygulamayla açığa çıkar.</p>
+  <h3>🔓Engelleri Kaldır, Özgürce Oyna</h3>
+  <p>Zoream, Steam’in lisans kontrolünü atlayarak “Lisans Yok” uyarılarını devre dışı bırakır. Oyuna tam erişim artık sadece birkaç tık uzağında.</p>
 
   <h3>⚡ Otomatik ve Hızlı – Karmaşık Kurulumlara Elveda</h3>
   <p>Manuel dosya kopyalama ya da patch işlemleriyle vakit kaybetmeyin. Zoream, otomatik sistemle çalışır. Uygulamayı aç, oyunu seç ve işlemi başlat. Kısa sürede oynamaya hazır ol.</p>
@@ -149,77 +55,48 @@ li a {
 
   <h2>🚀 Zoream’i Şimdi İndir – Oyunlara Gerçek Erişim Sağla</h2>
   <p>Oyunları bekleme, satın alma ya da demo ile yetinme devri bitti. Zoream’i indir, kur ve oyun dünyasının gerçek gücünü eline al. Tek engelin artık zaman olacak!</p>
+<div class="page-bottom-spacer"></div>
 
 </body>
 </html>
 
- 
-  <!-- Firebase ve sayaç scripti -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-    import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
+ <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+  import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
 
-    // Firebase yapılandırması
-    const firebaseConfig = {
-      apiKey: "AIzaSyAiggO2LJd3JL8asBQen0x82Gc-M5paqiU",
-      authDomain: "zoreamsayac.firebaseapp.com",
-      databaseURL: "https://zoreamsayac-default-rtdb.firebaseio.com",
-      projectId: "zoreamsayac",
-      storageBucket: "zoreamsayac.firebasestorage.app",
-      messagingSenderId: "678855378469",
-      appId: "1:678855378469:web:480411af25972e4ca721cc",
-      measurementId: "G-7G975SP4YG"
-    };
+  const firebaseConfig = {
+    apiKey: "AIzaSyAiggO2LJd3JL8asBQen0x82Gc-M5paqiU",
+    authDomain: "zoreamsayac.firebaseapp.com",
+    databaseURL: "https://zoreamsayac-default-rtdb.firebaseio.com",
+    projectId: "zoreamsayac",
+    storageBucket: "zoreamsayac.firebasestorage.app",
+    messagingSenderId: "678855378469",
+    appId: "1:678855378469:web:480411af25972e4ca721cc",
+    measurementId: "G-7G975SP4YG"
+  };
 
-    // Firebase başlatma
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const counterRef = ref(db, 'downloadCount');
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const counterRef = ref(db, 'downloadCount');
 
-    const downloadInfo = document.querySelector('.download-info');
-    const downloadButton = document.querySelector('a.button');
+  const downloadInfo = document.querySelector('.download-info');
 
-    // Sayacı yükle ve ekranda göster
-    async function loadCounter() {
-      try {
-        const snapshot = await get(counterRef);
-        if (snapshot.exists()) {
-          downloadInfo.textContent = `Toplam İndirme Sayısı: ${snapshot.val()}`;
-        } else {
-          downloadInfo.textContent = `Toplam İndirme Sayısı: 0`;
-          await set(counterRef, 0);
-        }
-      } catch (error) {
-        console.error('Sayaç yüklenirken hata:', error);
-        downloadInfo.textContent = 'Sayaç bilgisi alınamadı.';
+  async function loadCounter() {
+    try {
+      const snapshot = await get(counterRef);
+      if (snapshot.exists()) {
+        downloadInfo.textContent = `Toplam İndirme Sayısı: ${snapshot.val()}`;
+      } else {
+        downloadInfo.textContent = `Toplam İndirme Sayısı: 0`;
       }
+    } catch (error) {
+      console.error('Sayaç yüklenirken hata:', error);
+      downloadInfo.textContent = 'Sayaç bilgisi alınamadı.';
     }
+  }
 
-    // Sayacı 1 artır
-    async function increaseCounter() {
-      try {
-        const snapshot = await get(counterRef);
-        let currentCount = 0;
-        if (snapshot.exists()) {
-          currentCount = snapshot.val();
-        }
-        const newCount = currentCount + 1;
-        await set(counterRef, newCount);
-        downloadInfo.textContent = `Toplam İndirme Sayısı: ${newCount}`;
-      } catch (error) {
-        console.error('Sayaç artırılırken hata:', error);
-      }
-    }
-
-    // Sayacı yükle
-    loadCounter();
-
-    // Butona tıklanınca sayacı artır ve normal linke git
-    downloadButton.addEventListener('click', (e) => {
-      increaseCounter();
-      // İstersen buraya e.preventDefault() koyabilirsin ama o zaman indirme olmaz
-      // Biz sadece sayaç artmasını istiyoruz, indirme aksamasın diye engellemiyoruz
-    });
+  loadCounter();
+</script>
 
 
   

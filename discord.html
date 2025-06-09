@@ -3,58 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Nasıl Kullanılır - Zoream</title>
-  <style>
-    h1 {
-      background-color: #111;
-      color: #4caf50;
-      font-family: sans-serif;
-      padding: 20px;
-    }
-    body {
-      background-color: #111;
-      color: #ffffff;
-      font-family: sans-serif;
-      padding: 10px 20px;
-      margin: 10px 20px; 
-      text-align: center;
-      border-radius: 8px;
-    }
-    a {
-      color: cyan;
-    }
-    .download-info {
-      position: absolute;
-      top: 15px;
-      right: 25px;
-      font-weight: bold;
-      color: yellow;
-      animation: glow 1s infinite alternate;
-      font-size: 24px;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 5px #ff0; }
-      to   { text-shadow: 0 0 20px #ffd700; }
-    }
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    li {
-      float: left;
-    }
-    li a {
-      display: block;
-      padding: 12px 14px;
-      background-color: #2e2e2e;
-      color: rgb(255, 255, 255);
-      text-decoration: none;
-    }
-    li a:hover {
-      background-color: #23834c;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+ 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WolfGames</title>
   <link rel="stylesheet" href="style.css">
@@ -70,7 +20,7 @@
   <li><a href="emegi-gecenler.html">Emeği Geçenler</a></li>
   <li><a href="discord.html">Discord</a></li>
 </ul>
-
+<a href="https://discord.gg/xFxbBKvyjH" class="pricing-button">Sunucumuza Katıl</a>
 <div class="background-overlay"></div>
 
 <div class="background-lights">
@@ -89,7 +39,8 @@
           </div>
           <div class="status-indicator" id="status-indicator"></div>
         </div>
-        <h1 class="username">HunterWolfツ</h1>
+        <h1 class="username" id="username">username - Kurucu</h1>
+
       </div>
       <div class="profile-right">
         <div class="activities" id="activities"></div>
@@ -98,7 +49,7 @@
   </div>
 </section>
 
-<a href="https://discord.gg/xFxbBKvyjH" class="pricing-button">Sunucumuza Katıl</a>
+
 
 <footer>
   &copy; 2025 WolfGames. Tüm hakları saklıdır.
@@ -145,6 +96,7 @@
 
   loadCounter();
 </script>
+<div class="page-bottom-spacer"></div>
 
 </body>
 </html>

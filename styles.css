@@ -1,0 +1,277 @@
+/* Genel body ayarları */
+body {
+  background: #121212;
+  color: #cfcfcf;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding-bottom: 800px; 
+  padding: 20px;
+  line-height: 1.6;
+  text-align: center;
+  transition: background-color 0.5s ease;
+}
+
+.page-bottom-spacer {
+  height: 300px;
+}
+/* Menü liste stil */
+ul {
+  list-style: none;
+  margin: 0 0 30px 0;
+  padding: 0;
+  display: flex;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow:
+    0 0 6px rgba(0, 255, 255, 0.15),
+    inset 0 0 4px rgba(0, 255, 255, 0.1);
+}
+
+/* Menü öğeleri */
+ul li {
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* Menü linkleri */
+ul li a {
+  display: block;
+  padding: 15px 20px;
+  color: #66d9e8;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  user-select: none;
+  text-shadow: none;
+}
+
+/* Menü link hover efekti */
+ul li a:hover, ul li a:focus {
+  color: #a0eaff;
+  background-color: #222;
+  outline: none;
+  text-shadow: 0 0 4px #a0eaff;
+}
+
+/* Aktif menü öğesi için */
+ul li a.active {
+  color: #00bcd4;
+  background-color: #223344;
+  box-shadow: inset 0 0 8px #00bcd4;
+  text-shadow: none;
+}
+
+/* Başlık stilleri */
+h1.title, h1, h2, h3 {
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #00bcd4;
+  animation: fadeInUp 1s ease forwards;
+  text-shadow: none;
+}
+
+/* Paragraflar */
+p, li, .instructions p {
+  font-size: 1.15rem;
+  color: #cfcfcf;
+  margin: 0 auto 20px;
+  max-width: 700px;
+  text-align: center;
+  text-shadow: none;
+}
+
+/* Liste içi */
+ol, ul ul {
+  margin-left: 20px;
+}
+
+/* Buton stili */
+.download-btn {
+  display: inline-block;
+  padding: 16px 36px;
+  background: linear-gradient(45deg, #00bcd4, #33cde0);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow:
+    0 4px 10px rgba(0, 188, 212, 0.4);
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  user-select: none;
+  cursor: pointer;
+  margin: 25px 0;
+  text-align: center;
+}
+
+/* Buton hover */
+.download-btn:hover {
+  background: linear-gradient(45deg, #33cde0, #00bcd4);
+  box-shadow:
+    0 6px 20px rgba(0, 188, 212, 0.6);
+  transform: translateY(-3px);
+}
+
+/* Buton aktif tıklama efekti */
+.download-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(0, 150, 180, 0.5);
+}
+
+/* İndirme bilgi kutusu */
+.download-info {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #121212;
+  border-radius: 20px;
+  padding: 18px 32px;
+  max-width: 360px;
+  color: #00bcd4;
+  font-weight: 900;
+  font-size: 1.1rem;
+  box-shadow:
+    0 0 10px #00bcd477,
+    inset 0 0 8px #00bcd499;
+  text-align: center;
+  user-select: none;
+  animation: pulseGlow 3s ease-in-out infinite alternate;
+  transition: transform 0.3s ease;
+  z-index: 9999;
+  letter-spacing: 1px;
+  text-shadow: none;
+}
+
+.download-info:hover {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow:
+    0 0 18px #00bcd4cc,
+    inset 0 0 12px #00bcd4dd;
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse efekt download-info için */
+@keyframes pulseGlow {
+  0% {
+    box-shadow:
+      0 0 10px #00bcd477,
+      inset 0 0 8px #00bcd499;
+  }
+  100% {
+    box-shadow:
+      0 0 18px #00bcd4cc,
+      inset 0 0 12px #00bcd4dd;
+  }
+}
+
+/* Linklere hafif renk geçişi */
+a {
+  color: #00bcd4;
+  transition: color 0.3s ease;
+  text-shadow: none;
+}
+
+a:hover, a:focus {
+  color: #33cde0;
+  outline: none;
+}
+
+/* Responsive: Menü küçük ekranda */
+@media (max-width: 600px) {
+  ul {
+    flex-direction: column;
+  }
+
+  ul li {
+    float: none;
+    text-align: center;
+    border-bottom: 1px solid #222;
+  }
+
+  ul li a {
+    padding: 14px 20px;
+  }
+}
+
+
+.instructions {
+  background-color: #181818;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+  max-width: 950px;
+  margin: auto;
+}
+
+.instructions p {
+  font-size: 30px;
+
+}
+
+
+.instructions ol, 
+.instructions ul {
+  margin: 10px 0 10px 25px;
+  padding: 0;
+  font-size: 20;
+}
+
+.instructions li {
+  margin-bottom: 6px;
+  font-size: 20;
+}
+.instructions ul li {
+  padding: 5px 0;
+  font-size: 20;
+  line-height: 1.5;
+}
+
+.instructions ul li a {
+  color: #66d9ef;
+  text-decoration: underline;
+}
+
+.instructions ul li a:hover {
+  color: #00d4ff;
+}
+
+.credits-section {
+  text-align: center; /* Metni ortala */
+  max-width: 600px;   /* Genişlik sınırı (isteğe bağlı) */
+  margin: 0 auto;    /* Sayfa ortasına hizala */
+  padding: 40px 30px;
+  background-color: #1a1a1a;  
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 170, 255, 0.15);
+  animation: fadeInUp 1.2s ease both;
+
+}
+
+.credits-section h1,
+.credits-section p {
+  margin: 10px 0;
+}
+
+.credit-name {
+  color: #ffcc70;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-shadow: 0 0 5px rgba(255, 204, 112, 0.5);
+  /* Bu satırları kaldırabilirsin veya inline-block yapabilirsin */
+  display: inline;
+}
