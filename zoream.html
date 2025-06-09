@@ -3,80 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Nasıl Kullanılır - Zoream</title>
-  <style>
-     .download-btn {
-      display: inline-block;
-      padding: 20px 100px;
-      background-color: #4caf50;
-      color: white;
-      font-size: 20px;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  padding: 12px 14px; 
-  background-color: #2e2e2e;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #23834c;
-}
-    .download-btn:hover {
-      background-color: #4caf50;
-    }
-    h1 {
-      background-color: #111;
-      color: #4caf50;
-      font-family: sans-serif;
-      padding: 20px;
-
-    }
+  <link rel="stylesheet" href="styles.css">
   
-    
-    body {
-      background-color: #111;
-      color: #ffffff;
-      font-family: sans-serif;
-      padding: 10px 20px;
-      margin: 40px;
-      text-align: center;
-      border-radius: 8px;
-    }
-    a {
-      color: cyan;
-    }
-    .download-info {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  font-weight: bold;
-  color: yellow;
-  animation: glow 1s infinite alternate;
-  font-size: 24px;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 5px #ff0; }
-  to   { text-shadow: 0 0 20px #ffd700; }
-}
-  </style>
 </head>
 <body>
 <ul>
@@ -101,18 +29,20 @@ li a:hover {
 
   
 </style>
-   <h1>Zoream'in en yeni sürümünü <strong>İndir!!</strong></h1>
- <a href=" https://ouo.io/BBDkJ7" download class="download-btn"><Strong>Zoream 5.8 İndir</Strong></a>
+   <h1>Zoream'in en yeni sürümünü <strong>İndir!</strong></h1>
+ <a id="downloadBtn" href="#" class="download-btn"><strong>Zoream 5.8 İndir</strong></a>
+
 
   
 <div class="download-info">Toplam İndirme Sayısı: Yükleniyor...</div>
+<div class="page-bottom-spacer"></div>
 
 </body>
 </html>
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-  import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
+  import { getDatabase, ref, get, set, runTransaction } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyAiggO2LJd3JL8asBQen0x82Gc-M5paqiU",
@@ -128,7 +58,6 @@ li a:hover {
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
   const counterRef = ref(db, 'downloadCount');
-
   const downloadInfo = document.querySelector('.download-info');
 
   async function loadCounter() {
@@ -145,8 +74,26 @@ li a:hover {
     }
   }
 
+  async function incrementCounterAndDownload() {
+    try {
+      await runTransaction(counterRef, (currentValue) => {
+        return (currentValue || 0) + 1;
+      });
+    
+      window.open("https://ouo.io/BBDkJ7", "_blank");
+    } catch (error) {
+      console.error('İndirme sayısı arttırılamadı:', error);
+    }
+  }
+
+  document.getElementById("downloadBtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    incrementCounterAndDownload();
+  });
+
   loadCounter();
 </script>
+
 
 
 
