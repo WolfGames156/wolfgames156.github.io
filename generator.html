@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Zoream - Steam Lua Manifest Generator">
+  <meta name="google-site-verification" content="I1H_kIvK-3I1-augFmoCa0yUlcreNMznf-rwy285hwY" />
+  <meta name="description" content="Steam Ücretli Oyunları Ücretsiz Alma - Zoream" />
+  <meta name="google-site-verification" content="kzDKx2Q4MkkW4tV7glO5qnvJdpgOnbpb8lhUmei7pDE" />
+  <meta name="google-adsense-account" content="ca-pub-5159798367356950" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5159798367356950"
+     crossorigin="anonymous"></script>
+  <title>Lua Manifest Generator - Zoream</title>
+  <link rel="stylesheet" href="styles.css" />
+
+
+</head>
+<body>
+
+    
+  <ul>
+    <li><a href="index.html">Ana sayfa</a></li>
+    <li><a href="nasil-kullanilir.html">Nasıl Kullanılır</a></li>
+    <li><a href="generator.html">Manifest</a></li>    
+    <li><a href="zoream.html">Zoream</a></li>
+    <li><a href="emegi-gecenler.html">Emeği Geçenler</a></li>
+    <li><a href="discord.html">Discord</a></li>
+  </ul>
+
+  <div class="download-info">Toplam İndirme Sayısı: Yükleniyor...</div>
+  <h1>Zoream Lua Manifest Generator</h1>
+  
+  <div class="input-group">
+    <h2>Oyunun App ID'sini Girin</h2>
+
+    <div id="succesfulMsg"></div>     
+    <div id="warningMsg"></div> 
+
+    <input type="text" id="appInput" placeholder="App ID ya da oyun adı" />
+    <button id="generateBtn">Generate</button>
+  </div>
+ <p class="genwar"><strong>Not: Eğer Dosya İndirme Başlamaz Ve Karşınıza Yazılar Çıkarsa  O Oyun Siteye Eklenmemiş Demektir Discord Sunucumuzdan Oyunun Eklenmesini İsteyebilirsiniz</strong></p>
+ 
+<br>
+<br>
+<br>
+
+  <p class="instructions" style="font-size: 25px;"><br><br>Nasıl Kullanılır? ilk olarak oynayacağınız oyunu <a target="_blank" href=" https://steamdb.info/">bu siteden</a> aratıp App ID'sini kopyalayın ve Generate Butonunun üstündeki kısıma yapıştırın. Sonra Generate Butonuna Basın. Zoream'i  <a href="zoream.html">buradan</a>  indirin Zoream Manuel kısmından dosya sürükle kısmına dosyayı sürükleyin oyun kütüphanenize eklenicektir. <br>  <strong>Bu Yöntemi Zoream Automatic Çalışmazsa Kullanın. <br> <br> İyi Oyunlar! </strong> </p>
+<div class="page-bottom-spacer"></div>
+
+
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
+
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyAiggO2LJd3JL8asBQen0x82Gc-M5paqiU",
+      authDomain: "zoreamsayac.firebaseapp.com",
+      databaseURL: "https://zoreamsayac-default-rtdb.firebaseio.com",
+      projectId: "zoreamsayac",
+      storageBucket: "zoreamsayac.firebasestorage.app",
+      messagingSenderId: "678855378469",
+      appId: "1:678855378469:web:480411af25972e4ca721cc",
+      measurementId: "G-7G975SP4YG"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const counterRef = ref(db, 'downloadCount');
+
+    const downloadInfo = document.querySelector('.download-info');
+
+    async function loadCounter() {
+      try {
+        const snapshot = await get(counterRef);
+        if (snapshot.exists()) {
+          downloadInfo.textContent = `Toplam İndirme Sayısı: ${snapshot.val()}`;
+        } else {
+          downloadInfo.textContent = `Toplam İndirme Sayısı: 0`;
+        }
+      } catch (error) {
+        console.error('Sayaç yüklenirken hata:', error);
+        downloadInfo.textContent = 'Sayaç bilgisi alınamadı.';
+      }
+    }
+
+    loadCounter();
+
+      const succesfulMsg = document.getElementById('succesfulMsg');
+      succesfulMsg.textContent = 'Generator Hazır';
+
+    document.getElementById('generateBtn').onclick = async () => {
+      const warningMsg = document.getElementById('warningMsg');
+
+      warningMsg.textContent = '';
+
+      const input = document.getElementById('appInput').value.trim();
+
+       const url = `https://steamdatabase.s3.eu-north-1.amazonaws.com/${input}.zip`;
+
+
+      if (!input) {
+        warningMsg.textContent = 'Lütfen bir App ID girin.'
+        return;
+      }
+
+      if (/^\d+$/.test(input)) {
+      
+        window.open(`https://steamdatabase.s3.eu-north-1.amazonaws.com/${input}.zip`, '_blank');
+        succesfulMsg.textContent = `App ID: ${input} İndirildi Zoream Manuele Sürükle Bırak Yaparak Oyunu Steame Ekleyebilirsin`;   
+      } 
+        
+      else {      
+          warningMsg.textContent = `APP ID'nin Doğruluğundan eminseniz Bu Oyun Henüz Yok Discorddan İletişime Geçin`;    
+      }
+    };
+  </script>
+
+</body>
+</html>

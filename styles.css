@@ -275,3 +275,131 @@ a:hover, a:focus {
   /* Bu satırları kaldırabilirsin veya inline-block yapabilirsin */
   display: inline;
 }
+
+.input-group {
+  background-color: #1e1e1e;
+  padding: 60px 80px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.8);
+  width: 500px;    
+  max-width: 90vw;
+  text-align: center;
+  margin: 60px auto; /* sayfada tam ortalamak için margin üst-alt verildi */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* içeriği ortalar */
+  gap: 20px; /* elemanlar arasında boşluk */
+}
+
+/* Başlık */
+.input-group h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 2.5rem;  
+  color: #bb86fc;
+}
+
+/* Uyarı mesajı */
+#warningMsg {
+  color: #ff5555;
+  font-weight: 600;
+  font-size: 1.3rem;
+  min-height: 24px;
+  text-align: center;
+  width: 100%;
+  margin-top: -10px; /* Başlık ile biraz daha yakın */
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+#succesfulMsg {
+  color: #00ce0e;
+  font-weight: 600;
+  font-size: 1.3rem;
+  min-height: 24px;
+  text-align: center;
+  width: 100%;
+  margin-top: -10px; /* Başlık ile biraz daha yakın */
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+/* Input kutusu */
+#appInput {
+  width: 100%;
+  max-width: 450px;   
+  padding: 20px 25px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.6rem;  
+  outline: none;
+  background-color: #121212;
+  color: #eee;
+  box-shadow: inset 0 0 10px rgba(187, 134, 252, 0.9);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#appInput:focus {
+  box-shadow: 0 0 18px #bb86fc;
+  background-color: #1a1a1a;
+}
+
+/* Buton */
+#generateBtn {
+  width: 100%;
+  max-width: 450px; 
+  padding: 20px 0;   
+  background-color: #6200ea;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.8rem;  
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.4s ease;
+  box-shadow: 0 0 12px #6200ea;
+  position: relative;
+  overflow: hidden;
+}
+
+#generateBtn:hover {
+  background-color: #3700b3;
+  box-shadow: 0 0 24px #bb86fc, 0 0 12px #3700b3 inset;
+}
+
+#generateBtn:active {
+  background-color: #240070;
+  animation: glowPulse 0.6s ease forwards;
+  box-shadow: 0 0 40px #bb86fc, 0 0 50px #bb86fc inset;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 40px #bb86fc, 0 0 50px #bb86fc inset;
+  }
+  50% {
+    box-shadow: 0 0 70px #bb86fc, 0 0 90px #bb86fc inset;
+  }
+  100% {
+    box-shadow: 0 0 40px #bb86fc, 0 0 50px #bb86fc inset;
+  }
+}
+
+
+
+.genwar {
+  background-color: #181818;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 0 12px rgba(103, 72, 72, 0.3);
+  max-width: 950px;
+  margin: auto;
+  color: #ff0000;  
+  font-size: 35px;
+}
+
+.genwar p {
+  font-size: 30px;
+  color: #ff0000;
+
+}
