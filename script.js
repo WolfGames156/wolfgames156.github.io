@@ -8,6 +8,90 @@ const ANIMATION_CONFIG = {
 let soundEnabled = false;
 let spotifyIntervals = {};
 
+  function toggleMenu() {
+  const menu = document.querySelector('.nav-menu');
+  const toggle = document.querySelector('.menu-toggle');
+  const overlay = document.querySelector('.overlay');
+
+  const isOpen = menu.classList.contains('show');
+
+  if (isOpen) {
+    // Kapat
+    menu.classList.remove('show');
+    menu.style.maxHeight = null; // Stil sıfırla
+    toggle.classList.remove('expanded');
+    overlay.classList.remove('active');
+  } else {
+    // Aç
+    menu.classList.add('show');
+    menu.style.maxHeight = menu.scrollHeight + "px";
+    toggle.classList.add('expanded');
+    overlay.classList.add('active');
+  }
+}
+
+
+
+
+
+  // Menüyü tıklayınca kapat (mobilde)
+document.addEventListener('DOMContentLoaded', () => {
+  const menu = document.querySelector('.nav-menu');
+  const toggle = document.querySelector('.menu-toggle');
+  const overlay = document.querySelector('.overlay');
+
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      if (window.innerWidth <= 1250) {
+        e.preventDefault();
+
+        const href = this.href;
+
+        // Menü kapatılırken animasyon
+    menu.classList.remove('show');
+    menu.style.maxHeight = null; // Stil sıfırla
+    toggle.classList.remove('expanded');
+    overlay.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+
+        // Transition tamamlanınca yönlendirme yapılacak
+        const onTransitionEnd = (event) => {
+          if (event.propertyName === 'max-height') {
+            window.location.href = href;
+            menu.removeEventListener('transitionend', onTransitionEnd);
+          }
+        };
+
+        menu.addEventListener('transitionend', onTransitionEnd);
+      }
+    });
+  });
+});
+
+ function resetMenuOnResize() {
+  const menu = document.querySelector('.nav-menu');
+  const toggle = document.querySelector('.menu-toggle');
+  const overlay = document.querySelector('.overlay');
+
+  if (window.innerWidth <= 1250) {
+    // Mobilde menü KAPALI olmalı
+    menu.classList.remove('show');
+    menu.style.maxHeight = '0px';
+    toggle.classList.remove('expanded');
+    overlay.classList.remove('active');
+  } else {
+    // PC'de menü AÇIK
+    menu.classList.add('show');
+    menu.style.maxHeight = 'none';
+    toggle.classList.remove('expanded');
+    overlay.classList.remove('active');
+  }
+}
+
+
+    window.addEventListener("DOMContentLoaded", resetMenuOnResize);
+  // Pencere yeniden boyutlanınca tekrar kontrol et
+  window.addEventListener("resize", resetMenuOnResize);
 function connectWebSocket(section, userId) {
     const ws = new WebSocket('wss://api.lanyard.rest/socket');
     let heartbeat;
@@ -115,10 +199,35 @@ function createSpotifyActivity(spotify, section, userId) {
     return activity;
 }
 
+
+
+function getGameIconUrl(activity) {
+    if (!activity.assets) {
+        return 'default-game-icon.png';
+    }
+
+    if (activity.assets.icon) {
+        // App-icons dizini kullanılır
+        return `https://cdn.discordapp.com/app-icons/${activity.application_id}/${activity.assets.icon}.png?size=160&keep_aspect_ratio=false`;
+    }
+
+    if (activity.assets.large_image) {
+        // large_image bazen mp: gibi prefix içerebilir, temizleyelim
+        let imageKey = activity.assets.large_image;
+        if (imageKey.startsWith('mp:')) {
+            imageKey = imageKey.substring(3);
+        }
+        return `https://cdn.discordapp.com/app-assets/${activity.application_id}/${imageKey}.png`;
+    }
+
+    // İkon yoksa varsayılan görsel
+    return 'default-game-icon.png';
+}
+
+
+
 function createGameActivity(activity) {
-    const gameIcon = activity.assets?.large_image
-        ? `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png`
-        : 'default-game-icon.png';
+    const gameIcon = getGameIconUrl(activity);
 
     return `
         <div class="activity game">
@@ -131,6 +240,9 @@ function createGameActivity(activity) {
         </div>
     `;
 }
+
+
+
 
 async function updateProfile(section, userId) {
     const data = await fetchDiscordProfile(userId);

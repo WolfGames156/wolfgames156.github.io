@@ -14,6 +14,19 @@ body {
 .page-bottom-spacer {
   height: 300px;
 }
+
+
+.menu-bottom-spacer {
+  display: none; /* PC’de gizli */
+  height: 100px; /* yüksekliği burada */
+}
+
+/* Mobilde göster */
+@media (max-width: 768px) {
+  .menu-bottom-spacer {
+    display: block;
+  }
+}
 /* Menü liste stil */
 ul {
   list-style: none;
@@ -63,6 +76,172 @@ ul li a.active {
   background-color: #223344;
   box-shadow: inset 0 0 8px #00bcd4;
   text-shadow: none;
+}
+
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #00bcd4;
+  color: white;
+  font-weight: bold;
+  padding: 10px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10001;
+  box-shadow: 0 0 8px #00bcd4aa;
+  transition: width 0.4s ease, background-color 0.3s ease;
+  overflow: hidden;
+  white-space: nowrap;
+  width: auto;
+  max-width: 100%;
+}
+
+.menu-toggle.expanded {
+  width: 280px; /* Menüyle aynı genişlikte olacak */
+  background-color: #0097a7;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Aktif olduğunda görünür */
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.nav-menu {
+  list-style: none;
+  margin: 0 0 30px 0;
+  padding: 0;
+  display: flex;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow:
+    0 0 6px rgba(0, 255, 255, 0.15),
+    inset 0 0 4px rgba(0, 255, 255, 0.1);
+}
+
+/* Menü öğeleri - PC */
+.nav-menu li {
+  width: auto;
+}
+
+.nav-menu li a {
+  padding: 15px 20px;
+  color: #66d9e8;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  user-select: none;
+  white-space: nowrap;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-menu li a:hover, .nav-menu li a:focus {
+  color: #a0eaff;
+  background-color: #222;
+}
+
+/* Menü butonu - PC gizle */
+.menu-toggle {
+  display: none;
+}
+
+/* Mobil düzenlemeleri */
+@media (max-width: 1250px) {
+  /* Menü butonunu göster */
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #00bcd4;
+    color: white;
+    font-weight: bold;
+    padding: 10px 16px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10001;
+    box-shadow: 0 0 8px #00bcd4aa;
+    transition: width 0.4s ease, background-color 0.3s ease;
+    overflow: hidden;
+    white-space: nowrap;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .menu-toggle.expanded {
+    width: 280px; /* Menü ile aynı genişlik */
+    background-color: #0097a7;
+  }
+
+  /* Menü gizli ve açılır */
+  .nav-menu {
+    display: flex;
+    flex-direction: column ;
+    position: fixed ;
+    top: 65px ;
+    left: 20px ;
+    background-color: #1a1a1a ;
+    border-radius: 12px ;
+    width: 280px ;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.2) ;
+    padding: 0 ;
+    overflow: hidden ;
+    max-height: 0 ;
+    opacity: 0 ;
+    pointer-events: none ;
+    transition: max-height 0.4s ease, opacity 0.3s ease ;
+    z-index: 10000 ;
+  }
+
+  /* Menü açıkken */
+  .nav-menu.show {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    max-height: 500px !important; /* Yeterince yüksek yap */
+  }
+
+  /* Menü öğeleri */
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-menu li a {
+    padding: 14px 20px;
+    color: #66d9e8;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+  }
+
+  .nav-menu li a:hover {
+    background-color: #222;
+  }
 }
 
 /* Başlık stilleri */
@@ -144,6 +323,15 @@ ol, ul ul {
   z-index: 9999;
   letter-spacing: 1px;
   text-shadow: none;
+}
+
+@media (max-width: 800px) {
+  .download-info {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    max-width: 90%;
+    border-radius: 15px;
+  }
 }
 
 .download-info:hover {
