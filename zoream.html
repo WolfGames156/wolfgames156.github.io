@@ -96,11 +96,12 @@
 
   async function incrementCounterAndDownload() {
     try {
+      window.open("https://ouo.io/0bepiX", "_blank");
       await runTransaction(counterRef, (currentValue) => {
         return (currentValue || 0) + 1;
       });
     
-      window.open("https://ouo.io/0bepiX", "_blank");
+    
     } catch (error) {
       console.error('İndirme sayısı arttırılamadı:', error);
     }
