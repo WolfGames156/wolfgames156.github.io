@@ -57,6 +57,14 @@
 <div class="download-info">Toplam İndirme Sayısı: Yükleniyor...</div>
 <div class="page-bottom-spacer"></div>
 
+<div style="font-size:23px; text-align:center; padding:10px; color:#666;">
+  <a href="https://sites.google.com/view/zoreamtermsofservice/ana-sayfa" target="_blank">TOS</a> |
+  <a href="https://sites.google.com/view/zoreamsss/ana-sayfa" target="_blank">SSS</a> |
+  <a href="https://sites.google.com/view/zoreamnedir/ana-sayfa" target="_blank">Zoream Nedir</a> |
+  <a href="https://sites.google.com/view/zoreamprivacypolicy/ana-sayfa" target="_blank">Privacy Policy</a>
+</div>
+
+
 </body>
 </html>
 
@@ -96,12 +104,11 @@
 
   async function incrementCounterAndDownload() {
     try {
-      window.open("https://ouo.io/0bepiX", "_blank");
       await runTransaction(counterRef, (currentValue) => {
         return (currentValue || 0) + 1;
       });
     
-    
+      window.open("https://ouo.io/0bepiX", "_blank");
     } catch (error) {
       console.error('İndirme sayısı arttırılamadı:', error);
     }

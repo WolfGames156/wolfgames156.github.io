@@ -440,7 +440,7 @@ a:hover, a:focus {
 
 .credits-section {
   text-align: center; /* Metni ortala */
-  max-width: 600px;   /* Genişlik sınırı (isteğe bağlı) */
+  max-width: 700px;   /* Genişlik sınırı (isteğe bağlı) */
   margin: 0 auto;    /* Sayfa ortasına hizala */
   padding: 40px 30px;
   background-color: #1a1a1a;  
