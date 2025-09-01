@@ -120,7 +120,7 @@
 
       const input = document.getElementById('appInput').value.trim();
 
-       const url = `https://steamdatabase.s3.eu-north-1.amazonaws.com/${input}.zip`;
+       const url = `https://codeload.github.com/SteamAutoCracks/ManifestHub/zip/refs/heads/${input}`;
 
 
       if (!input) {
@@ -130,7 +130,7 @@
 
       if (/^\d+$/.test(input)) {
       
-        window.open(`https://steamdatabase.s3.eu-north-1.amazonaws.com/${input}.zip`, '_blank');
+        window.open(`https://codeload.github.com/SteamAutoCracks/ManifestHub/zip/refs/heads/${input}`, '_blank');
         succesfulMsg.textContent = `App ID: ${input} İndirildi Zoream Manuele Sürükle Bırak Yaparak Oyunu Steame Ekleyebilirsin`;   
       } 
         
@@ -142,3 +142,4 @@
 
 </body>
 </html>
+
