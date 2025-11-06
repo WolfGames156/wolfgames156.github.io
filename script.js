@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             // Zoream_Setup.exe dosyasını indir
             const link = document.createElement('a');
-            link.href = 'Zoream_Setup.exe';
+            link.href = 'https://github.com/WolfGames156/zoreamrelease/releases/download/release/Zoream_Setup.exe';
             link.download = 'Zoream_Setup.exe';
             document.body.appendChild(link);
             link.click();
