@@ -1,173 +1,67 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Discord - Zoream</title>
-  <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="Zoream - Discord">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="Zoream, manifest generator, indir, zoream indir, manifest oluşturucu">
-  <meta name="robots" content="index, follow">
-  <title>WolfGames</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="icon" id="favicon" href="">
-  
-</head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord - Zoream</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-
-
-<div class="overlay" onclick="toggleMenu()"></div>
-
-<!-- Menü butonu -->
-<div class="menu-toggle" onclick="toggleMenu()">☰ Menü</div>
-
-<div class="menu-bottom-spacer"></div>
-
-<!-- Menü -->
-<ul class="nav-menu">
-  <li><a href="index.html">Ana sayfa</a></li>
-  <li><a href="nasil-kullanilir.html">Nasıl Kullanılır</a></li>
-  <li><a href="generator.html">Manifest Generator</a></li>    
-  <li><a href="zoream.html">Zoream İndir</a></li>
-  <li><a href="emegi-gecenler.html">Emeği Geçenler</a></li>
-  <li><a href="discord.html">Discord</a></li>
-</ul>
-
-
-
-
-
-<a href="https://discord.gg/xFxbBKvyjH" class="pricing-button">Sunucumuza Katıl</a>
-<div class="background-overlay"></div>
-
-<div class="background-lights">
-  <div class="light blue"></div>
-  <div class="light red"></div>
-  <div class="light purple"></div>
-</div>
-
-
-
-
-<section class="profile-section" data-user="1239262498239287427">
-  <div class="profile-container">
-    <div class="profile-card">
-      <div class="profile-left">
-        <div class="avatar-frame">
-          <div class="avatar-inner">
-            <img src="" alt="Profile Avatar" class="avatar-image">
-          </div>
-          <div class="status-indicator"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Zoream</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="nasil-kullanilir.html">Nasıl Kullanılır</a></li>
+                <li><a href="indir.html">İndir</a></li>
+                <li><a href="emegi-gecenler.html">Emeği Geçenler</a></li>
+                <li><a href="discord.html" class="active">Discord</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <h1 class="username">Loading ...</h1>
-      </div>
-      <div class="profile-right">
-        <div class="activities"></div>
-      </div>
-    </div>
-  </div>
-</section>
+    </nav>
 
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Discord Topluluğu</h1>
+                <p class="page-subtitle">Zoream Discord sunucusuna katılın ve toplulukla iletişime geçin</p>
+            </div>
+        </section>
 
-<section class="profile-section" data-user="1148706768919208046">
-  <div class="profile-container">
-    <div class="profile-card">
-      <div class="profile-left">
-        <div class="avatar-frame">
-          <div class="avatar-inner">
-            <img src="" alt="Profile Avatar" class="avatar-image">
-          </div>
-          <div class="status-indicator"></div>
+        <section class="discord-section">
+            <div class="container">
+                <div class="discord-card">
+                    <div class="discord-icon"><i class="fab fa-discord"></i></div>
+                    <h2>Discord Sunucumuza Katılın</h2>
+                    <p>Destek almak, güncellemeleri takip etmek ve toplulukla iletişime geçmek için Discord sunucumuza katılın.</p>
+                    <a href="https://discord.gg/tNB5du6bPC" class="discord-btn" id="discordInviteBtn">
+                        <span>Discord'a Katıl</span>
+                    </a>
+                </div>
+
+                <div class="team-members">
+                    <h2>Ekip Üyeleri</h2>
+                    <div class="members-grid" id="membersGrid">
+                        <!-- Discord üyeleri buraya JavaScript ile eklenecek -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Zoream. Tüm hakları saklıdır.</p>
         </div>
-        <h1 class="username">Loading ...</h1>
-      </div>
-      <div class="profile-right">
-        <div class="activities"></div>
-      </div>
-    </div>
-  </div>
-</section>
+    </footer>
 
-
-<section class="profile-section" data-user="1375894690553008181">
-  <div class="profile-container">
-    <div class="profile-card">
-      <div class="profile-left">
-        <div class="avatar-frame">
-          <div class="avatar-inner">
-            <img src="" alt="Profile Avatar" class="avatar-image">
-          </div>
-          <div class="status-indicator"></div>
-        </div>
-        <h1 class="username">Loading ...</h1>
-      </div>
-      <div class="profile-right">
-        <div class="activities"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-<footer>
-  &copy; 2025 WolfGames. Tüm hakları saklıdır.
-</footer>
-
-
-
-<script src="script.js"></script>
-
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-  import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyAiggO2LJd3JL8asBQen0x82Gc-M5paqiU",
-    authDomain: "zoreamsayac.firebaseapp.com",
-    databaseURL: "https://zoreamsayac-default-rtdb.firebaseio.com",
-    projectId: "zoreamsayac",
-    storageBucket: "zoreamsayac.firebasestorage.app",
-    messagingSenderId: "678855378469",
-    appId: "1:678855378469:web:480411af25972e4ca721cc",
-    measurementId: "G-7G975SP4YG"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-  const counterRef = ref(db, 'downloadCount');
-
-  const downloadInfo = document.querySelector('.download-info');
-
-  async function loadCounter() {
-    try {
-      const snapshot = await get(counterRef);
-      if (snapshot.exists()) {
-        downloadInfo.textContent = `Toplam İndirme Sayısı: ${snapshot.val()}`;
-      } else {
-        downloadInfo.textContent = `Toplam İndirme Sayısı: 0`;
-      }
-    } catch (error) {
-      console.error('Sayaç yüklenirken hata:', error);
-      downloadInfo.textContent = 'Sayaç bilgisi alınamadı.';
-    }
-  }
-
-  loadCounter();
-</script>
-<div style="font-size:23px; text-align:center; padding:10px; color:#666;">
-  <a href="https://sites.google.com/view/zoreamtermsofservice/ana-sayfa" target="_blank">TOS</a> |
-  <a href="https://sites.google.com/view/zoreamsss/ana-sayfa" target="_blank">SSS</a> |
-  <a href="https://sites.google.com/view/zoreamnedir/ana-sayfa" target="_blank">Zoream Nedir</a> |
-  <a href="https://sites.google.com/view/zoreamprivacypolicy/ana-sayfa" target="_blank">Privacy Policy</a>
-</div>
-
-<div class="page-bottom-spacer"></div>
-
+    <script src="script.js"></script>
 </body>
 </html>
+
