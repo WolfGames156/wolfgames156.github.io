@@ -51,10 +51,11 @@ async function loadDiscordMembers() {
     if (!membersGrid) return;
 
     const discordIds = [
-        { id: '312062402273345537', role: 'Web Developer' },
         { id: '1239262498239287427', role: 'Owner, Developer' },
         { id: '1148706768919208046', role: 'Üst Yetkili' },
-        { id: '1375894690553008181', role: 'Üst Yetkili' }
+        { id: '1375894690553008181', role: 'Üst Yetkili' },
+        { id: '312062402273345537', role: 'Web Developer' }
+
     ];
 
     membersGrid.innerHTML = '<div class="loading">Yükleniyor...</div>';
@@ -119,9 +120,19 @@ async function loadDiscordMembers() {
             
             // Müzik dinliyorsa müzik resmini al
             const musicActivity = otherActivities.find(a => a.type === 2);
-            const musicImage = musicActivity?.assets?.large_image 
-                ? `https://cdn.discordapp.com/app-assets/${musicActivity.application_id}/${musicActivity.assets.large_image}.png`
-                : null;
+            let musicImage = null;
+if (musicActivity?.assets?.large_image) {
+    const largeImg = musicActivity.assets.large_image;
+    if (largeImg.startsWith('spotify:')) {
+        // Spotify ID'sini al (örnek: "spotify:ab123456" → "ab123456")
+        const spotifyId = largeImg.replace('spotify:', '');
+        musicImage = `https://i.scdn.co/image/${spotifyId}`;
+    } else {
+        // Normal oyun veya uygulama resmi
+        musicImage = `https://cdn.discordapp.com/app-assets/${musicActivity.application_id}/${largeImg}.png`;
+    }
+}
+
             
             return `
             <a href="https://discord.com/users/${member.id}" target="_blank" rel="noopener noreferrer" class="member-card-link">
