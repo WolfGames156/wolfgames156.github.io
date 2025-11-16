@@ -204,6 +204,48 @@ if (musicActivity?.assets?.large_image) {
     }
 }
 
+
+// === Global Favicon + SEO META ===
+document.addEventListener("DOMContentLoaded", () => {
+    const LOGO_URL = "https://wolfgames156.github.io/zoreamlogo.png";
+
+    // Favicon
+    const link = document.createElement("link");
+    link.rel = "icon";
+    link.type = "image/png";
+    link.href = LOGO_URL;
+    document.head.appendChild(link);
+
+    // Apple Touch Icon
+    const apple = document.createElement("link");
+    apple.rel = "apple-touch-icon";
+    apple.href = LOGO_URL;
+    document.head.appendChild(apple);
+
+    // --- SEO META ---
+    const metaList = [
+
+        { property: "og:image", content: LOGO_URL },
+        { property: "og:type", content: "website" },
+
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: "Zoream" },
+        { name: "twitter:description", content: "Zoream – Steam oyun yöneticisi" },
+        { name: "twitter:image", content: LOGO_URL },
+    ];
+
+    metaList.forEach(metaData => {
+        const m = document.createElement("meta");
+
+        if (metaData.property) m.setAttribute("property", metaData.property);
+        if (metaData.name) m.setAttribute("name", metaData.name);
+
+        m.setAttribute("content", metaData.content);
+        document.head.appendChild(m);
+    });
+});
+
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
