@@ -207,41 +207,50 @@ if (musicActivity?.assets?.large_image) {
 
 // === Global Favicon + SEO META ===
 document.addEventListener("DOMContentLoaded", () => {
-    const LOGO_URL = "https://wolfgames156.github.io/zoreamlogo.png";
+    // Try to read a page-provided logo meta; fallback to Pages-hosted logo.
+    const pageLogoMeta = document.querySelector('meta[name="zoream:logo"]');
+    const LOGO_URL = (pageLogoMeta && pageLogoMeta.content) ? pageLogoMeta.content : "https://zoream.pages.dev/zoreamlogo.png";
 
-    // Favicon
-    const link = document.createElement("link");
-    link.rel = "icon";
-    link.type = "image/png";
-    link.href = LOGO_URL;
-    document.head.appendChild(link);
+    // Generate multiple favicon/link variants (browsers & devices)
+    const iconSizes = ["16x16","32x32","48x48","96x96","180x180","192x192","512x512"];
+    iconSizes.forEach(size => {
+        const l = document.createElement('link');
+        l.rel = size === '180x180' ? 'apple-touch-icon' : 'icon';
+        l.sizes = size;
+        l.href = LOGO_URL;
+        l.type = 'image/png';
+        document.head.appendChild(l);
+    });
 
-    // Apple Touch Icon
-    const apple = document.createElement("link");
-    apple.rel = "apple-touch-icon";
-    apple.href = LOGO_URL;
-    document.head.appendChild(apple);
+    // Add a standard shortcut icon and manifest-friendly links
+    const shortcut = document.createElement('link');
+    shortcut.rel = 'shortcut icon';
+    shortcut.href = LOGO_URL;
+    document.head.appendChild(shortcut);
 
-    // --- SEO META ---
-    const metaList = [
-
-        { property: "og:image", content: LOGO_URL },
-        { property: "og:type", content: "website" },
-
-        { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:title", content: "Zoream" },
-        { name: "twitter:description", content: "Zoream – Steam oyun yöneticisi" },
-        { name: "twitter:image", content: LOGO_URL },
+    // --- SEO / Social META (ensure not duplicating important tags that exist server-side) ---
+    const metaToEnsure = [
+        { property: 'og:image', content: LOGO_URL },
+        { property: 'og:type', content: 'website' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: document.title || 'Zoream' },
+        { name: 'twitter:description', content: (document.querySelector('meta[name="description"]')||{}).content || 'Zoream' },
+        { name: 'twitter:image', content: LOGO_URL }
     ];
 
-    metaList.forEach(metaData => {
-        const m = document.createElement("meta");
-
-        if (metaData.property) m.setAttribute("property", metaData.property);
-        if (metaData.name) m.setAttribute("name", metaData.name);
-
-        m.setAttribute("content", metaData.content);
-        document.head.appendChild(m);
+    metaToEnsure.forEach(metaData => {
+        // If a matching meta already exists, update it; otherwise create it.
+        let selector = metaData.property ? `meta[property="${metaData.property}"]` : `meta[name="${metaData.name}"]`;
+        let existing = document.head.querySelector(selector);
+        if (existing) {
+            existing.setAttribute('content', metaData.content);
+        } else {
+            const m = document.createElement('meta');
+            if (metaData.property) m.setAttribute('property', metaData.property);
+            if (metaData.name) m.setAttribute('name', metaData.name);
+            m.setAttribute('content', metaData.content);
+            document.head.appendChild(m);
+        }
     });
 });
 
