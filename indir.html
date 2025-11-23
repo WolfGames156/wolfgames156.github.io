@@ -146,7 +146,7 @@
     async function incrementCounterAndDownload() {
       try {
         await runTransaction(counterRef, (currentValue) => (currentValue || 0) + 1);
-        window.open("https://ouo.io/0bepiX", "_blank");
+      
         loadCounter(); // sayacı yenile
       } catch (error) {
         console.error('İndirme sayısı arttırılamadı:', error);
