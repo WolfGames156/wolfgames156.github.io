@@ -111,6 +111,10 @@
   <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
   import { getDatabase, ref, get, runTransaction } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
+  import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+
+  const auth = getAuth();
+  signInAnonymously(auth);
 
   const firebaseConfig = {
     apiKey: "AIzaSyAiggO2LJd3JL8asBQen0x82Gc-M5paqiU",
@@ -123,7 +127,8 @@
     measurementId: "G-7G975SP4YG"
   };
 
-  const app = initializeApp(firebaseConfig);
+  
+    const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
   const counterRef = ref(db, 'downloadCount');
 
