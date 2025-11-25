@@ -52,9 +52,8 @@ async function loadDiscordMembers() {
 
     const discordIds = [
         { id: '1239262498239287427', role: 'Owner, Developer' },
-        { id: '1148706768919208046', role: 'Üst Yetkili' },
-        { id: '1375894690553008181', role: 'Üst Yetkili' },
-        { id: '312062402273345537', role: 'Developer, Designer' }
+        { id: '1148706768919208046', role: 'Co Owner },
+        { id: '1375894690553008181', role: 'Co Owner' }
 
     ];
 
