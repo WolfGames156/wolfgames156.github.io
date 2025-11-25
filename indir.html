@@ -109,96 +109,58 @@
 
   <!-- 🔥 Firebase Sayaç Scripti -->
 <!-- 🔥 Firebase Sayaç Scripti -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
-import { getDatabase, ref, get, runTransaction } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
-import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+<!-- 🔥 Firebase Sayaç Scripti -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+    import { getDatabase, ref, get, runTransaction } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAiggO2LJd3JL8asBQen0x82Gc-M5paqiU",
-  authDomain: "zoreamsayac.firebaseapp.com",
-  databaseURL: "https://zoreamsayac-default-rtdb.firebaseio.com",
-  projectId: "zoreamsayac",
-  storageBucket: "zoreamsayac.firebasestorage.app",
-  messagingSenderId: "678855378469",
-  appId: "1:678855378469:web:480411af25972e4ca721cc",
-  measurementId: "G-7G975SP4YG"
-};
+    const firebaseConfig = {
+      apiKey: "AIzaSyAiggO2LJd3JL8asBQen0x82Gc-M5paqiU",
+      authDomain: "zoreamsayac.firebaseapp.com",
+      databaseURL: "https://zoreamsayac-default-rtdb.firebaseio.com",
+      projectId: "zoreamsayac",
+      storageBucket: "zoreamsayac.firebasestorage.app",
+      messagingSenderId: "678855378469",
+      appId: "1:678855378469:web:480411af25972e4ca721cc",
+      measurementId: "G-7G975SP4YG"
+    };
 
-// Firebase başlat
-const app = initializeApp(firebaseConfig);
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const counterRef = ref(db, 'downloadCount');
 
-// Auth başlat
-const auth = getAuth();
+    const countText = document.getElementById('downloadCount');
+    const downloadBtn = document.getElementById('downloadBtn');
 
-// 🌐 Domain doğrulama (yalnızca senin siten sayaç arttırabilir)
-const allowedOrigins = [
-  "https://zoream.pages.dev",
-  "https://www.zoream.pages.dev"
-];
+    // 📥 İndirme Sayısını Göster
+    async function loadCounter() {
+      try {
+        const snapshot = await get(counterRef);
+        const value = snapshot.exists() ? snapshot.val() : 0;
+        countText.textContent = value.toLocaleString('tr-TR');
+      } catch (error) {
+        console.error('Sayaç yüklenemedi:', error);
+        countText.textContent = '—';
+      }
+    }
 
-if (!allowedOrigins.includes(window.location.origin)) {
-  console.warn("Bu domain sayaç arttıramaz:", window.location.origin);
-  // Sayaç görünür ama arttırılamaz
-}
+    // 🚀 Sayaç Arttır + Yönlendir
+    async function incrementCounterAndDownload() {
+      try {
+        await runTransaction(counterRef, (currentValue) => (currentValue || 0) + 1);
+      
+        loadCounter(); // sayacı yenile
+      } catch (error) {
+        console.error('İndirme sayısı arttırılamadı:', error);
+      }
+    }
 
-// Anonim giriş yap
-signInAnonymously(auth).catch(err => console.error("Anonim giriş başarısız:", err));
-
-// DB bağlantısı
-const db = getDatabase(app);
-const counterRef = ref(db, 'downloadCount');
-
-const countText = document.getElementById('downloadCount');
-const downloadBtn = document.getElementById('downloadBtn');
-
-// 📥 Sayaç yükle
-async function loadCounter() {
-  try {
-    const snapshot = await get(counterRef);
-    const value = snapshot.exists() ? Number(snapshot.val()) || 0 : 0;
-    countText.textContent = value.toLocaleString('tr-TR');
-  } catch (error) {
-    console.error('Sayaç yüklenemedi:', error);
-    countText.textContent = '—';
-  }
-}
-
-// 🚀 Güvenli sayaç arttır
-async function incrementCounterAndDownload() {
-  try {
-    await runTransaction(counterRef, (currentValue) => {
-      const safeValue = Number(currentValue) || 0;
-      return safeValue + 1;
+    downloadBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      incrementCounterAndDownload();
     });
 
-    loadCounter(); // anında güncelle
-  } catch (error) {
-    console.error('İndirme sayısı arttırılamadı:', error);
-  }
-}
-
-// 🛡 Tek tıklama koruması
-let clicked = false;
-
-downloadBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  // Domain check
-  if (!allowedOrigins.includes(window.location.origin)) {
-    alert("Bu domain indirme sayacı arttıramaz.");
-    return;
-  }
-
-  if (clicked) return; 
-  clicked = true;
-
-  incrementCounterAndDownload();
-
-  setTimeout(() => { clicked = false; }, 2000);
-});
-
-loadCounter();
-</script>
+    loadCounter();
+  </script>
 </body>
 </html>
