@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
- 
-        <meta name="description" content="Zoream — Kurulum ve kullanım rehberi. Adım adım kurulum ve sık karşılaşılan sorunların çözümleri.">
+
+    <meta name="description"
+        content="Zoream — Kurulum ve kullanım rehberi. Adım adım kurulum ve sık karşılaşılan sorunların çözümleri.">
     <meta name="keywords" content="Zoream, nasıl kullanılır, kurulum, rehber">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://zoream.pages.dev/nasil-kullanilir.html">
     <meta name="zoream:logo" content="https://zoream.pages.dev/zoreamlogo.png">
     <link rel="icon" href="https://zoream.pages.dev/zoreamlogo.png" type="image/png">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Nasıl Kullanılır - Zoream</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasıl Kullanılır - Zoream</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Zoream</div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">Ana Sayfa</a></li>
-                <li><a href="nasil-kullanilir.html">Nasıl Kullanılır</a></li>
-                <li><a href="indir.html">İndir</a></li>
-                <li><a href="emegi-gecenler.html">Emeği Geçenler</a></li>
-                <li><a href="discord.html">Discord</a></li>
+                <li><a href="index.html" data-i18n="nav_home">Ana Sayfa</a></li>
+                <li><a href="nasil-kullanilir.html" class="active" data-i18n="nav_how_to_use">Nasıl Kullanılır</a></li>
+                <li><a href="indir.html" data-i18n="nav_download">İndir</a></li>
+                <li><a href="emegi-gecenler.html" data-i18n="nav_contributors">Emeği Geçenler</a></li>
+                <li><a href="discord.html" data-i18n="nav_discord">Discord</a></li>
             </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="tr">TR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -36,7 +43,7 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1>Nasıl Kullanılır?</h1>
+                <h1 data-i18n="how_to_use_title">Nasıl Kullanılır?</h1>
             </div>
         </section>
 
@@ -45,50 +52,58 @@
                 <div class="guide-step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h3>Zoream'i Açın</h3>
-                        <p>Öncelikle Zoream'in yeni sürümünü açıyorsunuz.</p>
+                        <h3 data-i18n="how_to_step1_title">Zoream'i Açın</h3>
+                        <p data-i18n="how_to_step1_desc">Öncelikle Zoream'in yeni sürümünü açıyorsunuz.</p>
                     </div>
                 </div>
 
                 <div class="guide-step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3>Oturum Aç</h3>
-                        <p>Topluluk ve bazı yardım özellikleri için Discord hesabı ile oturum açma seçeneği sunulmaktadır. Temel kullanım için oturum açma gerekmeyebilir.</p>
+                        <h3 data-i18n="how_to_step2_title">Oturum Aç</h3>
+                        <p data-i18n="how_to_step2_desc">Topluluk ve bazı yardım özellikleri için Discord hesabı ile
+                            oturum açma seçeneği
+                            sunulmaktadır. Temel kullanım için oturum açma gerekmeyebilir.</p>
                     </div>
                 </div>
 
                 <div class="guide-step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>Dili ayarlayın</h3>
-                        <p>Sol alttaki buton ile dilinizi ayarlayın.</p>
+                        <h3 data-i18n="how_to_step3_title">Dili ayarlayın</h3>
+                        <p data-i18n="how_to_step3_desc">Sol alttaki buton ile dilinizi ayarlayın.</p>
                     </div>
                 </div>
 
                 <div class="guide-step">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <h3>Oyununuzu Bulun</h3>
-                        <p>Uygulama içindeki arama ve yönetim araçlarıyla oyunlarınızı bulun ve kütüphanenizde düzenleyin.</p>
+                        <h3 data-i18n="how_to_step4_title">Oyununuzu Bulun</h3>
+                        <p data-i18n="how_to_step4_desc">Uygulama içindeki arama ve yönetim araçlarıyla oyunlarınızı
+                            bulun ve kütüphanenizde
+                            düzenleyin.</p>
                     </div>
                 </div>
 
                 <div class="guide-step">
                     <div class="step-number">5</div>
                     <div class="step-content">
-                        <h3>Oyunu Ekleyin ve Yönetin</h3>
-                        <p>Oyunlarınızı Zoream kütüphanesine ekleyin; güncelleme ve başlatma işlemlerini tek yerden yönetin.</p>
+                        <h3 data-i18n="how_to_step5_title">Oyunu Ekleyin ve Yönetin</h3>
+                        <p data-i18n="how_to_step5_desc">Oyunlarınızı Zoream kütüphanesine ekleyin; güncelleme ve
+                            başlatma işlemlerini tek yerden
+                            yönetin.</p>
                     </div>
                 </div>
                 <div class="guide-step">
                     <div class="step-number">6</div>
                     <div class="step-content">
-                        <h3>Tebrikler</h3>
-                        <p>Oyun Bütün DLC'leri ile birlikte eklendi. Zoream kütüphane kısmından veya steam üzerinden indirip oynayabilirsiniz.</p>
-                    </div>
+                        <h3 data-i18n="how_to_step6_title">Tebrikler</h3>
+                        <p data-i18n="how_to_step6_desc">Oyun Bütün DLC'leri ile birlikte eklendi. Zoream kütüphane
+                            kısmından veya steam üzerinden
+                            indirip oynayabilirsiniz.</p>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
 
@@ -96,9 +111,14 @@
         <section class="warning-section">
             <div class="container">
                 <div class="warning-box">
-                    <h3><i class="fas fa-exclamation-triangle"></i> Önemli Notlar</h3>
-                    <p>Bazı oyunlar sitelerde olmayabilir ve çoğu multiplayer oyunlar çalışmaz. Yine de destek almak isterseniz Discord sunucumuza gelerek yazabilirsiniz. Mümkünse sizin için bulup göndermeye çalışırız.</p>
-                    <p class="good-luck">İyi Oyunlar! <i class="fas fa-gamepad"></i></p>
+                    <h3><i class="fas fa-exclamation-triangle"></i> <span data-i18n="how_to_warning_title">Önemli
+                            Notlar</span></h3>
+                    <p data-i18n="how_to_warning_desc">Bazı oyunlar sitelerde olmayabilir ve çoğu multiplayer oyunlar
+                        çalışmaz. Yine de destek almak
+                        isterseniz Discord sunucumuza gelerek yazabilirsiniz. Mümkünse sizin için bulup göndermeye
+                        çalışırız.</p>
+                    <p class="good-luck"><span data-i18n="how_to_good_luck">İyi Oyunlar!</span> <i
+                            class="fas fa-gamepad"></i></p>
                 </div>
             </div>
         </section>
@@ -106,11 +126,12 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Zoream. Tüm hakları saklıdır.</p>
+            <p>&copy; 2026 Zoream. <span data-i18n="footer_rights">Tüm hakları saklıdır.</span></p>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>

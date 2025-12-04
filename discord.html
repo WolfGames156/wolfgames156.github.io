@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Discord Topluluğu - Zoream</title>
-        <meta name="description" content="Zoream Discord topluluğuna katılın — destek, güncellemeler ve topluluk sohbetleri için resmi sunucu.">
-        <meta name="keywords" content="Zoream, Discord, destek, topluluk">
-        <meta name="robots" content="index, follow">
-        <link rel="canonical" href="https://zoream.pages.dev/discord.html">
-        <meta name="zoream:logo" content="https://zoream.pages.dev/zoreamlogo.png">
-        <link rel="icon" href="https://zoream.pages.dev/zoreamlogo.png" type="image/png">
+    <title>Discord Topluluğu - Zoream</title>
+    <meta name="description"
+        content="Zoream Discord topluluğuna katılın — destek, güncellemeler ve topluluk sohbetleri için resmi sunucu.">
+    <meta name="keywords" content="Zoream, Discord, destek, topluluk">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://zoream.pages.dev/discord.html">
+    <meta name="zoream:logo" content="https://zoream.pages.dev/zoreamlogo.png">
+    <link rel="icon" href="https://zoream.pages.dev/zoreamlogo.png" type="image/png">
 
-        <!-- Open Graph -->
-        <meta property="og:title" content="Discord Topluluğu - Zoream">
-        <meta property="og:description" content="Zoream Discord topluluğuna katılın — destek, güncellemeler ve topluluk sohbetleri için resmi sunucu.">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://zoream.pages.dev/discord.html">
-        <meta property="og:image" content="https://zoream.pages.dev/zoreamlogo.png">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Discord Topluluğu - Zoream">
+    <meta property="og:description"
+        content="Zoream Discord topluluğuna katılın — destek, güncellemeler ve topluluk sohbetleri için resmi sunucu.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zoream.pages.dev/discord.html">
+    <meta property="og:image" content="https://zoream.pages.dev/zoreamlogo.png">
 
-        <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Discord Topluluğu - Zoream">
-        <meta name="twitter:description" content="Zoream Discord topluluğuna katılın — destek, güncellemeler ve topluluk sohbetleri için resmi sunucu.">
-        <meta name="twitter:image" content="https://zoream.pages.dev/zoreamlogo.png">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        <link rel="stylesheet" href="styles.css">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Discord Topluluğu - Zoream">
+    <meta name="twitter:description"
+        content="Zoream Discord topluluğuna katılın — destek, güncellemeler ve topluluk sohbetleri için resmi sunucu.">
+    <meta name="twitter:image" content="https://zoream.pages.dev/zoreamlogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Zoream</div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">Ana Sayfa</a></li>
-                <li><a href="nasil-kullanilir.html">Nasıl Kullanılır</a></li>
-                <li><a href="indir.html">İndir</a></li>
-                <li><a href="emegi-gecenler.html">Emeği Geçenler</a></li>
-                <li><a href="discord.html">Discord</a></li>
+                <li><a href="index.html" data-i18n="nav_home">Ana Sayfa</a></li>
+                <li><a href="nasil-kullanilir.html" data-i18n="nav_how_to_use">Nasıl Kullanılır</a></li>
+                <li><a href="indir.html" data-i18n="nav_download">İndir</a></li>
+                <li><a href="emegi-gecenler.html" data-i18n="nav_contributors">Emeği Geçenler</a></li>
+                <li><a href="discord.html" class="active" data-i18n="nav_discord">Discord</a></li>
             </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="tr">TR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -48,8 +57,10 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1>Discord Topluluğu</h1>
-                <p class="page-subtitle">Resmi Zoream Discord sunucusuna katılın — destek, güncellemeler ve topluluk sohbetleri için.</p>
+                <h1 data-i18n="discord_page_title">Discord Topluluğu</h1>
+                <p class="page-subtitle" data-i18n="discord_page_subtitle">Resmi Zoream Discord sunucusuna katılın —
+                    destek, güncellemeler ve topluluk
+                    sohbetleri için.</p>
             </div>
         </section>
 
@@ -57,15 +68,17 @@
             <div class="container">
                 <div class="discord-card">
                     <div class="discord-icon"><i class="fab fa-discord"></i></div>
-                    <h2>Discord Sunucumuza Katılın</h2>
-                    <p>Destek almak, güncellemeleri takip etmek ve toplulukla iletişime geçmek için Discord sunucumuza katılın.</p>
+                    <h2 data-i18n="discord_join_title">Discord Sunucumuza Katılın</h2>
+                    <p data-i18n="discord_join_desc">Destek almak, güncellemeleri takip etmek ve toplulukla iletişime
+                        geçmek için Discord sunucumuza
+                        katılın.</p>
                     <a href="https://discord.gg/tNB5du6bPC" class="discord-btn" id="discordInviteBtn">
-                        <span>Discord'a Katıl</span>
+                        <span data-i18n="discord_join_button">Discord'a Katıl</span>
                     </a>
                 </div>
 
                 <div class="team-members">
-                    <h2>Ekip Üyeleri</h2>
+                    <h2 data-i18n="discord_team_title">Ekip Üyeleri</h2>
                     <div class="members-grid" id="membersGrid">
                         <!-- Discord üyeleri buraya JavaScript ile eklenecek -->
                     </div>
@@ -76,11 +89,12 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Zoream. Tüm hakları saklıdır.</p>
+            <p>&copy; 2026 Zoream. <span data-i18n="footer_rights">Tüm hakları saklıdır.</span></p>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>

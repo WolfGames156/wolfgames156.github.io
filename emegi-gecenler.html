@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="description" content="Zoream projesine katkıda bulunan ekip ve destekçilere teşekkürler.">
+    <meta name="description" content="Zoream projesine katkıda bulunan ekip ve destekçilere teşekkürler.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Zoream, geliştiriciler, katkıda bulunanlar">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://zoream.pages.dev/emegi-gecenler.html">
     <meta name="zoream:logo" content="https://zoream.pages.dev/zoreamlogo.png">
     <link rel="icon" href="https://zoream.pages.dev/zoreamlogo.png" type="image/png">
-        <title>Emeği Geçenler - Zoream</title>
+    <title>Emeği Geçenler - Zoream</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Zoream</div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">Ana Sayfa</a></li>
-                <li><a href="nasil-kullanilir.html">Nasıl Kullanılır</a></li>
-                <li><a href="indir.html">İndir</a></li>
-                <li><a href="emegi-gecenler.html">Emeği Geçenler</a></li>
-                <li><a href="discord.html">Discord</a></li>
+                <li><a href="index.html" data-i18n="nav_home">Ana Sayfa</a></li>
+                <li><a href="nasil-kullanilir.html" data-i18n="nav_how_to_use">Nasıl Kullanılır</a></li>
+                <li><a href="indir.html" data-i18n="nav_download">İndir</a></li>
+                <li><a href="emegi-gecenler.html" class="active" data-i18n="nav_contributors">Emeği Geçenler</a></li>
+                <li><a href="discord.html" data-i18n="nav_discord">Discord</a></li>
             </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="tr">TR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -35,14 +41,15 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1><i class="fas fa-medal"></i> Emeği Geçenler</h1>
-         
-                <p class="page-subtitle">Zoream projesine katkıda bulunan tüm geliştiricilere teşekkürler</p>
-               <br><br>
-                <p class="support-title">Destek mi Olmak İstiyorsun?</p>
-<a href="https://www.patreon.com/WolfGames156" target="_blank" class="patreon-btn">
-  <i class="fab fa-patreon"></i> Patreondan Destek Ol 💜
-</a>
+                <h1><i class="fas fa-medal"></i> <span data-i18n="contributors_title">Emeği Geçenler</span></h1>
+
+                <p class="page-subtitle" data-i18n="contributors_subtitle">Zoream projesine katkıda bulunan tüm
+                    geliştiricilere teşekkürler</p>
+                <br><br>
+                <p class="support-title" data-i18n="contributors_support_title">Destek mi Olmak İstiyorsun?</p>
+                <a href="https://www.patreon.com/WolfGames156" target="_blank" class="patreon-btn">
+                    <i class="fab fa-patreon"></i> <span data-i18n="contributors_patreon">Patreondan Destek Ol 💜</span>
+                </a>
 
             </div>
         </section>
@@ -53,39 +60,40 @@
                     <div class="contributor-card">
                         <div class="contributor-icon"><i class="fas fa-crown"></i></div>
                         <h3>SYS_0xA7</h3>
-                        <p class="contributor-role">Kurucu, Zoream'in Yapımcısı, Site Geliştiricisi</p>
+                        <p class="contributor-role" data-i18n="contributor_founder">Kurucu, Zoream'in Yapımcısı, Site
+                            Geliştiricisi</p>
                     </div>
 
                     <div class="contributor-card">
                         <div class="contributor-icon"><i class="fas fa-laptop-code"></i></div>
                         <h3>K916EKHO</h3>
-                        <p class="contributor-role">Developer, Üst Yetkili</p>
+                        <p class="contributor-role" data-i18n="contributor_developer">Developer, Üst Yetkili</p>
                     </div>
 
                     <div class="contributor-card">
                         <div class="contributor-icon"><i class="fas fa-tv"></i></div>
                         <h3>Rhaelix</h3>
-                        <p class="contributor-role">Kanal Sahibi, Üst Yetkili</p>
+                        <p class="contributor-role" data-i18n="contributor_channel_owner">Kanal Sahibi, Üst Yetkili</p>
                     </div>
 
-                
+
                     <div class="contributor-card">
                         <div class="contributor-icon"><i class="fas fa-globe"></i></div>
                         <h3>Wasetrox</h3>
-                        <p class="contributor-role">Logo Tasarımcısı</p>
+                        <p class="contributor-role" data-i18n="contributor_logo_designer">Logo Tasarımcısı</p>
                     </div>
 
                     <div class="contributor-card">
                         <div class="contributor-icon"><i class="fas fa-flask"></i></div>
                         <h3>K3.0</h3>
-                        <p class="contributor-role">Test Edici</p>
+                        <p class="contributor-role" data-i18n="contributor_tester">Test Edici</p>
                     </div>
 
                     <div class="contributor-card">
                         <div class="contributor-icon"><i class="fas fa-flask"></i></div>
                         <h3>Rimuru Tempest</h3>
-                        <p class="contributor-role">Test Edici</p>
-                    </div>                    
+                        <p class="contributor-role" data-i18n="contributor_tester">Test Edici</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -93,14 +101,12 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Zoream. Tüm hakları saklıdır.</p>
+            <p>&copy; 2026 Zoream. <span data-i18n="footer_rights">Tüm hakları saklıdır.</span></p>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
-
-
-
-
