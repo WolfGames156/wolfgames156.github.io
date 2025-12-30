@@ -203,20 +203,29 @@
 
     
   document.querySelectorAll(".terminal-copy-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const code = btn.closest(".terminal-box").querySelector(".terminal-code").innerText;
+  btn.addEventListener("click", () => {
+    const code = btn
+      .closest(".terminal-box")
+      .querySelector(".terminal-code")
+      .innerText;
 
-      navigator.clipboard.writeText(code).then(() => {
-        btn.innerHTML = '<i class="fas fa-check"></i>';
-        setTimeout(() => {
-          btn.innerHTML = '<i class="far fa-copy"></i>';
-        }, 1500);
-      }).catch(err => {
-        console.error("Kopyalama başarısız:", err);
-      });
+    navigator.clipboard.writeText(code).then(() => {
+      btn.classList.add("copied");
+
+      const icon = btn.querySelector("i");
+      icon.classList.remove("fa-copy");
+      icon.classList.add("fa-check");
+
+      setTimeout(() => {
+        btn.classList.remove("copied");
+        icon.classList.remove("fa-check");
+        icon.classList.add("fa-copy");
+      }, 1500);
+    }).catch(err => {
+      console.error("Kopyalama başarısız:", err);
     });
   });
-
+});
   </script>
 </body>
 
