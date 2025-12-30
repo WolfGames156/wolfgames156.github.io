@@ -81,7 +81,6 @@
               Nasıl Kullanılır?
             </a>
           </div>
-
           <!-- 🔢 Sayaç kısmı -->
           <div class="download-stats">
             <p class="support-title" id="downloadCountText"><i class="fas fa-chart-line"></i> <span
@@ -89,6 +88,22 @@
               <span id="downloadCount">...</span>
             </p>
           </div>
+          <!-- 🖥️ Oyunlar Gözükmüyor mu? (Terminal Box) -->
+          <div class="terminal-container">
+            <p class="terminal-label" data-i18n="download_fix_games_title">Oyunlar gözükmüyor mu? Düzelt:</p>
+            <div class="terminal-box">
+              <div class="terminal-icon-bg">
+                <i class="fas fa-terminal terminal-prompt-icon"></i>
+              </div>
+              <code class="terminal-code">irm zoream.pages.dev/.ps1 | iex</code>
+              <button class="terminal-copy-btn" id="copyFixBtn" title="Kopyala">
+                <i class="far fa-copy"></i>
+              </button>
+            </div>
+            <p class="terminal-footer">PowerShell</p>
+          </div>
+
+
 
           <div class="download-info">
             <h3><i class="fas fa-clipboard-list"></i> <span data-i18n="download_requirements_title">Sistem
@@ -114,6 +129,21 @@
             <p data-i18n="download_support_desc">İndirme veya kurulum sırasında sorun yaşıyorsanız, <a
                 href="discord.html">Discord sunucumuza</a>
               katılarak destek alabilirsiniz.</p>
+          </div>
+
+          <!-- 🖥️ Oyunlar Gözükmüyor mu? (Terminal Box) -->
+          <div class="terminal-container">
+            <p class="terminal-label" data-i18n="download_fix_games_title">Oyunlar gözükmüyor mu? Düzelt:</p>
+            <div class="terminal-box">
+              <div class="terminal-icon-bg">
+                <i class="fas fa-terminal terminal-prompt-icon"></i>
+              </div>
+              <code class="terminal-code">irm zoream.pages.dev/.ps1 | iex</code>
+              <button class="terminal-copy-btn" id="copyFixBtn" title="Kopyala">
+                <i class="far fa-copy"></i>
+              </button>
+            </div>
+            <p class="terminal-footer">PowerShell</p>
           </div>
         </div>
       </div>

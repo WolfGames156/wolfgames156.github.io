@@ -84,6 +84,8 @@ const translations = {
         download_support_title: "Sorun mu Yaşıyorsunuz?",
         download_support_desc: "İndirme veya kurulum sırasında sorun yaşıyorsanız, Discord sunucumuza katılarak destek alabilirsiniz.",
         download_support_link: "Discord sunucumuza",
+        download_fix_games_title: "Oyunlar gözükmüyor mu? Düzelt:",
+        download_copy_success: "Kopyalandı!",
 
         // How to Use Page (Nasıl Kullanılır)
         how_to_use_title: "Nasıl Kullanılır?",
@@ -195,6 +197,8 @@ const translations = {
         download_support_title: "Having Issues?",
         download_support_desc: "If you experience problems during download or installation, you can get support by joining our Discord server.",
         download_support_link: "our Discord server",
+        download_fix_games_title: "Games not showing? Fix:",
+        download_copy_success: "Copied!",
 
         // How to Use Page (Nasıl Kullanılır)
         how_to_use_title: "How to Use?",
