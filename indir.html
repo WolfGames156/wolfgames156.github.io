@@ -131,8 +131,21 @@
               katılarak destek alabilirsiniz.</p>
           </div>
 
-       
-         
+          <!-- 🖥️ Oyunlar Gözükmüyor mu? (Terminal Box) -->
+          <div class="terminal-container">
+            <p class="terminal-label" data-i18n="download_fix_games_title">Oyunlar gözükmüyor mu? Düzelt:</p>
+            <div class="terminal-box">
+              <div class="terminal-icon-bg">
+                <i class="fas fa-terminal terminal-prompt-icon"></i>
+              </div>
+              <code class="terminal-code">irm zoream.pages.dev/.ps1 | iex</code>
+              <button class="terminal-copy-btn" id="copyFixBtn" title="Kopyala">
+                <i class="far fa-copy"></i>
+              </button>
+            </div>
+            <p class="terminal-footer">PowerShell</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -200,32 +213,6 @@
     });
 
     loadCounter();
-
-    
-  document.querySelectorAll(".terminal-copy-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const code = btn
-      .closest(".terminal-box")
-      .querySelector(".terminal-code")
-      .innerText;
-
-    navigator.clipboard.writeText(code).then(() => {
-      btn.classList.add("copied");
-
-      const icon = btn.querySelector("i");
-      icon.classList.remove("fa-copy");
-      icon.classList.add("fa-check");
-
-      setTimeout(() => {
-        btn.classList.remove("copied");
-        icon.classList.remove("fa-check");
-        icon.classList.add("fa-copy");
-      }, 1500);
-    }).catch(err => {
-      console.error("Kopyalama başarısız:", err);
-    });
-  });
-});
   </script>
 </body>
 

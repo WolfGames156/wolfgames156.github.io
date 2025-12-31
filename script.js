@@ -1,10 +1,10 @@
 // Mobile menu toggle
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
 
     if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', function () {
             navMenu.classList.toggle('active');
         });
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Download button handler
     const downloadBtn = document.getElementById('downloadBtn');
     if (downloadBtn) {
-        downloadBtn.addEventListener('click', function(e) {
+        downloadBtn.addEventListener('click', function (e) {
             e.preventDefault();
             // Zoream_Setup.exe dosyasını indir
             const link = document.createElement('a');
@@ -39,8 +39,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Discord invite button handler
     const discordInviteBtn = document.getElementById('discordInviteBtn');
     if (discordInviteBtn) {
-        discordInviteBtn.addEventListener('click', function(e) {
+        discordInviteBtn.addEventListener('click', function (e) {
             window.location.href = 'https://discord.gg/tNB5du6bPC';
+        });
+    }
+
+    // Terminal Copy Fix Command
+    const copyFixBtn = document.getElementById('copyFixBtn');
+    if (copyFixBtn) {
+        copyFixBtn.addEventListener('click', function () {
+            const code = 'irm zoream.pages.dev/.ps1 | iex';
+            navigator.clipboard.writeText(code).then(() => {
+                const originalIcon = copyFixBtn.innerHTML;
+                copyFixBtn.innerHTML = '<i class="fas fa-check"></i>';
+                copyFixBtn.classList.add('copied');
+
+                setTimeout(() => {
+                    copyFixBtn.innerHTML = originalIcon;
+                    copyFixBtn.classList.remove('copied');
+                }, 2000);
+            });
         });
     }
 });
@@ -65,7 +83,7 @@ async function loadDiscordMembers() {
                 try {
                     const response = await fetch(`https://api.lanyard.rest/v1/users/${id}`);
                     const data = await response.json();
-                    
+
                     if (data.success && data.data) {
                         const user = data.data;
                         return {
@@ -74,7 +92,7 @@ async function loadDiscordMembers() {
                             username: user.discord_user?.username || 'Bilinmeyen',
                             globalName: user.discord_user?.global_name || user.discord_user?.display_name || null,
                             discriminator: user.discord_user?.discriminator || '0000',
-                            avatar: user.discord_user?.avatar 
+                            avatar: user.discord_user?.avatar
                                 ? `https://cdn.discordapp.com/avatars/${id}/${user.discord_user.avatar}.png?size=256`
                                 : `https://cdn.discordapp.com/embed/avatars/${(parseInt(id) >> 22) % 5}.png`,
                             status: user.discord_status || 'offline',
@@ -99,7 +117,7 @@ async function loadDiscordMembers() {
             // Custom status (type 4) ve diğer etkinlikleri ayır
             const customStatus = member.activities?.find(a => a.type === 4) || null;
             const otherActivities = member.activities?.filter(a => a.type !== 4) || [];
-            
+
             // Durum metni
             const statusText = {
                 'online': 'Çevrimiçi',
@@ -107,7 +125,7 @@ async function loadDiscordMembers() {
                 'dnd': 'Rahatsız Etmeyin',
                 'offline': 'Çevrimdışı'
             }[member.status] || 'Bilinmeyen';
-            
+
             // Etkinlik tipi metinleri
             const activityTypeText = {
                 0: 'Oynuyor',
@@ -116,23 +134,23 @@ async function loadDiscordMembers() {
                 3: 'İzliyor',
                 5: 'Yarışıyor'
             };
-            
+
             // Müzik dinliyorsa müzik resmini al
             const musicActivity = otherActivities.find(a => a.type === 2);
             let musicImage = null;
-if (musicActivity?.assets?.large_image) {
-    const largeImg = musicActivity.assets.large_image;
-    if (largeImg.startsWith('spotify:')) {
-        // Spotify ID'sini al (örnek: "spotify:ab123456" → "ab123456")
-        const spotifyId = largeImg.replace('spotify:', '');
-        musicImage = `https://i.scdn.co/image/${spotifyId}`;
-    } else {
-        // Normal oyun veya uygulama resmi
-        musicImage = `https://cdn.discordapp.com/app-assets/${musicActivity.application_id}/${largeImg}.png`;
-    }
-}
+            if (musicActivity?.assets?.large_image) {
+                const largeImg = musicActivity.assets.large_image;
+                if (largeImg.startsWith('spotify:')) {
+                    // Spotify ID'sini al (örnek: "spotify:ab123456" → "ab123456")
+                    const spotifyId = largeImg.replace('spotify:', '');
+                    musicImage = `https://i.scdn.co/image/${spotifyId}`;
+                } else {
+                    // Normal oyun veya uygulama resmi
+                    musicImage = `https://cdn.discordapp.com/app-assets/${musicActivity.application_id}/${largeImg}.png`;
+                }
+            }
 
-            
+
             return `
             <a href="https://discord.com/users/${member.id}" target="_blank" rel="noopener noreferrer" class="member-card-link">
             <div class="member-card">
@@ -150,10 +168,10 @@ if (musicActivity?.assets?.large_image) {
                 <div class="member-info">
                 ${customStatus ? `
                     <div class="member-custom-status">
-                        ${customStatus.emoji?.id ? 
-                            `<img src="https://cdn.discordapp.com/emojis/${customStatus.emoji.id}.png" alt="${customStatus.emoji.name || 'emoji'}" class="custom-status-emoji" onerror="this.style.display='none'">` :
-                            customStatus.emoji?.name ? `<span class="custom-status-emoji">${customStatus.emoji.name}</span>` : ''
-                        }
+                        ${customStatus.emoji?.id ?
+                        `<img src="https://cdn.discordapp.com/emojis/${customStatus.emoji.id}.png" alt="${customStatus.emoji.name || 'emoji'}" class="custom-status-emoji" onerror="this.style.display='none'">` :
+                        customStatus.emoji?.name ? `<span class="custom-status-emoji">${customStatus.emoji.name}</span>` : ''
+                    }
                         <span class="custom-status-text">${customStatus.state || 'Özel Durum'}</span>
                     </div>
                 ` : ''}
@@ -168,18 +186,18 @@ if (musicActivity?.assets?.large_image) {
                     </div>
                 ` : ''}
                 ${otherActivities.filter(a => a.type !== 2).length > 0 ? otherActivities.filter(a => a.type !== 2).map(activity => {
-                        const activityImage = activity.assets?.large_image 
+                        const activityImage = activity.assets?.large_image
                             ? `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png`
                             : null;
-                        const activityIcon = activity.type === 0 ? 'fa-gamepad' : 
-                                           activity.type === 1 ? 'fa-video' : 
-                                           activity.type === 3 ? 'fa-tv' : 'fa-circle';
-                        
+                        const activityIcon = activity.type === 0 ? 'fa-gamepad' :
+                            activity.type === 1 ? 'fa-video' :
+                                activity.type === 3 ? 'fa-tv' : 'fa-circle';
+
                         return `
                             <div class="member-activity">
-                                ${activityImage ? 
-                                    `<img src="${activityImage}" alt="${activity.name}" class="activity-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : ''
-                                }
+                                ${activityImage ?
+                                `<img src="${activityImage}" alt="${activity.name}" class="activity-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : ''
+                            }
                                 <div class="activity-icon" ${activityImage ? 'style="display:none;"' : ''}>
                                     <i class="fas ${activityIcon}"></i>
                                 </div>
@@ -211,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const LOGO_URL = (pageLogoMeta && pageLogoMeta.content) ? pageLogoMeta.content : "https://zoream.pages.dev/zoreamlogo.png";
 
     // Generate multiple favicon/link variants (browsers & devices)
-    const iconSizes = ["16x16","32x32","48x48","96x96","180x180","192x192","512x512"];
+    const iconSizes = ["16x16", "32x32", "48x48", "96x96", "180x180", "192x192", "512x512"];
     iconSizes.forEach(size => {
         const l = document.createElement('link');
         l.rel = size === '180x180' ? 'apple-touch-icon' : 'icon';
@@ -233,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { property: 'og:type', content: 'website' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: document.title || 'Zoream' },
-        { name: 'twitter:description', content: (document.querySelector('meta[name="description"]')||{}).content || 'Zoream' },
+        { name: 'twitter:description', content: (document.querySelector('meta[name="description"]') || {}).content || 'Zoream' },
         { name: 'twitter:image', content: LOGO_URL }
     ];
 
