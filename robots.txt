@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://zoream.con.tc/sitemap.xml
+Sitemap: https://zoream.pages.dev/sitemap.xml
