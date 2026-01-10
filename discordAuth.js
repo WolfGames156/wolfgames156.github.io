@@ -186,16 +186,31 @@ export const DiscordAuth = {
 
 
 
-    checkInviteParam() {
-        // Data is now injected via Cloudflare Middleware (Server-Side)
-        // This avoids rate limits and "not in guild" issues with Lanyard.
+    async checkInviteParam() {
+        // 1. Check for Server-Side Injected Data (Fastest, SEO-friendly)
         if (window.ZOREAM_INVITER) {
             this.showInviteModal(window.ZOREAM_INVITER);
-        } else {
-            // Local fallback or if middleware failed/bot token missing
-            const params = new URLSearchParams(window.location.search);
-            if (params.get('inviter')) {
-                console.log("Inviter param present but no server data. Check DISCORD_BOT_TOKEN in Cloudflare.");
+            return;
+        }
+
+        // 2. Fallback to Internal API (If middleware didn't run or failed)
+        const params = new URLSearchParams(window.location.search);
+        const inviterId = params.get('inviter');
+
+        if (inviterId) {
+            try {
+                // Fetch from our own secure backend function
+                const res = await fetch(`/invite?id=${inviterId}`);
+                if (res.ok) {
+                    const inviter = await res.json();
+                    if (inviter.id) {
+                        this.showInviteModal(inviter);
+                    }
+                } else {
+                    console.warn('Invite lookup failed:', res.statusText);
+                }
+            } catch (error) {
+                console.error('Invite API error:', error);
             }
         }
     },
