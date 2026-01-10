@@ -1,8 +1,7 @@
-export async function onRequest({ request, next }) {
+export async function onRequest({ request, next, env }) {
   const url = new URL(request.url);
   const inviterId = url.searchParams.get('inviter');
 
-  // Fetch the original response (the static HTML page)
   const response = await next();
 
   // If no inviter ID or not an HTML page, return original
@@ -10,53 +9,57 @@ export async function onRequest({ request, next }) {
     return response;
   }
 
-  try {
-    // Fetch Discord User Data via Lanyard API (Public, No Token Required)
-    const lanyardRes = await fetch(`https://api.lanyard.rest/v1/users/${inviterId}`);
-    const data = await lanyardRes.json();
+  // Ensure Bot Token is present
+  if (!env || !env.DISCORD_BOT_TOKEN) {
+    console.warn('DISCORD_BOT_TOKEN is missing!');
+    return response;
+  }
 
-    if (!data.success || !data.data || !data.data.discord_user) {
-      return response; // User not found, return original
+  try {
+    // 1. Fetch Discord User Data (Official API)
+    const discordRes = await fetch(`https://discord.com/api/v10/users/${inviterId}`, {
+      headers: {
+        'Authorization': `Bot ${env.DISCORD_BOT_TOKEN}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!discordRes.ok) {
+      // User not found or error
+      return response;
     }
 
-    const user = data.data.discord_user;
-    const username = user.username.toUpperCase(); // Uppercase for consistent style
+    const user = await discordRes.json();
+    const username = user.username.toUpperCase();
     const avatarUrl = user.avatar
       ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=512`
       : `https://cdn.discordapp.com/embed/avatars/${(parseInt(user.discriminator) || 0) % 5}.png`;
 
-    // Dynamic Meta Content
+    // 2. Prepare SEO Content
     const title = `${username} SENİ ZOREAM'E DAVET EDİYOR!`;
-    const description = `${username} seni Zoream kullanmaya davet ediyor. Hızlı kurulum, otomatik güncellemeler ve ücretsiz oyun yönetimi için hemen katıl.`;
+    const description = `${username} seni Zoream kullanmaya davet ediyor. Hızlı kurulum, otomatik güncellemeler ve ücretsiz oyun oynamak için hemen indir.`;
 
-    // Use HTMLRewriter to inject tags into the stream
+    // 3. Inject Data & SEO Rewrite
+    const dataScript = `<script>window.ZOREAM_INVITER = ${JSON.stringify(user)};</script>`;
+
     return new HTMLRewriter()
-      .on('title', {
-        element(e) { e.setInnerContent(title); }
-      })
-      .on('meta[property="og:title"]', {
-        element(e) { e.setAttribute('content', title); }
-      })
-      .on('meta[name="twitter:title"]', {
-        element(e) { e.setAttribute('content', title); }
-      })
-      .on('meta[property="og:description"]', {
-        element(e) { e.setAttribute('content', description); }
-      })
-      .on('meta[name="twitter:description"]', {
-        element(e) { e.setAttribute('content', description); }
-      })
-      .on('meta[property="og:image"]', {
-        element(e) { e.setAttribute('content', avatarUrl); }
-      })
-      .on('meta[name="twitter:image"]', {
-        element(e) { e.setAttribute('content', avatarUrl); }
+      .on('title', { element(e) { e.setInnerContent(title); } })
+      .on('meta[property="og:title"]', { element(e) { e.setAttribute('content', title); } })
+      .on('meta[property="og:description"]', { element(e) { e.setAttribute('content', description); } })
+      .on('meta[property="og:image"]', { element(e) { e.setAttribute('content', avatarUrl); } })
+      .on('meta[name="twitter:title"]', { element(e) { e.setAttribute('content', title); } })
+      .on('meta[name="twitter:description"]', { element(e) { e.setAttribute('content', description); } })
+      .on('meta[name="twitter:image"]', { element(e) { e.setAttribute('content', avatarUrl); } })
+      // Inject the user data into <head> so client-side JS can use it without re-fetching
+      .on('head', {
+        element(e) {
+          e.append(dataScript, { html: true });
+        }
       })
       .transform(response);
 
   } catch (err) {
-    // Fallback to original response on any error
-    console.error('Invite SEO Error:', err);
+    console.error('Middleware Error:', err);
     return response;
   }
 }

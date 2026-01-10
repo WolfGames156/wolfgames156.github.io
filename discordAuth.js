@@ -186,22 +186,16 @@ export const DiscordAuth = {
 
 
 
-    async checkInviteParam() {
-        const params = new URLSearchParams(window.location.search);
-        const inviterId = params.get('inviter');
-
-        if (inviterId) {
-            try {
-                // Use Lanyard to get Inviter Info (Public API, no token needed)
-                const res = await fetch(`https://api.lanyard.rest/v1/users/${inviterId}`);
-                const data = await res.json();
-
-                if (data.success) {
-                    const inviter = data.data.discord_user;
-                    this.showInviteModal(inviter);
-                }
-            } catch (error) {
-                console.error('Invite lookup failed:', error);
+    checkInviteParam() {
+        // Data is now injected via Cloudflare Middleware (Server-Side)
+        // This avoids rate limits and "not in guild" issues with Lanyard.
+        if (window.ZOREAM_INVITER) {
+            this.showInviteModal(window.ZOREAM_INVITER);
+        } else {
+            // Local fallback or if middleware failed/bot token missing
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('inviter')) {
+                console.log("Inviter param present but no server data. Check DISCORD_BOT_TOKEN in Cloudflare.");
             }
         }
     },
