@@ -2070,20 +2070,22 @@ body {
 /* User Profile - Pill Shape Design */
 /* User Profile - Avatar Sağda, Yazılar Solda */
 /* User Profile - Her şeyi SAĞA (Avatarın yanına) yasla */
+/* User Profile - Avatar SOLDA, Yazılar Hemen Sağında */
 .user-profile {
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* İçindeki her şeyi sağa iter */
-    gap: 0.8rem; /* Yazı ile avatar arasındaki boşluk */
-    padding: 0.5rem 0.8rem; /* Kenarlardan eşit nefes payı */
+    justify-content: flex-start; /* İçeriği sola (avatarın olduğu tarafa) yaslar */
+    gap: 0.75rem; /* Avatar ile yazı arasındaki o kritik boşluk */
+    padding: 0.5rem 1rem 0.5rem 0.6rem; /* Sağdan 1rem boşluk bırakarak yazıların kutuya çarpmasını önledik */
     background: rgba(20, 20, 25, 0.6);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 50px;
     cursor: pointer;
     position: relative;
-    transition: all 0.3s ease;
-    min-width: 210px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    min-width: 190px; /* Kutunun çok daralmasını önler */
     z-index: 10;
 }
 
@@ -2091,38 +2093,32 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: right; /* Yazılar avatarın dibine (sağa) doğru baksın */
-    /* flex: 1; SİLDİK! flex:1 olunca sola yayılıyordu, silince sağa çekilir. */
+    text-align: left; /* Yazılar doğal akışında sola yaslı */
+    line-height: 1.2;
 }
 
 .user-avatar {
-    width: 48px;
-    height: 48px;
+    width: 46px; /* 48'den 46'ya çektik, daha zarif durur */
+    height: 46px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--accent);
     box-shadow: 0 0 10px var(--glow);
     flex-shrink: 0;
-    /* order: 2; SİLDİK! Normal akışta kalsın. */
-}
-
-/* HTML'de profil resmini yazıların SAĞINA almayı unutma ya da şuraya ekle: */
-.user-profile {
-    flex-direction: row; /* Yazı-Avatar sırası için */
 }
 
 .user-name {
     color: var(--text-primary);
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.9rem; /* Yazı fontunu hafif küçülttük ki ferahlasın */
     text-transform: uppercase;
+    letter-spacing: 0.3px;
 }
 
 .user-status {
     font-size: 0.8rem;
     color: var(--text-secondary);
     display: flex;
-    flex-direction: row-reverse; /* Statü ikonunu yazıya göre konumlandırır */
     align-items: center;
     gap: 4px;
 }
@@ -2230,6 +2226,7 @@ body {
 .invite-accept-btn:hover {
     filter: brightness(1.1);
 }
+
 
 
 
