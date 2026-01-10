@@ -38,11 +38,15 @@ body {
 
 /* Navbar */
 .navbar {
+    display: flex;
     background-color: rgba(26, 26, 26, 0.8);
     border-bottom: 1px solid var(--border);
     padding: 1rem 0;
     position: sticky;
+    align-items: center !important;
+    justify-content: center !important;
     top: 0;
+    height: 100px !important;
     z-index: 1000;
     backdrop-filter: blur(20px) saturate(180%);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -757,7 +761,7 @@ body {
 }
 
 .download-info li::before {
-    content: "✓";
+    content: "âœ“";
     position: absolute;
     left: 0;
     color: var(--success);
@@ -777,7 +781,7 @@ body {
     text-decoration: underline;
 }
 
-/* 🖥️ Terminal Box (Game Fix) Styles */
+/* ğŸ–¥ï¸ Terminal Box (Game Fix) Styles */
 .terminal-container {
     margin-top: 2.5rem;
     padding: 2rem;
@@ -992,7 +996,7 @@ body {
 
 .support-title {
     color: #FFD700;
-    /* Altın rengi */
+    /* AltÄ±n rengi */
     font-size: 1.3rem;
     font-weight: 700;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.7),
@@ -1164,7 +1168,7 @@ body {
     gap: 20px;
     justify-content: center;
     width: 100%;
-    /* 🟢 Tüm grid'i ortalar */
+    /* ğŸŸ¢ TÃ¼m grid'i ortalar */
 }
 
 
@@ -1284,7 +1288,7 @@ body {
     align-self: flex-start;
 }
 
-/* Müzik Önizleme */
+/* MÃ¼zik Ã–nizleme */
 .member-music-preview {
     display: flex;
     align-items: center;
@@ -1585,7 +1589,7 @@ body {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 100px;
         flex-direction: column;
         background-color: var(--bg-secondary);
         width: 100%;
@@ -1643,15 +1647,15 @@ body {
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 20px;
         justify-content: center;
-        /* 🟢 Tüm grid'i ortalar */
+        /* ğŸŸ¢ TÃ¼m grid'i ortalar */
         align-items: center;
-        /* 🟢 Dikey ortalama */
+        /* ğŸŸ¢ Dikey ortalama */
         text-align: center;
         width: 100%;
         max-width: 900px;
-        /* 🟢 4 kart için genişlik sınırı */
+        /* ğŸŸ¢ 4 kart iÃ§in geniÅŸlik sÄ±nÄ±rÄ± */
         margin: 0 auto;
-        /* 🟢 Sayfa ortasına alır */
+        /* ğŸŸ¢ Sayfa ortasÄ±na alÄ±r */
     }
 
 
@@ -1688,7 +1692,7 @@ body {
     }
 
     .hamburger {
-        z-index: 1002; /* Above everything */
+        z-index: 1200; /* Above everything */
     }
 
     /* Compact Mobile Profile */
@@ -1705,8 +1709,8 @@ body {
     }
 
     .user-avatar {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
     }
 
     .user-profile::after {
@@ -1808,7 +1812,7 @@ body {
     position: relative;
     width: 100%;
     padding: 8px !important;
-    /* boşluğun kalınlığı */
+    /* boÅŸluÄŸun kalÄ±nlÄ±ÄŸÄ± */
     background: rgba(0, 0, 0, 0.85);
     /* siyah / koyu uyumlu */
     box-sizing: border-box;
@@ -2062,6 +2066,7 @@ body {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     min-width: 200px; /* Ensure space for content */
+    z-index: 10; /* Ensure it is above normal content but below mobile menu */
 }
 
 .user-profile:hover {

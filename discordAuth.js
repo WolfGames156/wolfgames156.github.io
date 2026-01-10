@@ -24,26 +24,49 @@ export const DiscordAuth = {
 
     init() {
         this.token = localStorage.getItem('discord_access_token');
-        if (this.token) {
-            this.fetchUserProfile();
-        } else {
-            this.updateUI(); // Render Login Button for guests
+        
+        let hasValidCache = false;
+
+        // 🚀 Cache Check (Prevent flickering & unnecessary requests)
+        const cachedUser = localStorage.getItem('zoream_user_cache');
+        if (cachedUser) {
+            try {
+                this.user = JSON.parse(cachedUser);
+                this.updateUI(); // Render immediately with cached data
+                
+                // If we have data, we assume it's valid for this session.
+                // We'll avoid re-fetching immediately to prevent rate limits.
+                hasValidCache = !!this.user;
+            } catch (e) {
+                console.error('Cache parse error', e);
+                localStorage.removeItem('zoream_user_cache');
+            }
         }
+
+        if (this.token) {
+            // Only re-fetch if we don't have valid cache OR if we want to ensure freshness.
+            // But to prevent random "logouts" due to network/rate-limits, we prioritize cache.
+            if (!hasValidCache) {
+                this.fetchUserProfile();
+            }
+        } else {
+            // No token, ensure UI reflects "logged out" state unless we have some stray cache (which shouldn't happen)
+            if (!this.user) this.updateUI(); 
+        }
+        
         this.checkCallback();
         this.checkInviteParam();
     },
 
     login() {
         console.log("Redirecting to Discord with URI:", REDIRECT_URL);
-        // Implicit Grant Flow URL
-        // FIX: Discord API REQUIRES 'redirect_uri'. 'redirect_url' is wrong and causes the localhost:5000 bug.
         const authUrl = `https://discord.com/api/oauth2/authorize?client_id=${CONFIG.CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URL)}&response_type=token&scope=${encodeURIComponent(CONFIG.SCOPE)}&prompt=consent`;
-        
         window.location.href = authUrl;
     },
 
     logout() {
         localStorage.removeItem('discord_access_token');
+        localStorage.removeItem('zoream_user_cache');
         this.user = null;
         this.token = null;
         window.location.reload();
@@ -62,6 +85,7 @@ export const DiscordAuth = {
             // Clean URL
             window.history.replaceState({}, document.title, window.location.pathname);
             
+            // Force fetch on fresh login
             this.fetchUserProfile();
         }
     },
@@ -75,7 +99,16 @@ export const DiscordAuth = {
                 headers: { Authorization: `Bearer ${this.token}` }
             });
 
-            if (!userRes.ok) throw new Error('Failed to fetch user');
+            if (userRes.status === 401) {
+                // Token invalid/expired -> Logout
+                throw new Error('Unauthorized');
+            }
+            if (!userRes.ok) {
+                // Other error (429, 500) -> Keep existing/cached user if available, don't logout
+                console.warn('User fetch failed (Rate limit/Network), using fallback if available.');
+                return;
+            }
+
             const userData = await userRes.json();
             this.user = userData;
 
@@ -88,14 +121,21 @@ export const DiscordAuth = {
                 const guilds = await guildsRes.json();
                 this.user.isMember = guilds.some(g => g.id === CONFIG.GUILD_ID);
             } else {
-                this.user.isMember = false;
+                // If guilds fetch fails, don't overwrite if we already had a value, or default false
+                this.user.isMember = this.user.isMember || false;
             }
+
+            // Save to Cache (Update with fresh data)
+            localStorage.setItem('zoream_user_cache', JSON.stringify(this.user));
 
             this.updateUI();
 
         } catch (error) {
             console.error('Auth Error:', error);
-            this.logout(); // Token likely invalid
+            if (error.message === 'Unauthorized') {
+                this.logout(); 
+            }
+            // For other errors, do nothing (stay logged in with potentially old data)
         }
     },
 
@@ -123,10 +163,10 @@ export const DiscordAuth = {
                     <img src="${avatarUrl}" class="user-avatar" alt="Profile">
                     <div class="user-dropdown">
                         <div class="user-dropdown-item" id="copy-invite">
-                            <i class="fas fa-link"></i> Davet Linki Kopyala
+                            <i class="fas fa-link"></i> ${this.t('auth_copy_invite')}
                         </div>
                         <div class="user-dropdown-item logout" id="logout-btn">
-                            <i class="fas fa-sign-out-alt"></i> Çıkış Yap
+                            <i class="fas fa-sign-out-alt"></i> ${this.t('auth_logout')}
                         </div>
                     </div>
                 </div>

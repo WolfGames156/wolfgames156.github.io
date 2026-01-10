@@ -99,6 +99,8 @@ window.translations = {
         invite_modal_title: "Arkadaşın seni Zoream'e davet etti!",
         invite_modal_desc: "<strong>{username}</strong> seni Zoream kullanmaya davet ediyor. Neden Arkadaşının teklifini kabul edip paranı cebine koymuyorsun?",
         invite_modal_btn: "Hemen Başla",
+        auth_copy_invite: "Davet Linki Kopyala",
+        auth_logout: "Çıkış Yap",
 
         // How to Use Page (Nasıl Kullanılır)
         how_to_use_title: "Nasıl Kullanılır?",
@@ -225,6 +227,8 @@ window.translations = {
         invite_modal_title: "Your friend invited you to Zoream!",
         invite_modal_desc: "<strong>{username}</strong> is inviting you to use Zoream. Why not accept your friend's offer and save some money?",
         invite_modal_btn: "Start Now",
+        auth_copy_invite: "Copy Invite Link",
+        auth_logout: "Log out",
 
         // How to Use Page (Nasıl Kullanılır)
         how_to_use_title: "How to Use?",
