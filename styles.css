@@ -763,11 +763,14 @@ body {
 }
 
 .download-info li::before {
-    content: "âœ“";
+    /* "âœ“" yerine aşağıdaki kodu yazıyoruz */
+    content: "\2713"; 
     position: absolute;
     left: 0;
     color: var(--success);
+    /* Gerekirse font-family ekle (varsayılan fontlarda bulunur) */
 }
+
 
 .download-info p {
     color: var(--text-secondary);
@@ -2212,6 +2215,7 @@ body {
 .invite-accept-btn:hover {
     filter: brightness(1.1);
 }
+
 
 
 
