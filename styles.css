@@ -2067,25 +2067,21 @@ body {
     background: #4752c4;
 }
 
-/* User Profile - Pill Shape Design */
-/* User Profile - Avatar Sağda, Yazılar Solda */
-/* User Profile - Her şeyi SAĞA (Avatarın yanına) yasla */
-/* User Profile - Avatar SOLDA, Yazılar Hemen Sağında */
+/* User Profile - Avatar SOLDAYKEN Yazılar SAĞDA */
 .user-profile {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* İçeriği sola (avatarın olduğu tarafa) yaslar */
-    gap: 0.75rem; /* Avatar ile yazı arasındaki o kritik boşluk */
-    padding: 0.5rem 1rem 0.5rem 0.6rem; /* Sağdan 1rem boşluk bırakarak yazıların kutuya çarpmasını önledik */
+    justify-content: flex-start; /* Her şeyi en baştan (soldan) başlatır */
+    gap: 0.8rem; /* Avatar ile yazı arasındaki o istediğin mesafe */
+    padding: 0.5rem 1.5rem 0.5rem 0.5rem; /* Sağdan 1.5rem boşluk verdik, yazılar asla sağa yapışmaz */
     background: rgba(20, 20, 25, 0.6);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 50px;
     cursor: pointer;
     position: relative;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    min-width: 190px; /* Kutunun çok daralmasını önler */
+    transition: all 0.3s ease;
+    min-width: 200px; /* Kutunun çok daralmasını önler */
     z-index: 10;
 }
 
@@ -2093,26 +2089,25 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: left; /* Yazılar doğal akışında sola yaslı */
+    text-align: left; /* Yazılar sola yaslı (Avatarın dibinden başlar) */
     line-height: 1.2;
 }
 
 .user-avatar {
-    width: 46px; /* 48'den 46'ya çektik, daha zarif durur */
-    height: 46px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--accent);
     box-shadow: 0 0 10px var(--glow);
-    flex-shrink: 0;
+    flex-shrink: 0; /* Resmin ezilmesini engeller */
 }
 
 .user-name {
     color: var(--text-primary);
     font-weight: 700;
-    font-size: 0.9rem; /* Yazı fontunu hafif küçülttük ki ferahlasın */
+    font-size: 0.95rem;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
 }
 
 .user-status {
@@ -2122,6 +2117,7 @@ body {
     align-items: center;
     gap: 4px;
 }
+
 
 .status-member {
     color: var(--accent);
@@ -2226,6 +2222,7 @@ body {
 .invite-accept-btn:hover {
     filter: brightness(1.1);
 }
+
 
 
 
