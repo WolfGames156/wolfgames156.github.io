@@ -44,6 +44,7 @@ body {
     padding: 1rem 0;
     position: sticky;
     align-items: center !important;
+    justify-content: space-between !important;
     top: 0;
     height: 100px !important;
     z-index: 1000;
@@ -2209,5 +2210,6 @@ body {
 .invite-accept-btn:hover {
     filter: brightness(1.1);
 }
+
 
 
