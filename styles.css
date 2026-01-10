@@ -56,12 +56,23 @@ body {
 
 .nav-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* Sayfayı ortalar ama içeriği dağıtmaz */
     padding: 0 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* LOGO SOLDA - MENU ORTADA - DİL/PROFİL SAĞDA */
+    align-items: center; /* DİKEYDE TAM ORTALAMA */
+    width: 100%;
+    height: 100%;
+    gap: 1rem; /* Ögeler arası minimum mesafe */
+}
+
+/* --- SAĞ TARAF (DİL VE PROFİL) --- */
+.nav-right {
+    display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
+    margin-left: 0; /* 'auto' ise 0 yapın, space-between zaten sağa itiyor */
+    flex-shrink: 0;
 }
 
 .logo {
@@ -2215,6 +2226,7 @@ body {
 .invite-accept-btn:hover {
     filter: brightness(1.1);
 }
+
 
 
 
