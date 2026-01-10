@@ -1,5 +1,10 @@
+import { DiscordAuth } from './discordAuth.js';
+
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function () {
+    // Initialize Discord Auth
+    DiscordAuth.init();
+
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -14,6 +19,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 navMenu.classList.remove('active');
             });
         });
+
+        // Clone Language Switcher into Mobile Menu
+        const langSwitcher = document.querySelector('.lang-switcher');
+        if (langSwitcher && !document.querySelector('.nav-menu .mobile-lang-wrapper')) {
+            const mobileLangWrapper = document.createElement('li');
+            mobileLangWrapper.className = 'nav-item mobile-lang-wrapper';
+            mobileLangWrapper.innerHTML = langSwitcher.innerHTML;
+            navMenu.appendChild(mobileLangWrapper);
+
+            // Re-bind events for new buttons
+            mobileLangWrapper.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.getAttribute('data-lang');
+                    if (window.langManager) window.langManager.setLanguage(lang);
+                });
+            });
+        }
     }
 
     // Discord members loading

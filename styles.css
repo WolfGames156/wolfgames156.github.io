@@ -5,20 +5,21 @@
 }
 
 :root {
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #1a1a1a;
-    --bg-tertiary: #2a2a2a;
-    --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
-    --accent: #6366f1;
-    --accent-hover: #4f46e5;
-    --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+    /* Steam / Pitch Black Theme */
+    --bg-primary: #050505;
+    --bg-secondary: #0f1014;
+    --bg-tertiary: #1b2838; /* Steam Header Blue */
+    --text-primary: #c7d5e0;
+    --text-secondary: #8f98a0;
+    --accent: #66c0f4; /* Steam Blue */
+    --accent-hover: #1999ff;
+    --accent-gradient: linear-gradient(135deg, #66c0f4 0%, #2d73ff 100%);
     --border: #333333;
-    --card-bg: #1e1e1e;
-    --card-bg-hover: #252525;
-    --success: #10b981;
+    --card-bg: #101216;
+    --card-bg-hover: #16191f;
+    --success: #a4d007;
     --warning: #f59e0b;
-    --glow: rgba(99, 102, 241, 0.3);
+    --glow: rgba(102, 192, 244, 0.15);
 }
 
 body {
@@ -1011,20 +1012,20 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(135deg, #8a2be2, #c77dff);
+    background: linear-gradient(135deg, var(--accent), var(--accent)); /* Patreon Official Brand Colors */
     color: #fff;
     padding: 10px 18px;
     border-radius: 12px;
     font-weight: 600;
     text-decoration: none;
-    box-shadow: 0 3px 10px rgba(138, 43, 226, 0.4);
+    box-shadow: 0 4px 15px rgba(var(--accent), 0.3);
     transition: all 0.25s ease;
 }
 
 .patreon-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.6);
-    background: linear-gradient(135deg, #9b3ef9, #d29aff);
+    background: linear-gradient(135deg, var(--accent), var(--accent));
+    box-shadow: 0 6px 20px rgba(var(--accent), 0.5);
 }
 
 .patreon-btn i {
@@ -1159,8 +1160,10 @@ body {
 
 .members-grid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     justify-content: center;
+    width: 100%;
     /* 🟢 Tüm grid'i ortalar */
 }
 
@@ -1503,6 +1506,20 @@ body {
 }
 
 /* Language Switcher */
+/* Language Switcher */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+}
+
+#user-profile-container {
+    display: flex;
+    align-items: center;
+    min-width: 60px; /* Prevent collapse */
+}
+
 .lang-switcher {
     display: flex;
     gap: 0.5rem;
@@ -1534,6 +1551,10 @@ body {
     border-color: var(--accent);
     color: var(--text-primary);
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.mobile-lang-wrapper {
+    display: none;
 }
 
 
@@ -1635,14 +1656,74 @@ body {
 
 
 
-    /* Language switcher mobile */
-    .lang-switcher {
-        gap: 0.25rem;
+    /* Force Lang Switcher HIDDEN in Header on Mobile (Moved to Menu) */
+    .nav-right .lang-switcher {
+        display: none !important; 
     }
 
-    .lang-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+    /* Style for Lang Switcher inside Mobile Menu */
+    .mobile-lang-wrapper {
+        display: flex !important;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .mobile-lang-wrapper .lang-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.05);
+    }
+
+    .mobile-lang-wrapper .lang-btn.active {
+        background: var(--accent);
+        border-color: var(--accent);
+    }
+
+    .nav-right {
+        gap: 0.5rem;
+        margin-right: 50px; /* More space for hamburger */
+        margin-left: auto;
+    }
+
+    .hamburger {
+        z-index: 1002; /* Above everything */
+    }
+
+    /* Compact Mobile Profile */
+    .user-profile {
+        min-width: unset; /* Remove fixed width */
+        padding: 0.2rem;
+        border-radius: 50%; /* Collapse to circle if text hidden */
+        background: transparent; /* Cleaner on mobile */
+        border: none;
+    }
+
+    .user-info {
+        display: none; /* Hide text on mobile to save space */
+    }
+
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .user-profile::after {
+        display: none; 
+    }
+
+    /* Mobile Dropdown - FIXED POSITIONING & Z-INDEX */
+    .user-dropdown {
+        position: fixed !important; /* Force fixed relative to screen */
+        top: 80px !important;       /* Below navbar */
+        right: 10px !important;
+        left: auto !important;
+        width: 200px !important;
+        margin-top: 0;
+        z-index: 9999 !important;   /* ERROR WAS HERE: Needs massive z-index to be above backdrop */
+        background: #15151a !important;
+        border: 1px solid rgba(255,255,255,0.2) !important;
     }
 }
 
@@ -1946,3 +2027,182 @@ body {
         font-size: 0.75rem;
     }
 }
+/* === User Profile (Auth) === */
+.login-btn {
+    background: #5865F2;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.login-btn:hover {
+    background: #4752c4;
+}
+
+/* User Profile - Pill Shape Design */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0.6rem 0.5rem 0.5rem; /* Left padding matches avatar gap */
+    background: rgba(20, 20, 25, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
+    border-radius: 50px; /* Pillow shape */
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    min-width: 200px; /* Ensure space for content */
+}
+
+.user-profile:hover {
+    background: rgba(255, 255, 255, 0.05); /* Lighter on hover */
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(100, 100, 255, 0.15); /* Soft glow */
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%; /* Perfect circle */
+    object-fit: cover;
+    border: 2px solid var(--accent); /* Accent ring */
+    box-shadow: 0 0 10px var(--glow);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.2;
+    margin-right: 0.5rem; /* Spacing from right edge */
+}
+
+.user-name {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.user-status {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.status-member {
+    color: var(--accent);
+}
+
+/* Dropdown Menu - Bridge Gap Fix */
+.user-dropdown {
+    position: absolute;
+    top: 65px; /* Pushes it clearly below the pill */
+    right: 0;
+    width: 200px;
+    background: #0f0f13; /* Solid dark background to prevent transparency overlap issues */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0.5rem;
+    display: flex; 
+    flex-direction: column;
+    gap: 0.2rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.user-profile:hover .user-dropdown,
+.user-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.user-dropdown-item {
+    padding: 0.8rem 1rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.user-dropdown-item:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+/* === Invite Modal === */
+.invite-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.invite-modal {
+    background: var(--bg-tertiary);
+    padding: 2.5rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 40px rgba(102, 192, 244, 0.1);
+}
+
+.inviter-profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 3px solid var(--accent);
+}
+
+.invite-modal h2 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.invite-accept-btn {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 1rem;
+    background: var(--success);
+    color: #000;
+    border: none;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: filter 0.2s;
+}
+
+.invite-accept-btn:hover {
+    filter: brightness(1.1);
+}
+

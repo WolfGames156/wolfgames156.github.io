@@ -1,5 +1,5 @@
 // Translation system for Zoream website
-const translations = {
+window.translations = {
     tr: {
         // Navigation
         nav_home: "Ana Sayfa",
@@ -55,6 +55,14 @@ const translations = {
         // Footer
         footer_rights: "Tüm hakları saklıdır.",
 
+        // Auth & Status
+        login_discord: "Discord ile Giriş",
+        status_member: "Sunucu Üyesi",
+        status_guest: "Misafir",
+        invite_msg: "seni Zoream'e davet etti",
+        logout: "Çıkış Yap",
+        copy_invite: "Davet Linkini Kopyala",
+
         // Contributors Page (Emeği Geçenler)
         contributors_title: "Emeği Geçenler",
         contributors_subtitle: "Zoream projesine katkıda bulunan tüm geliştiricilere teşekkürler",
@@ -86,6 +94,11 @@ const translations = {
         download_support_link: "Discord sunucumuza",
         download_fix_games_title: "Oyunlar gözükmüyor mu? Düzelt:",
         download_copy_success: "Kopyalandı!",
+
+        // Invite Modal
+        invite_modal_title: "Arkadaşın seni Zoream'e davet etti!",
+        invite_modal_desc: "<strong>{username}</strong> seni Zoream kullanmaya davet ediyor. Neden Arkadaşının teklifini kabul edip paranı cebine koymuyorsun?",
+        invite_modal_btn: "Hemen Başla",
 
         // How to Use Page (Nasıl Kullanılır)
         how_to_use_title: "Nasıl Kullanılır?",
@@ -168,6 +181,14 @@ const translations = {
         // Footer
         footer_rights: "All rights reserved.",
 
+        // Auth & Status
+        login_discord: "Login with Discord",
+        status_member: "Server Member",
+        status_guest: "Guest",
+        invite_msg: "invited you to Zoream",
+        logout: "Log Out",
+        copy_invite: "Copy Invite Link",
+
         // Contributors Page (Emeği Geçenler)
         contributors_title: "Contributors",
         contributors_subtitle: "Thanks to all developers who contributed to the Zoream project",
@@ -199,6 +220,11 @@ const translations = {
         download_support_link: "our Discord server",
         download_fix_games_title: "Games not showing? Fix:",
         download_copy_success: "Copied!",
+
+        // Invite Modal
+        invite_modal_title: "Your friend invited you to Zoream!",
+        invite_modal_desc: "<strong>{username}</strong> is inviting you to use Zoream. Why not accept your friend's offer and save some money?",
+        invite_modal_btn: "Start Now",
 
         // How to Use Page (Nasıl Kullanılır)
         how_to_use_title: "How to Use?",

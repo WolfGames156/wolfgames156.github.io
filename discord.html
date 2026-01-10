@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 
 <head>
@@ -23,9 +23,9 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Discord Topluluğu - Zoream">
+    <meta name="twitter:title" content="Discord TopluluÄŸu - Zoream">
     <meta name="twitter:description"
-        content="Zoream Discord topluluğuna katılın — destek, güncellemeler ve topluluk sohbetleri için resmi sunucu.">
+        content="Zoream Discord topluluÄŸuna katÄ±lÄ±n â€” destek, gÃ¼ncellemeler ve topluluk sohbetleri iÃ§in resmi sunucu.">
     <meta name="twitter:image" content="https://zoream.pages.dev/zoreamlogo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -42,9 +42,12 @@
                 <li><a href="emegi-gecenler.html" data-i18n="nav_contributors">Emeği Geçenler</a></li>
                 <li><a href="discord.html" class="active" data-i18n="nav_discord">Discord</a></li>
             </ul>
-            <div class="lang-switcher">
-                <button class="lang-btn" data-lang="tr">TR</button>
-                <button class="lang-btn" data-lang="en">EN</button>
+            <div class="nav-right">
+                <div id="user-profile-container"></div>
+                <div class="lang-switcher">
+                    <button class="lang-btn" data-lang="tr">TR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
             </div>
             <div class="hamburger">
                 <span></span>
@@ -57,10 +60,10 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1 data-i18n="discord_page_title">Discord Topluluğu</h1>
-                <p class="page-subtitle" data-i18n="discord_page_subtitle">Resmi Zoream Discord sunucusuna katılın —
-                    destek, güncellemeler ve topluluk
-                    sohbetleri için.</p>
+                <h1 data-i18n="discord_page_title">Discord TopluluÄŸu</h1>
+                <p class="page-subtitle" data-i18n="discord_page_subtitle">Resmi Zoream Discord sunucusuna katÄ±lÄ±n â€”
+                    destek, gÃ¼ncellemeler ve topluluk
+                    sohbetleri iÃ§in.</p>
             </div>
         </section>
 
@@ -68,19 +71,19 @@
             <div class="container">
                 <div class="discord-card">
                     <div class="discord-icon"><i class="fab fa-discord"></i></div>
-                    <h2 data-i18n="discord_join_title">Discord Sunucumuza Katılın</h2>
-                    <p data-i18n="discord_join_desc">Destek almak, güncellemeleri takip etmek ve toplulukla iletişime
-                        geçmek için Discord sunucumuza
-                        katılın.</p>
+                    <h2 data-i18n="discord_join_title">Discord Sunucumuza KatÄ±lÄ±n</h2>
+                    <p data-i18n="discord_join_desc">Destek almak, gÃ¼ncellemeleri takip etmek ve toplulukla iletiÅŸime
+                        geÃ§mek iÃ§in Discord sunucumuza
+                        katÄ±lÄ±n.</p>
                     <a href="https://discord.gg/tNB5du6bPC" class="discord-btn" id="discordInviteBtn">
-                        <span data-i18n="discord_join_button">Discord'a Katıl</span>
+                        <span data-i18n="discord_join_button">Discord'a KatÄ±l</span>
                     </a>
                 </div>
 
                 <div class="team-members">
-                    <h2 data-i18n="discord_team_title">Ekip Üyeleri</h2>
+                    <h2 data-i18n="discord_team_title">Ekip Ãœyeleri</h2>
                     <div class="members-grid" id="membersGrid">
-                        <!-- Discord üyeleri buraya JavaScript ile eklenecek -->
+                        <!-- Discord Ã¼yeleri buraya JavaScript ile eklenecek -->
                     </div>
                 </div>
             </div>
@@ -89,12 +92,13 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Zoream. <span data-i18n="footer_rights">Tüm hakları saklıdır.</span></p>
+            <p>&copy; 2026 Zoream. <span data-i18n="footer_rights">TÃ¼m haklarÄ± saklÄ±dÄ±r.</span></p>
         </div>
     </footer>
 
     <script src="translations.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>
+
