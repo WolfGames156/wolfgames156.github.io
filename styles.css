@@ -2103,6 +2103,7 @@ body {
     font-weight: 700;
     font-size: 0.9rem;
     white-space: nowrap; /* İsmi tek satırda tutar */
+    text-transform: uppercase; 
 }
 
 .user-status {
@@ -2215,6 +2216,7 @@ body {
 .invite-accept-btn:hover {
     filter: brightness(1.1);
 }
+
 
 
 
