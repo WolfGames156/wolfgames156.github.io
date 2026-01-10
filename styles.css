@@ -2105,7 +2105,8 @@ body {
     flex-direction: column;
     justify-content: center;
     line-height: 1.2;
-    margin-right: 0.5rem; /* Spacing from right edge */
+    margin-right: 0.4rem; /* Spacing from right edge */
+    margin-left: 0.2rem; 
 }
 
 .user-name {
@@ -2226,6 +2227,7 @@ body {
 .invite-accept-btn:hover {
     filter: brightness(1.1);
 }
+
 
 
 
