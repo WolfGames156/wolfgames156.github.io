@@ -1,6 +1,6 @@
 export async function onRequest(context) {
   const TARGET_URL =
-    'https://raw.githubusercontent.com/WolfGames156/Zoream-Database/refs/heads/main/status.txt';
+    'https://raw.githubusercontent.com/WolfGames156/Zoream-Database/refs/heads/main/status.txt?v=' + Math.floor(Date.now() / 60000);
 
   // Sadece GET / HEAD
   if (!['GET', 'HEAD'].includes(context.request.method)) {
@@ -16,7 +16,7 @@ export async function onRequest(context) {
         'Referer': 'https://github.com'
       },
       cf: {
-        cacheTtl: 300,
+        cacheTtl: 60,
         cacheEverything: true
       }
     });
@@ -34,7 +34,7 @@ export async function onRequest(context) {
   headers.set('Access-Control-Allow-Origin', '*');
 
   // Static gibi cache
-  headers.set('Cache-Control', 'public, max-age=300, immutable');
+  headers.set('Cache-Control', 'public, max-age=60');
 
   // JSON garanti
   headers.set('Content-Type', 'application/json; charset=utf-8');
