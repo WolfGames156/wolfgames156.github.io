@@ -16,7 +16,7 @@ export async function onRequest(context) {
         'Referer': 'https://github.com'
       },
       cf: {
-        cacheTtl: 86400,
+        cacheTtl: 300,
         cacheEverything: true
       }
     });
@@ -34,7 +34,7 @@ export async function onRequest(context) {
   headers.set('Access-Control-Allow-Origin', '*');
 
   // Static gibi cache
-  headers.set('Cache-Control', 'public, max-age=86400, immutable');
+  headers.set('Cache-Control', 'public, max-age=300, immutable');
 
   // JSON garanti
   headers.set('Content-Type', 'application/json; charset=utf-8');
