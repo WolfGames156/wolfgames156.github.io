@@ -1,6 +1,6 @@
 export async function onRequest(context) {
   const TARGET_URL =
-    'https://raw.githubusercontent.com/WolfGames156/Zoream-Database/refs/heads/main/luaservers.json?v=' + Math.floor(Date.now() / 60000);
+    'https://raw.githubusercontent.com/WolfGames156/zoreamrelease/refs/heads/main/zoream_version.txt?v=' + Math.floor(Date.now() / 60000);
 
   // Sadece GET / HEAD
   if (!['GET', 'HEAD'].includes(context.request.method)) {
