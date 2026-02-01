@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 * {
     margin: 0;
     padding: 0;
@@ -46,7 +44,7 @@ body {
     padding: 1rem 0;
     position: sticky;
     align-items: center !important;
-    justify-content: space-between !important;
+    justify-content: center !important;
     top: 0;
     height: 100px !important;
     z-index: 1000;
@@ -56,23 +54,12 @@ body {
 
 .nav-container {
     max-width: 1200px;
-    margin: 0 auto; /* Sayfayı ortalar ama içeriği dağıtmaz */
+    margin: 0 auto;
     padding: 0 2rem;
     display: flex;
-    justify-content: space-between; /* LOGO SOLDA - MENU ORTADA - DİL/PROFİL SAĞDA */
-    align-items: center; /* DİKEYDE TAM ORTALAMA */
-    width: 100%;
-    height: 100%;
-    gap: 1rem; /* Ögeler arası minimum mesafe */
-}
-
-/* --- SAĞ TARAF (DİL VE PROFİL) --- */
-.nav-right {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1.5rem;
-    margin-left: 0; /* 'auto' ise 0 yapın, space-between zaten sağa itiyor */
-    flex-shrink: 0;
+    gap: 2rem;
 }
 
 .logo {
@@ -774,14 +761,11 @@ body {
 }
 
 .download-info li::before {
-    /* "âœ“" yerine aşağıdaki kodu yazıyoruz */
-    content: "\2713"; 
+    content: "âœ“";
     position: absolute;
     left: 0;
     color: var(--success);
-    /* Gerekirse font-family ekle (varsayılan fontlarda bulunur) */
 }
-
 
 .download-info p {
     color: var(--text-secondary);
@@ -2067,51 +2051,61 @@ body {
     background: #4752c4;
 }
 
-/* User Profile - Avatar SOLDAYKEN Yazılar SAĞDA */
+/* User Profile - Pill Shape Design */
 .user-profile {
     display: flex;
-    flex-direction: row; /* Elemanları yan yana dizer */
     align-items: center;
-    justify-content: flex-start;
-    gap: 12px; /* Avatar ve yazı arasındaki boşluk */
-    padding: 6px 16px 6px 8px; /* Sol taraftan (avatarın olduğu yer) az, sağdan çok boşluk */
-    
+    gap: 1rem;
+    padding: 0.5rem 0.6rem 0.5rem 0.5rem; /* Left padding matches avatar gap */
     background: rgba(20, 20, 25, 0.6);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 50px;
-    min-width: 190px;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
+    border-radius: 50px; /* Pillow shape */
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    min-width: 200px; /* Ensure space for content */
+    z-index: 10; /* Ensure it is above normal content but below mobile menu */
+}
+
+.user-profile:hover {
+    background: rgba(255, 255, 255, 0.05); /* Lighter on hover */
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(100, 100, 255, 0.15); /* Soft glow */
 }
 
 .user-avatar {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    flex-shrink: 0; /* Avatarın sıkışmasını engeller */
-    border: 2px solid var(--accent);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%; /* Perfect circle */
+    object-fit: cover;
+    border: 2px solid var(--accent); /* Accent ring */
+    box-shadow: 0 0 10px var(--glow);
 }
 
 .user-info {
     display: flex;
     flex-direction: column;
-    text-align: left; /* Yazıları kendi içinde sola yaslar */
+    justify-content: center;
+    line-height: 1.2;
+    margin-right: 0.5rem; /* Spacing from right edge */
 }
-
 
 .user-name {
     color: var(--text-primary);
     font-weight: 700;
-    font-size: 0.9rem;
-    white-space: nowrap; /* İsmi tek satırda tutar */
-    text-transform: uppercase; 
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
 .user-status {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
-
-
 
 .status-member {
     color: var(--accent);
@@ -2216,16 +2210,4 @@ body {
 .invite-accept-btn:hover {
     filter: brightness(1.1);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 

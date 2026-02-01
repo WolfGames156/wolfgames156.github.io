@@ -126,7 +126,33 @@ window.translations = {
         discord_join_title: "Discord Sunucumuza Katılın",
         discord_join_desc: "Destek almak, güncellemeleri takip etmek ve toplulukla iletişime geçmek için Discord sunucumuza katılın.",
         discord_join_button: "Discord'a Katıl",
-        discord_team_title: "Ekip Üyeleri"
+        discord_team_title: "Ekip Üyeleri",
+
+        // Privacy & ToS
+        footer_privacy: "Gizlilik Politikası",
+        footer_tos: "Kullanım Koşulları",
+
+        privacy_title: "Gizlilik Politikası",
+        privacy_intro: "Zoream olarak gizliliğinize önem veriyoruz. Bu politika, hizmetlerimizi kullanırken bilgilerinizin nasıl işlendiğini (işlenmediğini) açıklar.",
+        privacy_data_collection: "Veri Toplama",
+        privacy_data_collection_desc: "Zoream, kullanıcılarından kişisel veri toplamaz. Kayıt olma, giriş yapma veya kimlik doğrulama süreçlerimiz yoktur. Kullanımınız tamamen anonimdir.",
+        privacy_usage: "Veri Kullanımı",
+        privacy_usage_desc: "Herhangi bir veri toplanmadığı için, verileriniz hiçbir şekilde üçüncü taraflarla paylaşılmaz, satılmaz veya analiz edilmez.",
+        privacy_security: "Güvenlik",
+        privacy_security_desc: "Uygulamamız yerel olarak çalışır ve verileriniz bilgisayarınızda kalır. Sunucularımıza hiçbir hassas veri gönderilmez.",
+        privacy_contact: "İletişim",
+        privacy_contact_desc: "Gizlilik politikamızla ilgili sorularınız için Discord sunucumuzdan bize ulaşabilirsiniz.",
+
+        tos_title: "Kullanım Koşulları",
+        tos_intro: "Zoream'i kullanarak aşağıdaki koşulları kabul etmiş sayılırsınız. Lütfen dikkatlice okuyunuz.",
+        tos_license: "Lisans ve Erişim",
+        tos_license_desc: "Zoream, oyun kütüphanenizi yönetmeniz için size ücretsiz, sınırlı ve devredilemez bir lisans verir.",
+        tos_restrictions: "Kısıtlamalar",
+        tos_restrictions_desc: "Uygulamayı tersine mühendislik ile incelemek, kopyalamak veya zarar verici amaçlarla kullanmak yasaktır.",
+        tos_disclaimer: "Sorumluluk Reddi",
+        tos_disclaimer_desc: "Zoream, 'olduğu gibi' sunulur. Kullanımdan doğabilecek herhangi bir veri kaybı veya sistem sorunundan geliştiriciler sorumlu tutulamaz.",
+        tos_termination: "Fesih",
+        tos_termination_desc: "Bu koşullara uymamanız durumunda, Zoream hizmetlerine erişiminiz engellenebilir (Discord sunucusu vb.)."
     },
     en: {
         // Navigation
@@ -254,7 +280,33 @@ window.translations = {
         discord_join_title: "Join Our Discord Server",
         discord_join_desc: "Join our Discord server to get support, follow updates and communicate with the community.",
         discord_join_button: "Join Discord",
-        discord_team_title: "Team Members"
+        discord_team_title: "Team Members",
+
+        // Privacy & ToS
+        footer_privacy: "Privacy Policy",
+        footer_tos: "Terms of Service",
+
+        privacy_title: "Privacy Policy",
+        privacy_intro: "At Zoream, we value your privacy. This policy explains how your information is handled (or not handled) when using our services.",
+        privacy_data_collection: "Data Collection",
+        privacy_data_collection_desc: "Zoream does not collect personal data from its users. We do not have registration, login, or authentication processes. Your usage is completely anonymous.",
+        privacy_usage: "Data Usage",
+        privacy_usage_desc: "Since no data is collected, your data is not shared, sold, or analyzed with third parties in any way.",
+        privacy_security: "Security",
+        privacy_security_desc: "Our application runs locally and your data stays on your computer. No sensitive data is sent to our servers.",
+        privacy_contact: "Contact",
+        privacy_contact_desc: "For questions about our privacy policy, you can reach us via our Discord server.",
+
+        tos_title: "Terms of Service",
+        tos_intro: "By using Zoream, you agree to the following terms. Please read carefully.",
+        tos_license: "License and Access",
+        tos_license_desc: "Zoream grants you a free, limited, and non-transferable license to manage your game library.",
+        tos_restrictions: "Restrictions",
+        tos_restrictions_desc: "It is prohibited to reverse engineer, copy, or use the application for malicious purposes.",
+        tos_disclaimer: "Disclaimer",
+        tos_disclaimer_desc: "Zoream is provided 'as is'. The developers cannot be held responsible for any data loss or system issues arising from usage.",
+        tos_termination: "Termination",
+        tos_termination_desc: "If you fail to comply with these terms, your access to Zoream services (Discord server, etc.) may be blocked."
     }
 };
 

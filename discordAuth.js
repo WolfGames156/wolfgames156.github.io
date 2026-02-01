@@ -155,24 +155,22 @@ export const DiscordAuth = {
             const statusClass = this.user.isMember ? 'status-member' : 'status-guest';
 
             loginContainer.innerHTML = `
-    <div class="user-profile">
-        <img src="${avatarUrl}" class="user-avatar" alt="Profile">
-
-        <div class="user-info">
-            <span class="user-name">${this.user.username}</span>
-            <span class="user-status ${statusClass}">${statusText}</span>
-        </div>
-
-        <div class="user-dropdown">
-            <div class="user-dropdown-item" id="copy-invite">
-                <i class="fas fa-link"></i> ${this.t('auth_copy_invite')}
-            </div>
-            <div class="user-dropdown-item logout" id="logout-btn">
-                <i class="fas fa-sign-out-alt"></i> ${this.t('auth_logout')}
-            </div>
-        </div>
-    </div>
-`;
+                <div class="user-profile">
+                    <div class="user-info">
+                        <span class="user-name">${this.user.username}</span>
+                        <span class="user-status ${statusClass}">${statusText}</span>
+                    </div>
+                    <img src="${avatarUrl}" class="user-avatar" alt="Profile">
+                    <div class="user-dropdown">
+                        <div class="user-dropdown-item" id="copy-invite">
+                            <i class="fas fa-link"></i> ${this.t('auth_copy_invite')}
+                        </div>
+                        <div class="user-dropdown-item logout" id="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> ${this.t('auth_logout')}
+                        </div>
+                    </div>
+                </div>
+            `;
 
             // Mobile Toggle Support
             const profileBtn = loginContainer.querySelector('.user-profile');
@@ -292,4 +290,3 @@ export const DiscordAuth = {
         });
     }
 };
-
