@@ -1,6 +1,6 @@
 export async function onRequest(context) {
   const TARGET_URL =
-    'https://raw.githubusercontent.com/WolfGames156/Zoream-Database/refs/heads/main/status.txt?v=' + Math.floor(Date.now() / 60000);
+    'https://raw.githubusercontent.com/WolfGames156/Zoream-Database/refs/heads/main/zoream_status.txt?v=' + Math.floor(Date.now() / 60000);
 
   // Sadece GET / HEAD
   if (!['GET', 'HEAD'].includes(context.request.method)) {
@@ -41,3 +41,4 @@ export async function onRequest(context) {
 
   return new Response(res.body, { status: 200, headers });
 }
+
