@@ -142,6 +142,11 @@ window.translations = {
         privacy_security_desc: "Uygulamamız yerel olarak çalışır ve verileriniz bilgisayarınızda kalır. Sunucularımıza hiçbir hassas veri gönderilmez.",
         privacy_contact: "İletişim",
         privacy_contact_desc: "Gizlilik politikamızla ilgili sorularınız için Discord sunucumuzdan bize ulaşabilirsiniz.",
+        
+        // YouTube Data Usage
+        youtube_data_usage_title: "YouTube Veri Kullanımı ve Gizlilik",
+        youtube_readonly_desc: "Uygulamamız, kullanıcıların topluluk ödüllerine uygun olup olmadığını doğrulamak için youtube.readonly iznini kullanır. Bu erişim, adil ve şeffaf bir ödül süreci sağlamak amacıyla yalnızca kullanıcının belirli bir YouTube kanalına abone olup olmadığını kontrol etmek için gereklidir. Verilere gerçek zamanlı olarak erişilir, saklanmaz ve asla üçüncü taraflarla paylaşılmaz.",
+        youtube_force_ssl_desc: "Ek olarak, kullanıcı yorumları ve videolardaki beğeniler gibi bazı gerekli verilere youtube.readonly kapsamı üzerinden erişilemediği için youtube.force-ssl iznini kullanıyoruz. Bu izin, yalnızca uygunluk doğrulaması amacıyla bu etkileşim bilgilerini okumak için kullanılır. Hiçbir veri değiştirilmez, yayınlanmaz veya herhangi bir şekilde kötüye kullanılmaz.",
 
         tos_title: "Kullanım Koşulları",
         tos_intro: "Zoream'i kullanarak aşağıdaki koşulları kabul etmiş sayılırsınız. Lütfen dikkatlice okuyunuz.",
@@ -296,6 +301,11 @@ window.translations = {
         privacy_security_desc: "Our application runs locally and your data stays on your computer. No sensitive data is sent to our servers.",
         privacy_contact: "Contact",
         privacy_contact_desc: "For questions about our privacy policy, you can reach us via our Discord server.",
+
+        // YouTube Data Usage
+        youtube_data_usage_title: "YouTube Data Usage & Privacy",
+        youtube_readonly_desc: "Our application uses the youtube.readonly scope to verify whether users are eligible for community rewards. This access is required solely to check whether a user is subscribed to a specific YouTube channel in order to ensure a fair and transparent reward process. The data is accessed in real time, is not stored, and is never shared with third parties.",
+        youtube_force_ssl_desc: "In addition, we use the youtube.force-ssl scope because certain required data—such as user comments and likes on videos—is not accessible through the youtube.readonly scope. This scope is used strictly to read this engagement information for eligibility verification purposes only. No data is modified, published, or misused in any way.",
 
         tos_title: "Terms of Service",
         tos_intro: "By using Zoream, you agree to the following terms. Please read carefully.",
