@@ -107,17 +107,17 @@ window.translations = {
         how_to_step1_title: "Zoream'i Açın",
         how_to_step1_desc: "Öncelikle Zoream'in yeni sürümünü açıyorsunuz.",
         how_to_step2_title: "Oturum Aç",
-        how_to_step2_desc: "Topluluk ve bazı yardım özellikleri için Discord hesabı ile oturum açma seçeneği sunulmaktadır. Temel kullanım için oturum açma gerekmeyebilir.",
+        how_to_step2_desc: "Google ve Discord ile sırayla oturum açın. Discord sunucumuzda bulunmanız gerekmektedir. Ayrıca youtube kanalına abone olmanızda gereklidir.",
         how_to_step3_title: "Dili ayarlayın",
-        how_to_step3_desc: "Sol alttaki buton ile dilinizi ayarlayın.",
+        how_to_step3_desc: "Ayarlardan dilinizi ayarlayın.",
         how_to_step4_title: "Oyununuzu Bulun",
-        how_to_step4_desc: "Uygulama içindeki arama ve yönetim araçlarıyla oyunlarınızı bulun ve kütüphanenizde düzenleyin.",
+        how_to_step4_desc: "Uygulama içindeki steam mağazasında oyunlarınızı bulun ve sepete ekle butonunun yanındaki Zoream ile Ekle/Güncelle butonuna basarak kütüphaneye ekleyin.",
         how_to_step5_title: "Oyunu Ekleyin ve Yönetin",
         how_to_step5_desc: "Oyunlarınızı Zoream kütüphanesine ekleyin; güncelleme ve başlatma işlemlerini tek yerden yönetin.",
         how_to_step6_title: "Tebrikler",
         how_to_step6_desc: "Oyun Bütün DLC'leri ile birlikte eklendi. Zoream kütüphane kısmından veya steam üzerinden indirip oynayabilirsiniz.",
         how_to_warning_title: "Önemli Notlar",
-        how_to_warning_desc: "Bazı oyunlar sitelerde olmayabilir ve çoğu multiplayer oyunlar çalışmaz. Yine de destek almak isterseniz Discord sunucumuza gelerek yazabilirsiniz. Mümkünse sizin için bulup göndermeye çalışırız.",
+        how_to_warning_desc: "Denuvo, EA, Ubisoft oyunları çalışmamaktadır. Arkadalarınızla multiplayer oynamak için Online/Bypass kurmanız gerekmektedir.",
         how_to_good_luck: "İyi Oyunlar!",
 
         // Discord Page
@@ -402,3 +402,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
