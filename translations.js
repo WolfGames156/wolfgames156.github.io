@@ -262,22 +262,22 @@ window.translations = {
         auth_logout: "Log out",
 
         // How to Use Page (Nasıl Kullanılır)
-        how_to_use_title: "How to Use?",
-        how_to_step1_title: "Open Zoream",
-        how_to_step1_desc: "First, open the new version of Zoream.",
-        how_to_step2_title: "Sign In",
-        how_to_step2_desc: "Login option with Discord account is available for community and some help features. Login may not be required for basic usage.",
-        how_to_step3_title: "Set Language",
-        how_to_step3_desc: "Set your language with the button at the bottom left.",
-        how_to_step4_title: "Find Your Game",
-        how_to_step4_desc: "Find your games with the search and management tools in the app and organize them in your library.",
-        how_to_step5_title: "Add and Manage Game",
-        how_to_step5_desc: "Add your games to the Zoream library; manage updates and launches from one place.",
-        how_to_step6_title: "Congratulations",
-        how_to_step6_desc: "The game has been added with all DLCs. You can download and play from Zoream library section or steam.",
-        how_to_warning_title: "Important Notes",
-        how_to_warning_desc: "Some games may not be on the sites and most multiplayer games don't work. If you still want to get support, you can write by coming to our Discord server. If possible, we will try to find and send it for you.",
-        how_to_good_luck: "Have Fun!",
+  how_to_use_title: "How to Use?",
+    how_to_step1_title: "Open Zoream",
+    how_to_step1_desc: "First, launch the latest version of Zoream.",
+    how_to_step2_title: "Sign In",
+    how_to_step2_desc: "Sign in using Google and Discord respectively. You must be a member of our Discord server. Additionally, you need to subscribe to our YouTube channel.",
+    how_to_step3_title: "Set Your Language",
+    how_to_step3_desc: "Configure your preferred language in the settings menu.",
+    how_to_step4_title: "Find Your Game",
+    how_to_step4_desc: "Locate your games in the Steam store within the app and click the 'Add/Update with Zoream' button next to the 'Add to Cart' button to add them to your library.",
+    how_to_step5_title: "Add and Manage Games",
+    how_to_step5_desc: "Add games to your Zoream library; manage updates and launches all from one place.",
+    how_to_step6_title: "Congratulations",
+    how_to_step6_desc: "The game has been added with all its DLCs. You can download and play it via the Zoream library or through Steam.",
+    how_to_warning_title: "Important Notes",
+    how_to_warning_desc: "Denuvo, EA, and Ubisoft games are not supported. To play multiplayer with friends, you must install the Online/Bypass fix.",
+    how_to_good_luck: "Have Fun!"
 
         // Discord Page
         discord_page_title: "Discord Community",
@@ -402,4 +402,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 
