@@ -323,63 +323,50 @@ class LanguageManager {
     constructor() {
         this.currentLang = this.detectLanguage();
         this.init();
-        this.setupObserver(); 
     }
 
     detectLanguage() {
+        // Check if user manually selected a language
         const savedLang = localStorage.getItem('zoream_language');
         if (savedLang && (savedLang === 'tr' || savedLang === 'en')) {
             return savedLang;
         }
+
+        // Detect browser language
         const browserLang = navigator.language || navigator.userLanguage;
         return browserLang.toLowerCase().startsWith('tr') ? 'tr' : 'en';
     }
 
     init() {
-        // translations nesnesinin yüklendiğinden emin oluyoruz
-        if (!window.translations) {
-            console.error("Translations object not found!");
-            return;
-        }
         this.applyTranslations();
         this.updateLanguageButtons();
-        document.documentElement.lang = this.currentLang;
-    }
-
-    setupObserver() {
-        const observer = new MutationObserver((mutations) => {
-            // Performans için debounce eklenebilir ama basitçe her değişimde tetikliyoruz
-            this.applyTranslations();
-        });
-        observer.observe(document.body, { childList: true, subtree: true });
     }
 
     setLanguage(lang) {
         if (lang !== 'tr' && lang !== 'en') return;
+
         this.currentLang = lang;
         localStorage.setItem('zoream_language', lang);
         this.applyTranslations();
         this.updateLanguageButtons();
+
+        // Update HTML lang attribute
         document.documentElement.lang = lang;
 
-        if (window.slider && typeof window.slider.updateSlider === 'function') {
+        // Trigger slider update if it exists
+        if (window.slider) {
             window.slider.updateSlider(window.slider.currentIndex);
         }
     }
 
     applyTranslations() {
-        // window.translations (küçük w) kullanıldığına dikkat edin
-        const trans = window.translations[this.currentLang]; 
-        if (!trans) return;
+        const trans = translations[this.currentLang];
 
+        // Apply translations to elements with data-i18n attribute
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (trans[key]) {
-                if (trans[key].includes('<') && trans[key].includes('>')) {
-                    element.innerHTML = trans[key];
-                } else {
-                    element.textContent = trans[key];
-                }
+                element.textContent = trans[key];
             }
         });
     }
@@ -387,13 +374,29 @@ class LanguageManager {
     updateLanguageButtons() {
         document.querySelectorAll('.lang-btn').forEach(btn => {
             const lang = btn.getAttribute('data-lang');
-            btn.classList.toggle('active', lang === this.currentLang);
+            if (lang === this.currentLang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
         });
     }
 
     translate(key) {
-        return window.translations[this.currentLang][key] || key;
+        return translations[this.currentLang][key] || key;
     }
 }
 
+// Initialize language manager
+window.langManager = null;
+document.addEventListener('DOMContentLoaded', () => {
+    window.langManager = new LanguageManager();
 
+    // Add language switcher event listeners
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            window.langManager.setLanguage(lang);
+        });
+    });
+});
