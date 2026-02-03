@@ -319,12 +319,11 @@ window.translations = {
     }
 };
 
-// translations.js - Language management sınıfı güncellemesi
 class LanguageManager {
     constructor() {
         this.currentLang = this.detectLanguage();
         this.init();
-        this.setupObserver(); // Dinamik içerikler için takipçiyi başlat
+        this.setupObserver(); 
     }
 
     detectLanguage() {
@@ -337,19 +336,20 @@ class LanguageManager {
     }
 
     init() {
+        // translations nesnesinin yüklendiğinden emin oluyoruz
+        if (!window.translations) {
+            console.error("Translations object not found!");
+            return;
+        }
         this.applyTranslations();
         this.updateLanguageButtons();
         document.documentElement.lang = this.currentLang;
     }
 
-    // YENİ: Sayfaya sonradan eklenen elementleri (Login sonrası profil gibi) otomatik çevirir
     setupObserver() {
         const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.addedNodes.length) {
-                    this.applyTranslations();
-                }
-            });
+            // Performans için debounce eklenebilir ama basitçe her değişimde tetikliyoruz
+            this.applyTranslations();
         });
         observer.observe(document.body, { childList: true, subtree: true });
     }
@@ -362,18 +362,19 @@ class LanguageManager {
         this.updateLanguageButtons();
         document.documentElement.lang = lang;
 
-        if (window.slider) {
+        if (window.slider && typeof window.slider.updateSlider === 'function') {
             window.slider.updateSlider(window.slider.currentIndex);
         }
     }
 
     applyTranslations() {
-        const trans = Window.translations[this.currentLang]; // Window.translations olarak düzelttim
+        // window.translations (küçük w) kullanıldığına dikkat edin
+        const trans = window.translations[this.currentLang]; 
+        if (!trans) return;
 
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (trans[key]) {
-                // EĞER HTML içeriyorsa (strong, br vb.) innerHTML kullan
                 if (trans[key].includes('<') && trans[key].includes('>')) {
                     element.innerHTML = trans[key];
                 } else {
@@ -391,20 +392,6 @@ class LanguageManager {
     }
 
     translate(key) {
-        return Window.translations[this.currentLang][key] || key;
+        return window.translations[this.currentLang][key] || key;
     }
 }
-
-// Global başlatma
-window.langManager = null;
-document.addEventListener('DOMContentLoaded', () => {
-    window.langManager = new LanguageManager();
-
-    // Dil butonları için event listener (Klonlanmış mobil menü butonları dahil)
-    document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('lang-btn')) {
-            const lang = e.target.getAttribute('data-lang');
-            window.langManager.setLanguage(lang);
-        }
-    });
-});
