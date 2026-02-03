@@ -761,7 +761,7 @@ body {
 }
 
 .download-info li::before {
-    content: "âœ“";
+    content: "\2713"; /* ✓ */
     position: absolute;
     left: 0;
     color: var(--success);
@@ -2210,4 +2210,5 @@ body {
 .invite-accept-btn:hover {
     filter: brightness(1.1);
 }
+
 
