@@ -276,7 +276,7 @@ window.translations = {
     how_to_step6_desc: "The game has been added with all its DLCs. You can download and play it via the Zoream library or through Steam.",
     how_to_warning_title: "Important Notes",
     how_to_warning_desc: "Denuvo, EA, and Ubisoft games are not supported. To play multiplayer with friends, you must install the Online/Bypass fix.",
-    how_to_good_luck: "Have Fun!"
+    how_to_good_luck: "Have Fun!",
 
         // Discord Page
         discord_page_title: "Discord Community",
@@ -395,3 +395,4 @@ class LanguageManager {
         return window.translations[this.currentLang][key] || key;
     }
 }
+
