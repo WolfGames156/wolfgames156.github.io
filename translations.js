@@ -319,21 +319,19 @@ window.translations = {
     }
 };
 
-// Language management
+// translations.js - Language management sınıfı güncellemesi
 class LanguageManager {
     constructor() {
         this.currentLang = this.detectLanguage();
         this.init();
+        this.setupObserver(); // Dinamik içerikler için takipçiyi başlat
     }
 
     detectLanguage() {
-        // Check if user manually selected a language
         const savedLang = localStorage.getItem('zoream_language');
         if (savedLang && (savedLang === 'tr' || savedLang === 'en')) {
             return savedLang;
         }
-
-        // Detect browser language
         const browserLang = navigator.language || navigator.userLanguage;
         return browserLang.toLowerCase().startsWith('tr') ? 'tr' : 'en';
     }
@@ -341,33 +339,46 @@ class LanguageManager {
     init() {
         this.applyTranslations();
         this.updateLanguageButtons();
+        document.documentElement.lang = this.currentLang;
+    }
+
+    // YENİ: Sayfaya sonradan eklenen elementleri (Login sonrası profil gibi) otomatik çevirir
+    setupObserver() {
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.addedNodes.length) {
+                    this.applyTranslations();
+                }
+            });
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
     }
 
     setLanguage(lang) {
         if (lang !== 'tr' && lang !== 'en') return;
-
         this.currentLang = lang;
         localStorage.setItem('zoream_language', lang);
         this.applyTranslations();
         this.updateLanguageButtons();
-
-        // Update HTML lang attribute
         document.documentElement.lang = lang;
 
-        // Trigger slider update if it exists
         if (window.slider) {
             window.slider.updateSlider(window.slider.currentIndex);
         }
     }
 
     applyTranslations() {
-        const trans = translations[this.currentLang];
+        const trans = Window.translations[this.currentLang]; // Window.translations olarak düzelttim
 
-        // Apply translations to elements with data-i18n attribute
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (trans[key]) {
-                element.textContent = trans[key];
+                // EĞER HTML içeriyorsa (strong, br vb.) innerHTML kullan
+                if (trans[key].includes('<') && trans[key].includes('>')) {
+                    element.innerHTML = trans[key];
+                } else {
+                    element.textContent = trans[key];
+                }
             }
         });
     }
@@ -375,32 +386,25 @@ class LanguageManager {
     updateLanguageButtons() {
         document.querySelectorAll('.lang-btn').forEach(btn => {
             const lang = btn.getAttribute('data-lang');
-            if (lang === this.currentLang) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
+            btn.classList.toggle('active', lang === this.currentLang);
         });
     }
 
     translate(key) {
-        return translations[this.currentLang][key] || key;
+        return Window.translations[this.currentLang][key] || key;
     }
 }
 
-// Initialize language manager
+// Global başlatma
 window.langManager = null;
 document.addEventListener('DOMContentLoaded', () => {
     window.langManager = new LanguageManager();
 
-    // Add language switcher event listeners
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const lang = btn.getAttribute('data-lang');
+    // Dil butonları için event listener (Klonlanmış mobil menü butonları dahil)
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('lang-btn')) {
+            const lang = e.target.getAttribute('data-lang');
             window.langManager.setLanguage(lang);
-        });
+        }
     });
 });
-
-
-
