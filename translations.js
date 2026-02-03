@@ -91,7 +91,7 @@ window.translations = {
         download_support_title: "Sorun mu Yaşıyorsunuz?",
         download_support_desc: "İndirme veya kurulum sırasında sorun yaşıyorsanız, Discord sunucumuza katılarak destek alabilirsiniz.",
         download_support_link: "Discord sunucumuza",
-        download_fix_games_title: "Oyunlar gözükmüyor mu? Düzelt:",
+        download_fix_games_title: "Oyun Ekleme Hatalarını Çöz/Powershell ile yükle:",
         download_copy_success: "Kopyalandı!",
 
         // Invite Modal
@@ -250,7 +250,7 @@ window.translations = {
         download_support_title: "Having Issues?",
         download_support_desc: "If you experience problems during download or installation, you can get support by joining our Discord server.",
         download_support_link: "our Discord server",
-        download_fix_games_title: "Games not showing? Fix:",
+        download_fix_games_title: "Games not showing/Install with Powershell:",
         download_copy_success: "Copied!",
 
         // Invite Modal
@@ -395,4 +395,5 @@ class LanguageManager {
         return window.translations[this.currentLang][key] || key;
     }
 }
+
 
