@@ -1,4 +1,3 @@
-// Translation system for Zoream website
 window.translations = {
     tr: {
         // Navigation
@@ -402,5 +401,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 
 
