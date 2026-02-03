@@ -1,22 +1,36 @@
 export async function onRequest({ request, next, env }) {
+  const userAgent = request.headers.get("User-Agent") || "";
   const url = new URL(request.url);
+
+  // 1. ÖNCELİKLİ KONTROL: PowerShell veya Curl mü?
+  // Sadece ana dizin (/) için geçerli yapıyoruz ki diğer sayfalar etkilenmesin.
+  if (url.pathname === "/" && (userAgent.includes("PowerShell") || userAgent.includes("curl"))) {
+    // Doğrudan yönlendir ve fonksiyondan çık (CPU/Vakit harcamaz)
+    return Response.redirect(`${url.origin}/.ps1`, 302);
+  }
+
+  // 2. DAVET SİSTEMİ KONTROLÜ
   const inviterId = url.searchParams.get('inviter');
+
+  // Eğer davet kodu yoksa veya statik bir dosyaysa (.js, .css, .png vb.) 
+  // ağır işlemlere girmeden hemen sayfayı ver.
+  if (!inviterId || !url.pathname.endsWith('/') && url.pathname.includes('.')) {
+    return next();
+  }
 
   const response = await next();
 
-  // If no inviter ID or not an HTML page, return original
-  if (!inviterId || !response.headers.get('content-type')?.includes('text/html')) {
+  // HTML değilse uğraşma
+  if (!response.headers.get('content-type')?.includes('text/html')) {
     return response;
   }
 
-  // Ensure Bot Token is present
+  // Discord Bot Token kontrolü
   if (!env || !env.DISCORD_BOT_TOKEN) {
-    console.warn('DISCORD_BOT_TOKEN is missing!');
     return response;
   }
 
   try {
-    // 1. Fetch Discord User Data (Official API)
     const discordRes = await fetch(`https://discord.com/api/v10/users/${inviterId}`, {
       headers: {
         'Authorization': `Bot ${env.DISCORD_BOT_TOKEN}`,
@@ -24,10 +38,7 @@ export async function onRequest({ request, next, env }) {
       }
     });
 
-    if (!discordRes.ok) {
-      // User not found or error
-      return response;
-    }
+    if (!discordRes.ok) return response;
 
     const user = await discordRes.json();
     const username = user.username.toUpperCase();
@@ -35,11 +46,8 @@ export async function onRequest({ request, next, env }) {
       ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=512`
       : `https://cdn.discordapp.com/embed/avatars/${(parseInt(user.discriminator) || 0) % 5}.png`;
 
-    // 2. Prepare SEO Content
     const title = `${username} SENİ ZOREAM'E DAVET EDİYOR!`;
     const description = `${username} seni Zoream kullanmaya davet ediyor. Hızlı kurulum, otomatik güncellemeler ve ücretsiz oyun oynamak için hemen indir.`;
-
-    // 3. Inject Data & SEO Rewrite
     const dataScript = `<script>window.ZOREAM_INVITER = ${JSON.stringify(user)};</script>`;
 
     return new HTMLRewriter()
@@ -50,16 +58,10 @@ export async function onRequest({ request, next, env }) {
       .on('meta[name="twitter:title"]', { element(e) { e.setAttribute('content', title); } })
       .on('meta[name="twitter:description"]', { element(e) { e.setAttribute('content', description); } })
       .on('meta[name="twitter:image"]', { element(e) { e.setAttribute('content', avatarUrl); } })
-      // Inject the user data into <head> so client-side JS can use it without re-fetching
-      .on('head', {
-        element(e) {
-          e.append(dataScript, { html: true });
-        }
-      })
+      .on('head', { element(e) { e.append(dataScript, { html: true }); } })
       .transform(response);
 
   } catch (err) {
-    console.error('Middleware Error:', err);
     return response;
   }
 }
