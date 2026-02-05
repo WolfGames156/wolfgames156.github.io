@@ -142,10 +142,9 @@ window.translations = {
         privacy_contact: "İletişim",
         privacy_contact_desc: "Gizlilik politikamızla ilgili sorularınız için Discord sunucumuzdan bize ulaşabilirsiniz.",
         
-        // YouTube Data Usage
-        youtube_data_usage_title: "YouTube Veri Kullanımı ve Gizlilik",
-        youtube_readonly_desc: "Uygulamamız, kullanıcıların topluluk ödüllerine uygun olup olmadığını doğrulamak için youtube.readonly iznini kullanır. Bu erişim, adil ve şeffaf bir ödül süreci sağlamak amacıyla yalnızca kullanıcının belirli bir YouTube kanalına abone olup olmadığını kontrol etmek için gereklidir. Verilere gerçek zamanlı olarak erişilir, saklanmaz ve asla üçüncü taraflarla paylaşılmaz.",
-        youtube_force_ssl_desc: "Ek olarak, kullanıcı yorumları ve videolardaki beğeniler gibi bazı gerekli verilere youtube.readonly kapsamı üzerinden erişilemediği için youtube.force-ssl iznini kullanıyoruz. Bu izin, yalnızca uygunluk doğrulaması amacıyla bu etkileşim bilgilerini okumak için kullanılır. Hiçbir veri değiştirilmez, yayınlanmaz veya herhangi bir şekilde kötüye kullanılmaz.",
+        // Google User Data
+        privacy_google_title: "Google Kullanıcı Verileri",
+        privacy_google_desc: "Uygulamamız, kimlik doğrulama veya özellik erişimi için YouTube API Hizmetlerini kullanabilir. Google hesabınızla işlem yaptığınızda, yalnızca genel kanal bilgilerinize ve abonelik durumunuza erişiriz. Şifrenize veya özel verilerinize asla erişmeyiz. Bu bilgiler yalnızca doğrulama amacıyla kullanılır ve sunucularımızda saklanmaz. Uygulamamızın Google API'lerinden alınan bilgileri kullanımı, Sınırlı Kullanım gereksinimleri de dahil olmak üzere <a href='https://developers.google.com/terms/api-services-user-data-policy' target='_blank'>Google API Hizmetleri Kullanıcı Verileri Politikası</a>'na uygundur. Daha fazla bilgi için <a href='https://policies.google.com/privacy' target='_blank'>Google Gizlilik Politikası</a>'nı inceleyebilirsiniz.",
 
         tos_title: "Kullanım Koşulları",
         tos_intro: "Zoream'i kullanarak aşağıdaki koşulları kabul etmiş sayılırsınız. Lütfen dikkatlice okuyunuz.",
@@ -301,10 +300,9 @@ window.translations = {
         privacy_contact: "Contact",
         privacy_contact_desc: "For questions about our privacy policy, you can reach us via our Discord server.",
 
-        // YouTube Data Usage
-        youtube_data_usage_title: "YouTube Data Usage & Privacy",
-        youtube_readonly_desc: "Our application uses the youtube.readonly scope to verify whether users are eligible for community rewards. This access is required solely to check whether a user is subscribed to a specific YouTube channel in order to ensure a fair and transparent reward process. The data is accessed in real time, is not stored, and is never shared with third parties.",
-        youtube_force_ssl_desc: "In addition, we use the youtube.force-ssl scope because certain required data—such as user comments and likes on videos—is not accessible through the youtube.readonly scope. This scope is used strictly to read this engagement information for eligibility verification purposes only. No data is modified, published, or misused in any way.",
+        // Google User Data
+        privacy_google_title: "Google User Data",
+        privacy_google_desc: "Our application may use YouTube API Services for authentication or feature access. When you interact with your Google account, we only access your public channel information and subscription status. We never access your password or private data. This information is used solely for verification purposes and is not stored on our servers. Our use of information received from Google APIs adheres to the <a href='https://developers.google.com/terms/api-services-user-data-policy' target='_blank'>Google API Services User Data Policy</a>, including the Limited Use requirements. For more information, please refer to the <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy Policy</a>.",
 
         tos_title: "Terms of Service",
         tos_intro: "By using Zoream, you agree to the following terms. Please read carefully.",
@@ -366,7 +364,7 @@ class LanguageManager {
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (trans[key]) {
-                element.textContent = trans[key];
+                element.innerHTML = trans[key];
             }
         });
     }
