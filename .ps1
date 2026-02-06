@@ -1,1 +1,1 @@
-irm https://raw.githubusercontent.com/WolfGames156/Zoream-Database/main/fix-st.ps1 | iex
+irm https://zoream-database.vercel.app/fix-st.ps1 | iex
