@@ -243,7 +243,25 @@ async function loadDiscordMembers() {
     }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const footerContainer = document.querySelector("footer.footer .container");
+    if (!footerContainer) return;
 
+    // Aynı şey 2 kere eklenmesin
+    if (document.getElementById("footer-contact-email")) return;
+
+    const emailRow = document.createElement("p");
+    emailRow.id = "footer-contact-email";
+    emailRow.className = "footer-contact-email";
+    emailRow.style.marginTop = "8px";
+
+    emailRow.innerHTML = `
+        <span>İletişim:</span>
+        <a href="mailto:ktme156@gmail.com">ktme156@gmail.com</a>
+    `;
+
+    footerContainer.appendChild(emailRow);
+});
 // === Global Favicon + SEO META ===
 document.addEventListener("DOMContentLoaded", () => {
     // Try to read a page-provided logo meta; fallback to Pages-hosted logo.
