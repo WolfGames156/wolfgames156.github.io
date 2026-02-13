@@ -51,7 +51,14 @@ body {
     backdrop-filter: blur(20px) saturate(180%);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
+.footer-contact-email a {
+    text-decoration: none;
+    font-weight: 600;
+}
 
+.footer-contact-email a:hover {
+    text-decoration: underline;
+}
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -2210,5 +2217,6 @@ body {
 .invite-accept-btn:hover {
     filter: brightness(1.1);
 }
+
 
 
