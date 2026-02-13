@@ -1,197 +1,320 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="tr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zoream — Oyun Launcher ve Yönetim Aracı</title>
-    <meta name="description"
-        content="Zoream: Oyunları daha kolay yönetmek, başlatmak ve güncellemek için hızlı bir launcher. Hızlı kurulum ve kullanıcı dostu arayüz ile oyun deneyiminizi düzenleyin.">
+    <meta
+      name="description"
+      content="Zoream: Oyunları daha kolay yönetmek, başlatmak ve güncellemek için hızlı bir launcher. Hızlı kurulum ve kullanıcı dostu arayüz ile oyun deneyiminizi düzenleyin."
+    />
 
     <meta name="yandex-verification" content="32c06d8b4bcd05fe" />
-    <meta name="google-site-verification" content="kzDKx2Q4MkkW4tV7glO5qnvJdpgOnbpb8lhUmei7pDE" />
-    <meta name="keywords"
-        content="Zoream, oyun launcher, oyun yönetimi, indir, oyun başlatıcı, game library, settings, news, manual game add, online fix, bypass">
-    <meta name="robots" content="index, follow">
+    <meta
+      name="google-site-verification"
+      content="kzDKx2Q4MkkW4tV7glO5qnvJdpgOnbpb8lhUmei7pDE"
+    />
+    <meta
+      name="keywords"
+      content="Zoream, oyun launcher, oyun yönetimi, indir, oyun başlatıcı, game library, settings, news, manual game add, online fix, bypass"
+    />
+    <meta name="robots" content="index, follow" />
 
     <!-- Slide Images for SEO -->
-    <meta property="og:image" content="https://zoream.pages.dev/slide/library.png">
-    <meta property="og:image" content="https://zoream.pages.dev/slide/settings.png">
-    <meta property="og:image" content="https://zoream.pages.dev/slide/news.png">
-    <meta property="og:image" content="https://zoream.pages.dev/slide/manuelgameadd.png">
-    <meta property="og:image" content="https://zoream.pages.dev/slide/onlinefixandbypass.png">
-    <meta property="og:image" content="https://zoream.pages.dev/slide/about.png">
+    <meta
+      property="og:image"
+      content="https://zoream.pages.dev/slide/library.png"
+    />
+    <meta
+      property="og:image"
+      content="https://zoream.pages.dev/slide/settings.png"
+    />
+    <meta
+      property="og:image"
+      content="https://zoream.pages.dev/slide/news.png"
+    />
+    <meta
+      property="og:image"
+      content="https://zoream.pages.dev/slide/manuelgameadd.png"
+    />
+    <meta
+      property="og:image"
+      content="https://zoream.pages.dev/slide/onlinefixandbypass.png"
+    />
+    <meta
+      property="og:image"
+      content="https://zoream.pages.dev/slide/about.png"
+    />
 
     <!-- Single canonical and hosted logo meta for automatic favicon/meta generation -->
-    <link rel="canonical" href="https://zoream.pages.dev/">
-    <meta name="zoream:logo" content="https://zoream.pages.dev/zoreamlogo.png">
+    <link rel="canonical" href="https://zoream.pages.dev/" />
+    <meta
+      name="zoream:logo"
+      content="https://zoream.pages.dev/zoreamlogo.png"
+    />
 
     <!-- Favicon (using your hosted logo on pages.dev) -->
-    <link rel="icon" href="https://zoream.pages.dev/zoreamlogo.png" type="image/png">
+    <link
+      rel="icon"
+      href="https://zoream.pages.dev/zoreamlogo.png"
+      type="image/png"
+    />
 
     <!-- Open Graph / Social preview -->
-    <meta property="og:site_name" content="Zoream">
-    <meta property="og:title" content="Zoream — Oyun Launcher ve Yönetim Aracı">
-    <meta property="og:description"
-        content="Zoream: Oyunları daha kolay yönetmek, başlatmak ve güncellemek için hızlı bir launcher.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://zoream.pages.dev/">
+    <meta property="og:site_name" content="Zoream" />
+    <meta
+      property="og:title"
+      content="Zoream — Oyun Launcher ve Yönetim Aracı"
+    />
+    <meta
+      property="og:description"
+      content="Zoream: Oyunları daha kolay yönetmek, başlatmak ve güncellemek için hızlı bir launcher."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zoream.pages.dev/" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Zoream — Oyun Launcher ve Yönetim Aracı">
-    <meta name="twitter:description"
-        content="Zoream: Oyunları daha kolay yönetmek, başlatmak ve güncellemek için hızlı bir launcher.">
-    <meta name="twitter:image" content="https://zoream.pages.dev/zoreamlogo.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Zoream — Oyun Launcher ve Yönetim Aracı"
+    />
+    <meta
+      name="twitter:description"
+      content="Zoream: Oyunları daha kolay yönetmek, başlatmak ve güncellemek için hızlı bir launcher."
+    />
+    <meta
+      name="twitter:image"
+      content="https://zoream.pages.dev/zoreamlogo.png"
+    />
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z401QWN1VW"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Z401QWN1VW"
+    ></script>
 
     <!-- Structured data: Organization + WebSite -->
-    <script type="application/ld+json">{
-            "@context": "https://schema.org",
-            "@graph": [
-                {
-                    "@type": "Organization",
-                    "name": "Zoream",
-                    "url": "https://zoream.pages.dev/",
-                    "logo": "https://zoream.pages.dev/zoreamlogo.png"
-                },
-                {
-                    "@type": "WebSite",
-                    "url": "https://zoream.pages.dev/",
-                    "name": "Zoream",
-                    "publisher": {
-                        "@type": "Organization",
-                        "name": "Zoream",
-                        "logo": {
-                            "@type": "ImageObject",
-                            "url": "https://zoream.pages.dev/zoreamlogo.png"
-                        }
-                    }
-                }
-            ]
-        }</script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "Zoream",
+            "url": "https://zoream.pages.dev/",
+            "logo": "https://zoream.pages.dev/zoreamlogo.png"
+          },
+          {
+            "@type": "WebSite",
+            "url": "https://zoream.pages.dev/",
+            "name": "Zoream",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Zoream",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://zoream.pages.dev/zoreamlogo.png"
+              }
+            }
+          }
+        ]
+      }
+    </script>
 
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-Z401QWN1VW');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-Z401QWN1VW");
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
+  <body>
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">Zoream</div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active" data-i18n="nav_home">Ana Sayfa</a></li>
-                <li><a href="nasil-kullanilir.html" data-i18n="nav_how_to_use">Nasıl Kullanılır</a></li>
-                <li><a href="indir.html" data-i18n="nav_download">İndir</a></li>
-                <li><a href="emegi-gecenler.html" data-i18n="nav_contributors">Emeği Geçenler</a></li>
-                <li><a href="discord.html" data-i18n="nav_discord">Discord</a></li>
-            </ul>
-            <div class="nav-right">
-                <div id="user-profile-container"></div><div class="lang-switcher">
-                    <button class="lang-btn" data-lang="tr">TR</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                </div>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+      <div class="nav-container">
+        <a href="index.html" class="logo">Zoream</a>
+        <ul class="nav-menu">
+          <li>
+            <a href="index.html" class="active" data-i18n="nav_home"
+              >Ana Sayfa</a
+            >
+          </li>
+          <li>
+            <a href="nasil-kullanilir.html" data-i18n="nav_how_to_use"
+              >Nasıl Kullanılır</a
+            >
+          </li>
+          <li><a href="indir.html" data-i18n="nav_download">İndir</a></li>
+          <li>
+            <a href="emegi-gecenler.html" data-i18n="nav_contributors"
+              >Emeği Geçenler</a
+            >
+          </li>
+          <li><a href="discord.html" data-i18n="nav_discord">Discord</a></li>
+        </ul>
+        <div class="nav-right">
+          <div id="user-profile-container"></div>
+          <div class="lang-switcher">
+            <button class="lang-btn" data-lang="tr">TR</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+          </div>
         </div>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </nav>
 
     <main>
-        <section class="slider-section slider-hero">
-            <div id="imageSlider"></div>
-        </section>
+      <section class="slider-section slider-hero">
+        <div id="imageSlider"></div>
+      </section>
 
-        <section class="features">
-            <div class="container">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-gamepad"></i></div>
-                    <h3 data-i18n="feature_quick_setup">Hızlı Kurulum ve Başlatma</h3>
-                    <p data-i18n="feature_quick_setup_desc">Zoream, oyunların kurulumunu ve başlatılmasını kolaylaştıran
-                        araçlar sunar; tek tıkla başlatma ve
-                        otomatik güncelleme seçenekleriyle zaman kazanın.</p>
-                </div>
+      <section class="features">
+        <div class="container">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-gamepad"></i></div>
+            <h3 data-i18n="feature_quick_setup">Hızlı Kurulum ve Başlatma</h3>
+            <p data-i18n="feature_quick_setup_desc">
+              Zoream, oyunların kurulumunu ve başlatılmasını kolaylaştıran
+              araçlar sunar; tek tıkla başlatma ve otomatik güncelleme
+              seçenekleriyle zaman kazanın.
+            </p>
+          </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-unlock"></i></div>
-                    <h3 data-i18n="feature_compatibility">Uyumluluk ve Yönetim</h3>
-                    <p data-i18n="feature_compatibility_desc">Oyunlarınızın yönetimini kolaylaştıran ayarlar ve
-                        uyumluluk kontrolleri ile sorunsuz bir çalışma
-                        deneyimi hedefler.</p>
-                </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-unlock"></i></div>
+            <h3 data-i18n="feature_compatibility">Uyumluluk ve Yönetim</h3>
+            <p data-i18n="feature_compatibility_desc">
+              Oyunlarınızın yönetimini kolaylaştıran ayarlar ve uyumluluk
+              kontrolleri ile sorunsuz bir çalışma deneyimi hedefler.
+            </p>
+          </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-                    <h3 data-i18n="feature_automatic">Otomatik ve Hızlı – Karmaşık Kurulumlara Elveda</h3>
-                    <p data-i18n="feature_automatic_desc">Manuel dosya kopyalama ya da patch işlemleriyle vakit
-                        kaybetmeyin. Zoream, otomatik sistemle
-                        çalışır. Uygulamayı aç, oyunu seç ve işlemi başlat. Kısa sürede oynamaya hazır ol.</p>
-                </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+            <h3 data-i18n="feature_automatic">
+              Otomatik ve Hızlı – Karmaşık Kurulumlara Elveda
+            </h3>
+            <p data-i18n="feature_automatic_desc">
+              Manuel dosya kopyalama ya da patch işlemleriyle vakit kaybetmeyin.
+              Zoream, otomatik sistemle çalışır. Uygulamayı aç, oyunu seç ve
+              işlemi başlat. Kısa sürede oynamaya hazır ol.
+            </p>
+          </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-wrench"></i></div>
-                    <h3 data-i18n="feature_updates">Uyumluluk ve Güncellik</h3>
-                    <p data-i18n="feature_updates_desc">Yeni çıkan oyunlara hızlı uyum sağlayan altyapısı sayesinde
-                        Zoream her zaman bir adım önde.
-                        Geliştirici ekibin sağladığı güncellemeler ile koruma sistemleri ne kadar değişirse değişsin,
-                        çözüm daima cebinde.</p>
-                </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-wrench"></i></div>
+            <h3 data-i18n="feature_updates">Uyumluluk ve Güncellik</h3>
+            <p data-i18n="feature_updates_desc">
+              Yeni çıkan oyunlara hızlı uyum sağlayan altyapısı sayesinde Zoream
+              her zaman bir adım önde. Geliştirici ekibin sağladığı
+              güncellemeler ile koruma sistemleri ne kadar değişirse değişsin,
+              çözüm daima cebinde.
+            </p>
+          </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3 data-i18n="feature_privacy">Sessiz, İz Bırakmayan Kullanım</h3>
-                    <p data-i18n="feature_privacy_desc">Zoream, sistem üzerinde iz bırakmaz. Giriş bilgisi, hesap verisi
-                        ya da kimlik doğrulaması
-                        istemez. Kullanım tamamen anonimdir ve hiçbir veri kayıt altına alınmaz.</p>
-                </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3 data-i18n="feature_privacy">Sessiz, İz Bırakmayan Kullanım</h3>
+            <p data-i18n="feature_privacy_desc">
+              Zoream, sistem üzerinde iz bırakmaz. Giriş bilgisi, hesap verisi
+              ya da kimlik doğrulaması istemez. Kullanım tamamen anonimdir ve
+              hiçbir veri kayıt altına alınmaz.
+            </p>
+          </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-rocket"></i></div>
-                    <h3 data-i18n="feature_access">Zoream'i Şimdi İndir – Oyunlara Gerçek Erişim Sağla</h3>
-                    <p data-i18n="feature_access_desc">Oyunları bekleme, satın alma ya da demo ile yetinme devri bitti.
-                        Zoream'i indir, kur ve oyun
-                        dünyasının gerçek gücünü eline al. Tek engelin artık zaman olacak!</p>
-                </div>
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+            <h3 data-i18n="feature_access">
+              Zoream'i Şimdi İndir – Oyunlara Gerçek Erişim Sağla
+            </h3>
+            <p data-i18n="feature_access_desc">
+              Oyunları bekleme, satın alma ya da demo ile yetinme devri bitti.
+              Zoream'i indir, kur ve oyun dünyasının gerçek gücünü eline al. Tek
+              engelin artık zaman olacak!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="data-usage-section"
+        style="padding: 4rem 0; background-color: rgba(255, 255, 255, 0.02)"
+      >
+        <div class="container">
+          <div
+            class="feature-card"
+            style="
+              width: 100%;
+              max-width: 800px;
+              margin: 0 auto;
+              text-align: left;
+            "
+          >
+            <h3 data-i18n="privacy_google_title" style="margin-bottom: 1rem">
+              Google Kullanıcı Verileri
+            </h3>
+            <p
+              data-i18n="privacy_google_desc"
+              style="margin-bottom: 1rem; line-height: 1.6"
+            >
+              Uygulamamız, kimlik doğrulama veya özellik erişimi için YouTube
+              API Hizmetlerini kullanabilir. Google hesabınızla işlem
+              yaptığınızda, yalnızca genel kanal bilgilerinize ve abonelik
+              durumunuza erişiriz. Şifrenize veya özel verilerinize asla
+              erişmeyiz. Bu bilgiler yalnızca doğrulama amacıyla kullanılır ve
+              sunucularımızda saklanmaz. Uygulamamızın Google API'lerinden
+              alınan bilgileri kullanımı, Sınırlı Kullanım gereksinimleri de
+              dahil olmak üzere
+              <a
+                href="https://developers.google.com/terms/api-services-user-data-policy"
+                target="_blank"
+                >Google API Hizmetleri Kullanıcı Verileri Politikası</a
+              >'na uygundur. Daha fazla bilgi için
+              <a href="https://policies.google.com/privacy" target="_blank"
+                >Google Gizlilik Politikası</a
+              >'nı inceleyebilirsiniz.
+            </p>
+            <div style="margin-top: 2rem; font-size: 0.9em; opacity: 0.7">
+              <a
+                href="privacy.html"
+                data-i18n="footer_privacy"
+                style="color: inherit; text-decoration: underline"
+                >Gizlilik Politikası</a
+              >
             </div>
-        </section>
-
-        <section class="data-usage-section" style="padding: 4rem 0; background-color: rgba(255, 255, 255, 0.02);">
-            <div class="container">
-                <div class="feature-card" style="width: 100%; max-width: 800px; margin: 0 auto; text-align: left;">
-                    <h3 data-i18n="privacy_google_title" style="margin-bottom: 1rem;">Google Kullanıcı Verileri</h3>
-                    <p data-i18n="privacy_google_desc" style="margin-bottom: 1rem; line-height: 1.6;">Uygulamamız, kimlik doğrulama veya özellik erişimi için YouTube API Hizmetlerini kullanabilir. Google hesabınızla işlem yaptığınızda, yalnızca genel kanal bilgilerinize ve abonelik durumunuza erişiriz. Şifrenize veya özel verilerinize asla erişmeyiz. Bu bilgiler yalnızca doğrulama amacıyla kullanılır ve sunucularımızda saklanmaz. Uygulamamızın Google API'lerinden alınan bilgileri kullanımı, Sınırlı Kullanım gereksinimleri de dahil olmak üzere <a href='https://developers.google.com/terms/api-services-user-data-policy' target='_blank'>Google API Hizmetleri Kullanıcı Verileri Politikası</a>'na uygundur. Daha fazla bilgi için <a href='https://policies.google.com/privacy' target='_blank'>Google Gizlilik Politikası</a>'nı inceleyebilirsiniz.</p>
-                    <div style="margin-top: 2rem; font-size: 0.9em; opacity: 0.7;">
-                        <a href="privacy.html" data-i18n="footer_privacy" style="color: inherit; text-decoration: underline;">Gizlilik Politikası</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Zoream. <span data-i18n="footer_rights">Tüm hakları saklıdır.</span></p>
-            <div class="footer-links">
-                <a href="privacy.html" data-i18n="footer_privacy">Gizlilik Politikası</a>
-                <a href="tos.html" data-i18n="footer_tos">Kullanım Koşulları</a>
-            </div>
+      <div class="container">
+        <p>
+          &copy; 2026 Zoream.
+          <span data-i18n="footer_rights">Tüm hakları saklıdır.</span>
+        </p>
+        <div class="footer-links">
+          <a href="privacy.html" data-i18n="footer_privacy"
+            >Gizlilik Politikası</a
+          >
+          <a href="tos.html" data-i18n="footer_tos">Kullanım Koşulları</a>
         </div>
+      </div>
     </footer>
 
     <script src="translations.js"></script>
     <script src="slider.js"></script>
     <script type="module" src="script.js"></script>
-</body>
-
+  </body>
 </html>
-
