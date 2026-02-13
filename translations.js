@@ -132,20 +132,27 @@ window.translations = {
         footer_tos: "Kullanım Koşulları",
 
         privacy_title: "Gizlilik Politikası",
-        privacy_intro: "Zoream olarak gizliliğinize önem veriyoruz. Bu politika, hizmetlerimizi kullanırken bilgilerinizin nasıl işlendiğini (işlenmediğini) açıklar.",
-        privacy_data_collection: "Veri Toplama",
-        privacy_data_collection_desc: "Zoream, kullanıcılarından kişisel veri toplamaz. Kayıt olma, giriş yapma veya kimlik doğrulama süreçlerimiz yoktur. Kullanımınız tamamen anonimdir.",
-        privacy_usage: "Veri Kullanımı",
-        privacy_usage_desc: "Herhangi bir veri toplanmadığı için, verileriniz hiçbir şekilde üçüncü taraflarla paylaşılmaz, satılmaz veya analiz edilmez.",
-        privacy_security: "Güvenlik",
-        privacy_security_desc: "Uygulamamız yerel olarak çalışır ve verileriniz bilgisayarınızda kalır. Sunucularımıza hiçbir hassas veri gönderilmez.",
-        privacy_contact: "İletişim",
-        privacy_contact_desc: "Gizlilik politikamızla ilgili sorularınız için Discord sunucumuzdan bize ulaşabilirsiniz.",
-        
-        // Google User Data
-        privacy_google_title: "Google Kullanıcı Verileri",
-        privacy_google_desc: "Uygulamamız, kimlik doğrulama veya özellik erişimi için YouTube API Hizmetlerini kullanabilir. Google hesabınızla işlem yaptığınızda, yalnızca genel kanal bilgilerinize ve abonelik durumunuza erişiriz. Şifrenize veya özel verilerinize asla erişmeyiz. Bu bilgiler yalnızca doğrulama amacıyla kullanılır ve sunucularımızda saklanmaz. Uygulamamızın Google API'lerinden alınan bilgileri kullanımı, Sınırlı Kullanım gereksinimleri de dahil olmak üzere <a href='https://developers.google.com/terms/api-services-user-data-policy' target='_blank'>Google API Hizmetleri Kullanıcı Verileri Politikası</a>'na uygundur. Daha fazla bilgi için <a href='https://policies.google.com/privacy' target='_blank'>Google Gizlilik Politikası</a>'nı inceleyebilirsiniz.",
+privacy_intro: "Zoream olarak gizliliğinize önem veriyoruz. Bu politika, hizmetlerimizi kullanırken bilgilerinizin nasıl işlendiğini açıklar.",
 
+privacy_data_collection: "Toplanan Veriler",
+privacy_data_collection_desc: "Zoream, hizmetlerini sunabilmek için bazı temel hesap bilgilerine erişebilir. Uygulama; Google ve Discord ile giriş özelliği içerir. Bu giriş işlemleri sırasında yalnızca gerekli minimum bilgiler alınır.",
+
+privacy_usage: "Verilerin Kullanımı",
+privacy_usage_desc: "Elde edilen bilgiler yalnızca kimlik doğrulama, sunucu üyeliği kontrolü ve uygulama içi yetkilendirme işlemleri için kullanılır. Veriler reklam, pazarlama veya üçüncü taraf analiz amaçlarıyla kullanılmaz.",
+
+privacy_security: "Güvenlik",
+privacy_security_desc: "Erişim belirteçleri (token) güvenli şekilde işlenir. Şifrelerinize erişilmez ve şifreler hiçbir zaman saklanmaz. Gerekli olmayan hiçbir bilgi depolanmaz.",
+
+privacy_contact: "İletişim",
+privacy_contact_desc: "Gizlilik politikamızla ilgili sorularınız için Discord sunucumuzdan bize ulaşabilirsiniz.",
+
+// Google User Data
+privacy_google_title: "Google Kullanıcı Verileri",
+privacy_google_desc: "Uygulamamız, giriş ve bazı özellikler için Google OAuth ve YouTube API Hizmetlerini kullanabilir. Google hesabınızla işlem yaptığınızda yalnızca gerekli minimum bilgilere erişiriz (örneğin: temel profil bilgisi, kanal bilgisi ve abonelik durumu). Şifrenize, e-postalarınıza veya özel Google verilerinize asla erişmeyiz. Google API'lerinden alınan veriler yalnızca doğrulama amacıyla kullanılır ve zorunlu olmadıkça sunucularımızda saklanmaz. Uygulamamızın Google API'lerinden alınan bilgileri kullanımı, Sınırlı Kullanım gereksinimleri dahil olmak üzere <a href='https://developers.google.com/terms/api-services-user-data-policy' target='_blank'>Google API Hizmetleri Kullanıcı Verileri Politikası</a>'na uygundur. Daha fazla bilgi için <a href='https://policies.google.com/privacy' target='_blank'>Google Gizlilik Politikası</a>'nı inceleyebilirsiniz.",
+
+// Discord User Data
+privacy_discord_title: "Discord Kullanıcı Verileri",
+privacy_discord_desc: "Uygulamamız Discord OAuth ile giriş sağlar. Bu işlem sırasında yalnızca temel Discord hesabı bilgilerinize (ör. kullanıcı adı, kullanıcı ID) ve sunucu üyeliği doğrulamasına yönelik bilgilere erişebiliriz. Discord şifrenize asla erişilmez. Bu bilgiler yalnızca üyelik kontrolü ve uygulama yetkilendirmesi için kullanılır.",
         tos_title: "Kullanım Koşulları",
         tos_intro: "Zoream'i kullanarak aşağıdaki koşulları kabul etmiş sayılırsınız. Lütfen dikkatlice okuyunuz.",
         tos_license: "Lisans ve Erişim",
@@ -289,21 +296,28 @@ window.translations = {
         footer_privacy: "Privacy Policy",
         footer_tos: "Terms of Service",
 
-        privacy_title: "Privacy Policy",
-        privacy_intro: "At Zoream, we value your privacy. This policy explains how your information is handled (or not handled) when using our services.",
-        privacy_data_collection: "Data Collection",
-        privacy_data_collection_desc: "Zoream does not collect personal data from its users. We do not have registration, login, or authentication processes. Your usage is completely anonymous.",
-        privacy_usage: "Data Usage",
-        privacy_usage_desc: "Since no data is collected, your data is not shared, sold, or analyzed with third parties in any way.",
-        privacy_security: "Security",
-        privacy_security_desc: "Our application runs locally and your data stays on your computer. No sensitive data is sent to our servers.",
-        privacy_contact: "Contact",
-        privacy_contact_desc: "For questions about our privacy policy, you can reach us via our Discord server.",
+privacy_title: "Privacy Policy",
+privacy_intro: "At Zoream, we value your privacy. This policy explains how your information is handled when using our services.",
 
-        // Google User Data
-        privacy_google_title: "Google User Data",
-        privacy_google_desc: "Our application may use YouTube API Services for authentication or feature access. When you interact with your Google account, we only access your public channel information and subscription status. We never access your password or private data. This information is used solely for verification purposes and is not stored on our servers. Our use of information received from Google APIs adheres to the <a href='https://developers.google.com/terms/api-services-user-data-policy' target='_blank'>Google API Services User Data Policy</a>, including the Limited Use requirements. For more information, please refer to the <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy Policy</a>.",
+privacy_data_collection: "Data We Collect",
+privacy_data_collection_desc: "Zoream may access basic account information to provide its services. The app includes login via Google and Discord. During authentication, only the minimum required data is requested.",
 
+privacy_usage: "How We Use Data",
+privacy_usage_desc: "Collected data is used only for authentication, server membership checks, and in-app authorization. We do not use your data for advertising, marketing, or third-party analytics.",
+
+privacy_security: "Security",
+privacy_security_desc: "Access tokens are processed securely. We never access your passwords and we never store passwords. No unnecessary data is stored.",
+
+privacy_contact: "Contact",
+privacy_contact_desc: "If you have questions about this privacy policy, you can contact us via our Discord server.",
+
+// Google User Data
+privacy_google_title: "Google User Data",
+privacy_google_desc: "Our application may use Google OAuth and YouTube API Services for authentication and certain features. When you use your Google account, we only access the minimum required information (e.g., basic profile info, channel info, and subscription status). We never access your password, emails, or private Google data. Data received from Google APIs is used only for verification purposes and is not stored on our servers unless required. Our use of information received from Google APIs complies with the <a href='https://developers.google.com/terms/api-services-user-data-policy' target='_blank'>Google API Services User Data Policy</a>, including the Limited Use requirements. For more information, please refer to the <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy Policy</a>.",
+
+// Discord User Data
+privacy_discord_title: "Discord User Data",
+privacy_discord_desc: "Our application supports login via Discord OAuth. During this process, we may access basic Discord account data (e.g., username, user ID) and server membership verification data. We never access your Discord password. This data is used only for membership checks and in-app authorization.",
         tos_title: "Terms of Service",
         tos_intro: "By using Zoream, you agree to the following terms. Please read carefully.",
         tos_license: "License and Access",
@@ -398,3 +412,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
