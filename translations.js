@@ -127,7 +127,7 @@ window.translations = {
         privacy_security: "Güvenlik ve Veri İşleme",
         privacy_security_desc: "Erişim belirteçleri (token) tamamen istemci tarafında (client-side) işlenir. Sunucumuz token'ı alır, güvenli bir şekilde istemciye iletir ve iletimden hemen sonra siler; hiçbir veri sunucularımızda saklanmaz. Şifrelerinize asla erişilmez. Gerekli olmayan hiçbir bilgi depolanmaz.",
         privacy_contact: "İletişim ve Veri Silme",
-        privacy_contact_desc: "Gizlilik politikamızla ilgili sorularınız veya verilerinizin silinmesini talep etmek için <strong>ktme156@gmail.com</strong> adresinden veya Discord sunucumuzdan bize ulaşabilirsiniz. Talepleriniz 7 iş günü içinde işleme alınır.",
+        privacy_contact_desc: "Gizlilik politikamızla ilgili sorularınız  için <strong>ktme156@gmail.com</strong> adresinden veya Discord sunucumuzdan bize ulaşabilirsiniz. Talepleriniz 7 iş günü içinde işleme alınır.",
 
         // Google User Data
         privacy_google_title: "Google Kullanıcı Verileri",
@@ -275,7 +275,7 @@ window.translations = {
         privacy_security: "Security and Data Processing",
         privacy_security_desc: "Access tokens are processed strictly on the client-side. Our server acts as a relay, delivers the token to the client, and deletes it immediately after transmission. No data is stored on our servers. We never access passwords.",
         privacy_contact: "Contact and Data Deletion",
-        privacy_contact_desc: "For questions or data deletion requests, contact us at <strong>ktme156@gmail.com</strong> or via Discord. Requests are processed within 7 business days.",
+        privacy_contact_desc: "For questions contact us at <strong>ktme156@gmail.com</strong> or via Discord.",
 
         // Google User Data
         privacy_google_title: "Google User Data",
@@ -366,3 +366,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
