@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="description" content="Zoream — Gizlilik Politikası.">
     <meta name="keywords" content="Zoream, gizlilik politikası, privacy policy, veri güvenliği">
     <meta name="robots" content="index, follow">
@@ -32,7 +31,6 @@
 
             <div class="nav-right">
                 <div id="user-profile-container"></div>
-
                 <div class="lang-switcher">
                     <button class="lang-btn" data-lang="tr">TR</button>
                     <button class="lang-btn" data-lang="en">EN</button>
@@ -62,57 +60,32 @@
                 <div class="policy-content">
 
                     <p data-i18n="privacy_intro">
-                        Zoream olarak gizliliğinize önem veriyoruz. Bu politika, hizmetlerimizi kullanırken bilgilerinizin
-                        nasıl işlendiğini açıklar.
+                        Zoream olarak gizliliğinize önem veriyoruz. Bu politika, hizmetlerimizi kullanırken bilgilerinizin nasıl işlendiğini açıklar.
                     </p>
 
                     <h2 data-i18n="privacy_data_collection">Toplanan Veriler</h2>
                     <p data-i18n="privacy_data_collection_desc">
-                        Zoream, uygulama içi yetkilendirme ve topluluk erişimi için Google ve Discord ile giriş özelliği
-                        sunar. Giriş işlemleri sırasında yalnızca hizmeti sağlamak için gerekli minimum bilgiler alınır.
-                        Zoream, kullanıcıların şifrelerine hiçbir zaman erişmez ve şifreleri asla saklamaz.
+                        Zoream, uygulama içi yetkilendirme ve topluluk erişimi için Google ve Discord OAuth hizmetlerini kullanır. Giriş işlemleri sırasında yalnızca temel profil bilgileri (isim, ID vb.) alınır. Şifrelerinize asla erişilmez ve saklanmaz.
                     </p>
 
                     <h2 data-i18n="privacy_usage">Verilerin Kullanımı</h2>
                     <p data-i18n="privacy_usage_desc">
-                        Elde edilen bilgiler yalnızca kimlik doğrulama, Discord sunucu üyeliği kontrolü ve uygulama içi
-                        erişim yetkilendirmesi için kullanılır. Veriler reklam, pazarlama veya üçüncü taraf analiz
-                        amaçlarıyla kullanılmaz, satılmaz veya paylaşılmaz.
+                        Elde edilen bilgiler yalnızca kimlik doğrulama ve yetkilendirme işlemleri için kullanılır. Verileriniz reklam, pazarlama veya üçüncü taraf analizleri için asla satılmaz veya paylaşılmaz.
                     </p>
 
-                    <h2 data-i18n="privacy_google_title">Google Kullanıcı Verileri</h2>
+                    <h2 data-i18n="privacy_google_title">Google ve YouTube Kullanıcı Verileri</h2>
                     <p data-i18n="privacy_google_desc">
-                        Uygulamamız, giriş ve bazı özellikler için Google OAuth ve YouTube API Hizmetlerini kullanabilir.
-                        Google hesabınızla işlem yaptığınızda yalnızca gerekli minimum bilgilere erişiriz (örneğin: temel
-                        profil bilgisi, kanal bilgisi ve abonelik durumu). Şifrenize, e-postalarınıza veya özel Google
-                        verilerinize asla erişmeyiz. Google API'lerinden alınan veriler yalnızca doğrulama amacıyla
-                        kullanılır ve zorunlu olmadıkça sunucularımızda saklanmaz. Uygulamamızın Google API'lerinden
-                        alınan bilgileri kullanımı, Sınırlı Kullanım gereksinimleri dahil olmak üzere
-                        <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank">
-                            Google API Hizmetleri Kullanıcı Verileri Politikası
-                        </a>'na uygundur. Daha fazla bilgi için
-                        <a href="https://policies.google.com/privacy" target="_blank">
-                            Google Gizlilik Politikası
-                        </a>'nı inceleyebilirsiniz.
+                        Uygulamamız Google OAuth ve YouTube API Hizmetlerini kullanmaktadır. Zoream'i kullanarak <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Hizmet Şartları</a>'nı ve <a href="https://policies.google.com/privacy" target="_blank">Google Gizlilik Politikası</a>'nı kabul etmiş sayılırsınız. Google API'lerinden alınan bilgiler, Sınırlı Kullanım (Limited Use) gereksinimlerine uygun olarak işlenir ve yalnızca doğrulama amacıyla kullanılır.
                     </p>
 
-                    <h2 data-i18n="privacy_discord_title">Discord Kullanıcı Verileri</h2>
-                    <p data-i18n="privacy_discord_desc">
-                        Uygulamamız Discord OAuth ile giriş sağlar. Bu işlem sırasında yalnızca temel Discord hesabı
-                        bilgilerinize (ör. kullanıcı adı, kullanıcı ID) ve Discord sunucumuza üyelik doğrulamasına yönelik
-                        bilgilere erişebiliriz. Discord şifrenize asla erişilmez. Bu bilgiler yalnızca üyelik kontrolü ve
-                        uygulama içi yetkilendirme için kullanılır.
-                    </p>
-
-                    <h2 data-i18n="privacy_security">Güvenlik</h2>
+                    <h2 data-i18n="privacy_security">Güvenlik ve Veri Saklama</h2>
                     <p data-i18n="privacy_security_desc">
-                        Erişim belirteçleri (token) güvenli şekilde işlenir. Zoream, gerekli olmayan hiçbir hassas veriyi
-                        saklamaz. Uygulama, güvenlik risklerini azaltmak için minimum veri prensibiyle çalışır.
+                        Erişim belirteçleri (token) tamamen istemci tarafında (client-side) işlenir. Sunucumuz token'ı alır, güvenli bir şekilde istemciye iletir ve iletim tamamlandıktan sonra sunucu belleğinden kalıcı olarak siler. Hiçbir kişisel veri veya token sunucularımızda depolanmaz.
                     </p>
 
-                    <h2 data-i18n="privacy_contact">İletişim</h2>
+                    <h2 data-i18n="privacy_contact">İletişim ve Veri Silme</h2>
                     <p data-i18n="privacy_contact_desc">
-                        Gizlilik politikamızla ilgili sorularınız için Discord sunucumuzdan bize ulaşabilirsiniz.
+                        Gizlilik politikamızla ilgili sorularınız veya verilerinizin sistemden temizlenmesi talepleriniz için <strong>ktme156@gmail.com</strong> adresinden veya Discord sunucumuzdan bize ulaşabilirsiniz.
                     </p>
 
                 </div>
@@ -133,5 +106,4 @@
     <script src="translations.js"></script>
     <script type="module" src="script.js"></script>
 </body>
-
 </html>
