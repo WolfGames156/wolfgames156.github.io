@@ -7,49 +7,37 @@ window.translations = {
         nav_contributors: "Emeği Geçenler",
         nav_discord: "Discord",
 
-        // Slider Texts - More engaging and descriptive
+        // Slider Texts
         slide_library_title: "Oyun Kütüphanesi",
         slide_library_desc: "Tüm oyunlarınızı tek bir yerde toplayın, organize edin ve kolayca yönetin. Modern ve kullanıcı dostu arayüz ile oyun deneyiminizi bir üst seviyeye taşıyın.",
-
         slide_settings_title: "Gelişmiş Ayarlar",
-        slide_settings_desc: "Oyun deneyiminizi tamamen kişiselleştirin. DLC kilitleri, online özellikler ve daha fazlası için detaylı ayar seçenekleri.",
-
+        slide_settings_desc: "Oyun deneyiminizi tamamen kişiselleştirin. DLC kilitleri, online özellikler ve daha fazı için detaylı ayar seçenekleri.",
         slide_news_title: "Güncel Haberler",
         slide_news_desc: "Oyun dünyasından son haberleri ve güncellemeleri anında takip edin. Zoream topluluğundan önemli duyurular.",
-
         slide_manual_title: "Manuel Oyun Ekleme",
         slide_manual_desc: "Kendi oyunlarınızı kolayca ekleyin ve yönetin. Basit arayüz ile birkaç tıklamayla oyunlarınızı sisteme dahil edin.",
-
         slide_online_title: "Online Fix & Bypass",
         slide_online_desc: "Çevrimiçi özelliklere sorunsuz erişim sağlayın. Multiplayer, başarımlar ve bulut kayıt desteği.",
-
         slide_about_title: "Zoream Hakkında",
         slide_about_desc: "Modern oyun yönetimi için tasarlanmış güçlü ve kullanıcı dostu launcher. Hızlı, güvenli ve tamamen ücretsiz.",
-
         slide_account_title: "Hesap Yönetimi",
         slide_account_desc: "Steam hesabınızı kolayca yönetin. Profil bilgilerinizi görüntüleyin ve ayarlarınızı düzenleyin.",
-
         slide_store_title: "Steam Mağaza Entegrasyonu",
         slide_store_desc: "Steam mağazasına doğrudan erişim. Yeni oyunları keşfedin ve kütüphanenize ekleyin.",
 
         // Features
         feature_quick_setup: "Hızlı Kurulum ve Başlatma",
         feature_quick_setup_desc: "Zoream, oyunların kurulumunu ve başlatılmasını kolaylaştıran araçlar sunar; tek tıkla başlatma ve otomatik güncelleme seçenekleriyle zaman kazanın.",
-
         feature_compatibility: "Uyumluluk ve Yönetim",
         feature_compatibility_desc: "Oyunlarınızın yönetimini kolaylaştıran ayarlar ve uyumluluk kontrolleri ile sorunsuz bir çalışma deneyimi hedefler.",
-
         feature_automatic: "Otomatik ve Hızlı – Karmaşık Kurulumlara Elveda",
-        feature_automatic_desc: "Manuel dosya kopyalama ya da patch işlemleriyle vakit kaybetmeyin. Zoream, otomatik sistemle çalışır. Uygulamayı aç, oyunu seç ve işlemi başlat. Kısa sürede oynamaya hazır ol.",
-
+        feature_automatic_desc: "Manuel dosya kopyalama ya da patch işlemleriyle vakit kaybetmeyin. Zoream, otomatik sistemle çalışır. Uygulamayı aç, oyunu seç ve işlemi başlat.",
         feature_updates: "Uyumluluk ve Güncellik",
-        feature_updates_desc: "Yeni çıkan oyunlara hızlı uyum sağlayan altyapısı sayesinde Zoream her zaman bir adım önde. Geliştirici ekibin sağladığı güncellemeler ile koruma sistemleri ne kadar değişirse değişsin, çözüm daima cebinde.",
-
+        feature_updates_desc: "Yeni çıkan oyunlara hızlı uyum sağlayan altyapısı sayesinde Zoream her zaman bir adım önde.",
         feature_privacy: "Sessiz, İz Bırakmayan Kullanım",
-        feature_privacy_desc: "Zoream, sistem üzerinde iz bırakmaz. Giriş bilgisi, hesap verisi ya da kimlik doğrulaması istemez. Kullanım tamamen anonimdir ve hiçbir veri kayıt altına alınmaz.",
-
-        feature_access: "Zoream'i Şimdi İndir – Oyunlara Gerçek Erişim Sağla",
-        feature_access_desc: "Oyunları bekleme, satın alma ya da demo ile yetinme devri bitti. Zoream'i indir, kur ve oyun dünyasının gerçek gücünü eline al. Tek engelin artık zaman olacak!",
+        feature_privacy_desc: "Zoream, sistem üzerinde iz bırakmaz. Giriş bilgisi, hesap verisi ya da kimlik doğrulaması istemez.",
+        feature_access: "Zoream'i Şimdi İndir",
+        feature_access_desc: "Oyunları bekleme, satın alma ya da demo ile yetinme devri bitti. Zoream'i indir ve gücü eline al.",
 
         // Footer
         footer_rights: "Tüm hakları saklıdır.",
@@ -62,7 +50,7 @@ window.translations = {
         logout: "Çıkış Yap",
         copy_invite: "Davet Linkini Kopyala",
 
-        // Contributors Page (Emeği Geçenler)
+        // Contributors
         contributors_title: "Emeği Geçenler",
         contributors_subtitle: "Zoream projesine katkıda bulunan tüm geliştiricilere teşekkürler",
         contributors_support_title: "Destek mi Olmak İstiyorsun?",
@@ -73,9 +61,9 @@ window.translations = {
         contributor_logo_designer: "Logo Tasarımcısı",
         contributor_tester: "Test Edici",
 
-        // Download Page (İndir)
+        // Download
         download_title: "Zoream'i İndir",
-        download_subtitle: "Zoream'i indirin ve oyunlarınızın yönetimini kolaylaştırın. Hızlı kurulum ve otomatik güncellemelerle başlayın.",
+        download_subtitle: "Zoream'i indirin ve oyunlarınızın yönetimini kolaylaştırın.",
         download_latest: "Zoream Son Sürüm",
         download_latest_desc: "En güncel sürümü indirin ve oyun yönetimini basitleştirin.",
         download_button: "Zoream'i İndir",
@@ -101,7 +89,7 @@ window.translations = {
         auth_copy_invite: "Davet Linki Kopyala",
         auth_logout: "Çıkış Yap",
 
-        // How to Use Page (Nasıl Kullanılır)
+        // How to Use
         how_to_use_title: "Nasıl Kullanılır?",
         how_to_step1_title: "Zoream'i Açın",
         how_to_step1_desc: "Öncelikle Zoream'in yeni sürümünü açıyorsunuz.",
@@ -121,48 +109,43 @@ window.translations = {
 
         // Discord Page
         discord_page_title: "Discord Topluluğu",
-        discord_page_subtitle: "Resmi Zoream Discord sunucusuna katılın — destek, güncellemeler ve topluluk sohbetleri için.",
+        discord_page_subtitle: "Resmi Zoream Discord sunucusuna katılın.",
         discord_join_title: "Discord Sunucumuza Katılın",
-        discord_join_desc: "Destek almak, güncellemeleri takip etmek ve toplulukla iletişime geçmek için Discord sunucumuza katılın.",
+        discord_join_desc: "Destek almak ve güncellemeleri takip etmek için katılın.",
         discord_join_button: "Discord'a Katıl",
         discord_team_title: "Ekip Üyeleri",
 
-        // Privacy & ToS
+        // Privacy & ToS (Güncellenmiş Kısım)
         footer_privacy: "Gizlilik Politikası",
         footer_tos: "Kullanım Koşulları",
-
         privacy_title: "Gizlilik Politikası",
-privacy_intro: "Zoream olarak gizliliğinize önem veriyoruz. Bu politika, hizmetlerimizi kullanırken bilgilerinizin nasıl işlendiğini açıklar.",
+        privacy_intro: "Zoream olarak gizliliğinize önem veriyoruz. Bu politika, hizmetlerimizi kullanırken bilgilerinizin nasıl işlendiğini açıklar.",
+        privacy_data_collection: "Toplanan Veriler",
+        privacy_data_collection_desc: "Zoream, hizmetlerini sunabilmek için bazı temel hesap bilgilerine erişebilir. Uygulama; Google ve Discord ile giriş özelliği içerir. Bu giriş işlemleri sırasında yalnızca gerekli minimum bilgiler alınır.",
+        privacy_usage: "Verilerin Kullanımı",
+        privacy_usage_desc: "Elde edilen bilgiler yalnızca kimlik doğrulama, sunucu üyeliği kontrolü ve uygulama içi yetkilendirme işlemleri için kullanılır. Veriler reklam, pazarlama veya üçüncü taraf analiz amaçlarıyla kullanılmaz.",
+        privacy_security: "Güvenlik ve Veri İşleme",
+        privacy_security_desc: "Erişim belirteçleri (token) tamamen istemci tarafında (client-side) işlenir. Sunucumuz token'ı alır, güvenli bir şekilde istemciye iletir ve iletimden hemen sonra siler; hiçbir veri sunucularımızda saklanmaz. Şifrelerinize asla erişilmez. Gerekli olmayan hiçbir bilgi depolanmaz.",
+        privacy_contact: "İletişim ve Veri Silme",
+        privacy_contact_desc: "Gizlilik politikamızla ilgili sorularınız veya verilerinizin silinmesini talep etmek için <strong>ktme156@gmail.com</strong> adresinden veya Discord sunucumuzdan bize ulaşabilirsiniz. Talepleriniz 7 iş günü içinde işleme alınır.",
 
-privacy_data_collection: "Toplanan Veriler",
-privacy_data_collection_desc: "Zoream, hizmetlerini sunabilmek için bazı temel hesap bilgilerine erişebilir. Uygulama; Google ve Discord ile giriş özelliği içerir. Bu giriş işlemleri sırasında yalnızca gerekli minimum bilgiler alınır.",
+        // Google User Data
+        privacy_google_title: "Google Kullanıcı Verileri",
+        privacy_google_desc: "Uygulamamız, giriş ve bazı özellikler için Google OAuth ve YouTube API Hizmetlerini kullanabilir. Google hesabınızla işlem yaptığınızda yalnızca gerekli minimum bilgilere erişiriz (örneğin: temel profil bilgisi, kanal bilgisi ve abonelik durumu). Uygulamamızın Google API'lerinden alınan bilgileri kullanımı, Sınırlı Kullanım gereksinimleri dahil olmak üzere <a href='https://developers.google.com/terms/api-services-user-data-policy' target='_blank'>Google API Hizmetleri Kullanıcı Verileri Politikası</a>'na uygundur. Ayrıca kullanıcılar <a href='https://www.youtube.com/t/terms' target='_blank'>YouTube Hizmet Şartları</a> ve <a href='https://policies.google.com/privacy' target='_blank'>Google Gizlilik Politikası</a> ile bağlı olduklarını kabul ederler.",
 
-privacy_usage: "Verilerin Kullanımı",
-privacy_usage_desc: "Elde edilen bilgiler yalnızca kimlik doğrulama, sunucu üyeliği kontrolü ve uygulama içi yetkilendirme işlemleri için kullanılır. Veriler reklam, pazarlama veya üçüncü taraf analiz amaçlarıyla kullanılmaz.",
-
-privacy_security: "Güvenlik",
-privacy_security_desc: "Erişim belirteçleri (token) güvenli şekilde işlenir. Şifrelerinize erişilmez ve şifreler hiçbir zaman saklanmaz. Gerekli olmayan hiçbir bilgi depolanmaz.",
-
-privacy_contact: "İletişim",
-privacy_contact_desc: "Gizlilik politikamızla ilgili sorularınız için Discord sunucumuzdan bize ulaşabilirsiniz.",
-
-// Google User Data
-privacy_google_title: "Google Kullanıcı Verileri",
-privacy_google_desc: "Uygulamamız, giriş ve bazı özellikler için Google OAuth ve YouTube API Hizmetlerini kullanabilir. Google hesabınızla işlem yaptığınızda yalnızca gerekli minimum bilgilere erişiriz (örneğin: temel profil bilgisi, kanal bilgisi ve abonelik durumu). Şifrenize, e-postalarınıza veya özel Google verilerinize asla erişmeyiz. Google API'lerinden alınan veriler yalnızca doğrulama amacıyla kullanılır ve zorunlu olmadıkça sunucularımızda saklanmaz. Uygulamamızın Google API'lerinden alınan bilgileri kullanımı, Sınırlı Kullanım gereksinimleri dahil olmak üzere <a href='https://developers.google.com/terms/api-services-user-data-policy' target='_blank'>Google API Hizmetleri Kullanıcı Verileri Politikası</a>'na uygundur. Daha fazla bilgi için <a href='https://policies.google.com/privacy' target='_blank'>Google Gizlilik Politikası</a>'nı inceleyebilirsiniz.",
-
-// Discord User Data
-privacy_discord_title: "Discord Kullanıcı Verileri",
-privacy_discord_desc: "Uygulamamız Discord OAuth ile giriş sağlar. Bu işlem sırasında yalnızca temel Discord hesabı bilgilerinize (ör. kullanıcı adı, kullanıcı ID) ve sunucu üyeliği doğrulamasına yönelik bilgilere erişebiliriz. Discord şifrenize asla erişilmez. Bu bilgiler yalnızca üyelik kontrolü ve uygulama yetkilendirmesi için kullanılır.",
+        // Discord User Data
+        privacy_discord_title: "Discord Kullanıcı Verileri",
+        privacy_discord_desc: "Uygulamamız Discord OAuth ile giriş sağlar. Bu işlem sırasında yalnızca temel Discord hesabı bilgilerinize (ör. kullanıcı adı, kullanıcı ID) ve sunucu üyeliği doğrulamasına yönelik bilgilere erişebiliriz.",
         tos_title: "Kullanım Koşulları",
-        tos_intro: "Zoream'i kullanarak aşağıdaki koşulları kabul etmiş sayılırsınız. Lütfen dikkatlice okuyunuz.",
+        tos_intro: "Zoream'i kullanarak aşağıdaki koşulları kabul etmiş sayılırsınız.",
         tos_license: "Lisans ve Erişim",
-        tos_license_desc: "Zoream, oyun kütüphanenizi yönetmeniz için size ücretsiz, sınırlı ve devredilemez bir lisans verir.",
+        tos_license_desc: "Zoream, oyun kütüphanenizi yönetmeniz için size ücretsiz, sınırlı bir lisans verir.",
         tos_restrictions: "Kısıtlamalar",
-        tos_restrictions_desc: "Uygulamayı tersine mühendislik ile incelemek, kopyalamak veya zarar verici amaçlarla kullanmak yasaktır.",
+        tos_restrictions_desc: "Uygulamayı tersine mühendislik ile incelemek veya zarar verici amaçlarla kullanmak yasaktır.",
         tos_disclaimer: "Sorumluluk Reddi",
-        tos_disclaimer_desc: "Zoream, 'olduğu gibi' sunulur. Kullanımdan doğabilecek herhangi bir veri kaybı veya sistem sorunundan geliştiriciler sorumlu tutulamaz.",
+        tos_disclaimer_desc: "Zoream, 'olduğu gibi' sunulur. Kullanımdan doğabilecek sorunlardan geliştiriciler sorumlu tutulamaz.",
         tos_termination: "Fesih",
-        tos_termination_desc: "Bu koşullara uymamanız durumunda, Zoream hizmetlerine erişiminiz engellenebilir (Discord sunucusu vb.)."
+        tos_termination_desc: "Koşullara uymamanız durumunda erişiminiz engellenebilir."
     },
     en: {
         // Navigation
@@ -172,49 +155,37 @@ privacy_discord_desc: "Uygulamamız Discord OAuth ile giriş sağlar. Bu işlem 
         nav_contributors: "Contributors",
         nav_discord: "Discord",
 
-        // Slider Texts - More engaging and descriptive
+        // Slider Texts
         slide_library_title: "Game Library",
-        slide_library_desc: "Collect, organize and easily manage all your games in one place. Take your gaming experience to the next level with a modern and user-friendly interface.",
-
+        slide_library_desc: "Collect, organize and easily manage all your games in one place. Take your gaming experience to the next level.",
         slide_settings_title: "Advanced Settings",
-        slide_settings_desc: "Fully customize your gaming experience. Detailed settings for DLC unlocks, online features and more.",
-
+        slide_settings_desc: "Fully customize your gaming experience. Detailed settings for DLC unlocks and more.",
         slide_news_title: "Latest News",
-        slide_news_desc: "Stay instantly updated with the latest news from the gaming world. Important announcements from the Zoream community.",
-
+        slide_news_desc: "Stay instantly updated with the latest news from the gaming world.",
         slide_manual_title: "Manual Game Addition",
-        slide_manual_desc: "Easily add and manage your own games. Add your games to the system with just a few clicks through a simple interface.",
-
+        slide_manual_desc: "Easily add and manage your own games through a simple interface.",
         slide_online_title: "Online Fix & Bypass",
-        slide_online_desc: "Seamlessly access online features. Multiplayer, achievements and cloud save support.",
-
+        slide_online_desc: "Seamlessly access online features. Multiplayer and achievements support.",
         slide_about_title: "About Zoream",
-        slide_about_desc: "Powerful and user-friendly launcher designed for modern game management. Fast, secure and completely free.",
-
+        slide_about_desc: "Powerful launcher designed for modern game management. Fast, secure and free.",
         slide_account_title: "Account Management",
-        slide_account_desc: "Easily manage your Steam account. View your profile information and edit your settings.",
-
+        slide_account_desc: "Easily manage your Steam account and view your profile info.",
         slide_store_title: "Steam Store Integration",
-        slide_store_desc: "Direct access to Steam store. Discover new games and add them to your library.",
+        slide_store_desc: "Direct access to Steam store. Discover new games easily.",
 
         // Features
         feature_quick_setup: "Quick Setup and Launch",
-        feature_quick_setup_desc: "Zoream offers tools that simplify game installation and launching; save time with one-click launch and automatic update options.",
-
+        feature_quick_setup_desc: "Zoream offers tools that simplify game installation; save time with one-click launch.",
         feature_compatibility: "Compatibility and Management",
-        feature_compatibility_desc: "Aims for a seamless experience with settings and compatibility checks that simplify game management.",
-
-        feature_automatic: "Automatic and Fast – Goodbye to Complex Setups",
-        feature_automatic_desc: "Don't waste time with manual file copying or patching. Zoream works with an automatic system. Open the app, select the game and start the process. Get ready to play in no time.",
-
+        feature_compatibility_desc: "Aims for a seamless experience with simplified game management.",
+        feature_automatic: "Automatic and Fast",
+        feature_automatic_desc: "Zoream works with an automatic system. Open the app, select the game and start.",
         feature_updates: "Compatibility and Updates",
-        feature_updates_desc: "With its infrastructure that quickly adapts to newly released games, Zoream is always one step ahead. With updates provided by the development team, no matter how much protection systems change, the solution is always in your pocket.",
-
+        feature_updates_desc: "Zoream's infrastructure quickly adapts to newly released games.",
         feature_privacy: "Silent, Traceless Usage",
-        feature_privacy_desc: "Zoream leaves no trace on the system. It does not require login information, account data or authentication. Usage is completely anonymous and no data is recorded.",
-
-        feature_access: "Download Zoream Now – Get Real Access to Games",
-        feature_access_desc: "The era of waiting for games, buying or settling for demos is over. Download Zoream, install it and take the real power of the gaming world into your hands. Time will be your only obstacle!",
+        feature_privacy_desc: "Zoream leaves no trace on the system and requires no personal account data.",
+        feature_access: "Download Zoream Now",
+        feature_access_desc: "The era of waiting for games is over. Download Zoream and take the real power.",
 
         // Footer
         footer_rights: "All rights reserved.",
@@ -227,7 +198,7 @@ privacy_discord_desc: "Uygulamamız Discord OAuth ile giriş sağlar. Bu işlem 
         logout: "Log Out",
         copy_invite: "Copy Invite Link",
 
-        // Contributors Page (Emeği Geçenler)
+        // Contributors
         contributors_title: "Contributors",
         contributors_subtitle: "Thanks to all developers who contributed to the Zoream project",
         contributors_support_title: "Want to Support?",
@@ -238,9 +209,9 @@ privacy_discord_desc: "Uygulamamız Discord OAuth ile giriş sağlar. Bu işlem 
         contributor_logo_designer: "Logo Designer",
         contributor_tester: "Tester",
 
-        // Download Page (İndir)
+        // Download
         download_title: "Download Zoream",
-        download_subtitle: "Download Zoream and simplify your game management. Get started with quick installation and automatic updates.",
+        download_subtitle: "Download Zoream and simplify your game management.",
         download_latest: "Zoream Latest Version",
         download_latest_desc: "Download the latest version and simplify game management.",
         download_button: "Download Zoream",
@@ -250,84 +221,79 @@ privacy_discord_desc: "Uygulamamız Discord OAuth ile giriş sağlar. Bu işlem 
         download_req_windows: "Windows 10 or higher",
         download_req_steam: "Steam must be installed",
         download_req_internet: "Internet connection",
-        download_req_vpn: "DPI or VPN due to Discord access block (Games may not be added when using VPN.)",
+        download_req_vpn: "DPI or VPN due to Discord access block.",
         download_security_title: "Security",
-        download_security_desc: "Zoream is completely safe. It leaves no trace on the system and does not collect any personal data.",
+        download_security_desc: "Zoream is completely safe. It leaves no trace and collects no personal data.",
         download_support_title: "Having Issues?",
-        download_support_desc: "If you experience problems during download or installation, you can get support by joining our Discord server.",
+        download_support_desc: "If you experience problems, get support by joining our Discord server.",
         download_support_link: "our Discord server",
         download_fix_games_title: "Games not showing/Install with Powershell:",
         download_copy_success: "Copied!",
 
         // Invite Modal
         invite_modal_title: "Your friend invited you to Zoream!",
-        invite_modal_desc: "<strong>{username}</strong> is inviting you to use Zoream. Why not accept your friend's offer and save some money?",
+        invite_modal_desc: "<strong>{username}</strong> is inviting you to use Zoream. Save your money and join us!",
         invite_modal_btn: "Start Now",
         auth_copy_invite: "Copy Invite Link",
         auth_logout: "Log out",
 
-        // How to Use Page (Nasıl Kullanılır)
-  how_to_use_title: "How to Use?",
-    how_to_step1_title: "Open Zoream",
-    how_to_step1_desc: "First, launch the latest version of Zoream.",
-    how_to_step2_title: "Sign In",
-    how_to_step2_desc: "Sign in using Google and Discord respectively. You must be a member of our Discord server. Additionally, you need to subscribe to our YouTube channel.",
-    how_to_step3_title: "Set Your Language",
-    how_to_step3_desc: "Configure your preferred language in the settings menu.",
-    how_to_step4_title: "Find Your Game",
-    how_to_step4_desc: "Locate your games in the Steam store within the app and click the 'Add/Update with Zoream' button next to the 'Add to Cart' button to add them to your library.",
-    how_to_step5_title: "Add and Manage Games",
-    how_to_step5_desc: "Add games to your Zoream library; manage updates and launches all from one place.",
-    how_to_step6_title: "Congratulations",
-    how_to_step6_desc: "The game has been added with all its DLCs. You can download and play it via the Zoream library or through Steam.",
-    how_to_warning_title: "Important Notes",
-    how_to_warning_desc: "Denuvo, EA, and Ubisoft games are not supported. To play multiplayer with friends, you must install the Online/Bypass fix.",
-    how_to_good_luck: "Have Fun!",
+        // How to Use
+        how_to_use_title: "How to Use?",
+        how_to_step1_title: "Open Zoream",
+        how_to_step1_desc: "First, launch the latest version of Zoream.",
+        how_to_step2_title: "Sign In",
+        how_to_step2_desc: "Sign in using Google and Discord. You must be a member of our Discord and YouTube.",
+        how_to_step3_title: "Set Your Language",
+        how_to_step3_desc: "Configure your preferred language in settings.",
+        how_to_step4_title: "Find Your Game",
+        how_to_step4_desc: "Locate games in the Steam store and click 'Add with Zoream'.",
+        how_to_step5_title: "Add and Manage Games",
+        how_to_step5_desc: "Manage updates and launches all from one place.",
+        how_to_step6_title: "Congratulations",
+        how_to_step6_desc: "The game has been added with all DLCs. Have fun!",
+        how_to_warning_title: "Important Notes",
+        how_to_warning_desc: "Denuvo, EA, and Ubisoft games are not supported.",
+        how_to_good_luck: "Have Fun!",
 
         // Discord Page
         discord_page_title: "Discord Community",
-        discord_page_subtitle: "Join the official Zoream Discord server — for support, updates and community chats.",
+        discord_page_subtitle: "Join the official Zoream Discord server.",
         discord_join_title: "Join Our Discord Server",
-        discord_join_desc: "Join our Discord server to get support, follow updates and communicate with the community.",
+        discord_join_desc: "Join for support, updates and community chats.",
         discord_join_button: "Join Discord",
         discord_team_title: "Team Members",
 
-        // Privacy & ToS
+        // Privacy & ToS (Updated)
         footer_privacy: "Privacy Policy",
         footer_tos: "Terms of Service",
+        privacy_title: "Privacy Policy",
+        privacy_intro: "At Zoream, we value your privacy. This policy explains how your information is handled.",
+        privacy_data_collection: "Data We Collect",
+        privacy_data_collection_desc: "Zoream may access basic account info to provide services via Google and Discord. Only minimum required data is requested.",
+        privacy_usage: "How We Use Data",
+        privacy_usage_desc: "Data is used only for authentication and authorization. We do not use data for advertising or marketing.",
+        privacy_security: "Security and Data Processing",
+        privacy_security_desc: "Access tokens are processed strictly on the client-side. Our server acts as a relay, delivers the token to the client, and deletes it immediately after transmission. No data is stored on our servers. We never access passwords.",
+        privacy_contact: "Contact and Data Deletion",
+        privacy_contact_desc: "For questions or data deletion requests, contact us at <strong>ktme156@gmail.com</strong> or via Discord. Requests are processed within 7 business days.",
 
-privacy_title: "Privacy Policy",
-privacy_intro: "At Zoream, we value your privacy. This policy explains how your information is handled when using our services.",
+        // Google User Data
+        privacy_google_title: "Google User Data",
+        privacy_google_desc: "Our application may use Google OAuth and YouTube API Services. Our use of information complies with the <a href='https://developers.google.com/terms/api-services-user-data-policy' target='_blank'>Google API Services User Data Policy</a>. Users also agree to the <a href='https://www.youtube.com/t/terms' target='_blank'>YouTube Terms of Service</a> and <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy Policy</a>.",
 
-privacy_data_collection: "Data We Collect",
-privacy_data_collection_desc: "Zoream may access basic account information to provide its services. The app includes login via Google and Discord. During authentication, only the minimum required data is requested.",
-
-privacy_usage: "How We Use Data",
-privacy_usage_desc: "Collected data is used only for authentication, server membership checks, and in-app authorization. We do not use your data for advertising, marketing, or third-party analytics.",
-
-privacy_security: "Security",
-privacy_security_desc: "Access tokens are processed securely. We never access your passwords and we never store passwords. No unnecessary data is stored.",
-
-privacy_contact: "Contact",
-privacy_contact_desc: "If you have questions about this privacy policy, you can contact us via our Discord server.",
-
-// Google User Data
-privacy_google_title: "Google User Data",
-privacy_google_desc: "Our application may use Google OAuth and YouTube API Services for authentication and certain features. When you use your Google account, we only access the minimum required information (e.g., basic profile info, channel info, and subscription status). We never access your password, emails, or private Google data. Data received from Google APIs is used only for verification purposes and is not stored on our servers unless required. Our use of information received from Google APIs complies with the <a href='https://developers.google.com/terms/api-services-user-data-policy' target='_blank'>Google API Services User Data Policy</a>, including the Limited Use requirements. For more information, please refer to the <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy Policy</a>.",
-
-// Discord User Data
-privacy_discord_title: "Discord User Data",
-privacy_discord_desc: "Our application supports login via Discord OAuth. During this process, we may access basic Discord account data (e.g., username, user ID) and server membership verification data. We never access your Discord password. This data is used only for membership checks and in-app authorization.",
+        // Discord User Data
+        privacy_discord_title: "Discord User Data",
+        privacy_discord_desc: "We may access basic Discord account data for membership verification only.",
         tos_title: "Terms of Service",
-        tos_intro: "By using Zoream, you agree to the following terms. Please read carefully.",
+        tos_intro: "By using Zoream, you agree to the following terms.",
         tos_license: "License and Access",
-        tos_license_desc: "Zoream grants you a free, limited, and non-transferable license to manage your game library.",
+        tos_license_desc: "Zoream grants a free, limited license to manage your library.",
         tos_restrictions: "Restrictions",
-        tos_restrictions_desc: "It is prohibited to reverse engineer, copy, or use the application for malicious purposes.",
+        tos_restrictions_desc: "Reverse engineering or malicious use is prohibited.",
         tos_disclaimer: "Disclaimer",
-        tos_disclaimer_desc: "Zoream is provided 'as is'. The developers cannot be held responsible for any data loss or system issues arising from usage.",
+        tos_disclaimer_desc: "Zoream is provided 'as is'. Developers are not responsible for system issues.",
         tos_termination: "Termination",
-        tos_termination_desc: "If you fail to comply with these terms, your access to Zoream services (Discord server, etc.) may be blocked."
+        tos_termination_desc: "Access may be blocked for violations."
     }
 };
 
@@ -338,13 +304,10 @@ class LanguageManager {
     }
 
     detectLanguage() {
-        // Check if user manually selected a language
         const savedLang = localStorage.getItem('zoream_language');
         if (savedLang && (savedLang === 'tr' || savedLang === 'en')) {
             return savedLang;
         }
-
-        // Detect browser language
         const browserLang = navigator.language || navigator.userLanguage;
         return browserLang.toLowerCase().startsWith('tr') ? 'tr' : 'en';
     }
@@ -356,16 +319,11 @@ class LanguageManager {
 
     setLanguage(lang) {
         if (lang !== 'tr' && lang !== 'en') return;
-
         this.currentLang = lang;
         localStorage.setItem('zoream_language', lang);
         this.applyTranslations();
         this.updateLanguageButtons();
-
-        // Update HTML lang attribute
         document.documentElement.lang = lang;
-
-        // Trigger slider update if it exists
         if (window.slider) {
             window.slider.updateSlider(window.slider.currentIndex);
         }
@@ -373,8 +331,6 @@ class LanguageManager {
 
     applyTranslations() {
         const trans = translations[this.currentLang];
-
-        // Apply translations to elements with data-i18n attribute
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (trans[key]) {
@@ -403,8 +359,6 @@ class LanguageManager {
 window.langManager = null;
 document.addEventListener('DOMContentLoaded', () => {
     window.langManager = new LanguageManager();
-
-    // Add language switcher event listeners
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.getAttribute('data-lang');
@@ -412,4 +366,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
