@@ -1902,12 +1902,12 @@ body {
 }
 
 .slider-section.slider-hero {
-  padding: 2rem 0 4rem;
+  padding: 1.5rem 0 2rem;
   min-height: auto;
 }
 
 .slider-wrapper {
-  max-width: 1400px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
   width: 100%;
@@ -1920,9 +1920,9 @@ body {
 }
 
 .slider-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 800;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1932,11 +1932,11 @@ body {
 }
 
 .slider-hero .slider-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .slider-description {
-  font-size: 1.15rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.6;
   max-width: 800px;
@@ -1945,7 +1945,7 @@ body {
 }
 
 .slider-hero .slider-description {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 /* Main Slider Image */
@@ -2354,4 +2354,137 @@ body {
 
 .invite-accept-btn:hover {
   filter: brightness(1.1);
+}
+
+/* === Privacy Policy Page === */
+.policy-section {
+  padding: 3rem 0 4rem;
+}
+
+.policy-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.policy-content > p {
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.policy-content h2 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(102, 192, 244, 0.2);
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.policy-content h2 i {
+  font-size: 1.2rem;
+  -webkit-text-fill-color: var(--accent);
+}
+
+.policy-content h3 {
+  font-size: 1.15rem;
+  color: var(--accent);
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.policy-content ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.25rem;
+}
+
+.policy-content ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.policy-content ul li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.policy-content code {
+  background: rgba(102, 192, 244, 0.1);
+  color: var(--accent);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.9em;
+  border: 1px solid rgba(102, 192, 244, 0.2);
+}
+
+.policy-content a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.policy-content a:hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent-hover);
+}
+
+.policy-detail-box {
+  background: linear-gradient(135deg, var(--card-bg) 0%, rgba(30, 30, 30, 0.8) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.policy-highlight-box {
+  background: linear-gradient(135deg, rgba(102, 192, 244, 0.05) 0%, rgba(45, 115, 255, 0.05) 100%);
+  border: 1px solid rgba(102, 192, 244, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.policy-highlight-box h3 {
+  color: var(--accent);
+  margin-top: 0;
+}
+
+.policy-contact-box {
+  background: linear-gradient(135deg, var(--card-bg) 0%, rgba(30, 30, 30, 0.8) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-top: 1rem;
+}
+
+.policy-contact-box p {
+  line-height: 2.2 !important;
+}
+
+.policy-contact-box i {
+  color: var(--accent);
+  width: 20px;
+  text-align: center;
+  margin-right: 0.25rem;
 }

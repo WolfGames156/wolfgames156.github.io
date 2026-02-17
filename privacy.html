@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="description" content="Zoream — Gizlilik Politikası.">
-    <meta name="keywords" content="Zoream, gizlilik politikası, privacy policy, veri güvenliği">
+    <meta name="description" content="Zoream — Privacy Policy / Gizlilik Politikası. Learn how Zoream accesses, uses, stores and protects your data.">
+    <meta name="keywords" content="Zoream, gizlilik politikası, privacy policy, veri güvenliği, Google API, YouTube API, data protection">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://zoream.pages.dev/privacy.html">
+    <link rel="canonical" href="https://zoream.qzz.io/privacy">
     <meta name="zoream:logo" content="https://zoream.pages.dev/zoreamlogo.png">
     <link rel="icon" href="https://zoream.pages.dev/zoreamlogo.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,6 +54,7 @@
                     <i class="fas fa-user-shield"></i>
                     <span data-i18n="privacy_title">Gizlilik Politikası</span>
                 </h1>
+                <p class="page-subtitle" data-i18n="privacy_last_updated">Son güncelleme: 17 Şubat 2026</p>
             </div>
         </section>
 
@@ -62,58 +63,213 @@
                 <div class="policy-content">
 
                     <p data-i18n="privacy_intro">
-                        Zoream olarak gizliliğinize önem veriyoruz. Bu politika, hizmetlerimizi kullanırken bilgilerinizin
-                        nasıl işlendiğini açıklar.
+                        Zoream olarak gizliliğinize büyük önem veriyoruz. Bu Gizlilik Politikası, Zoream uygulamasını
+                        ("Uygulama") kullanırken kişisel bilgilerinizin ve Google kullanıcı verilerinizin nasıl
+                        toplandığını, kullanıldığını, saklandığını, korunduğunu ve paylaşıldığını açıklar. Bu politika,
+                        Google API Hizmetleri Kullanıcı Verileri Politikası ve Google API Hizmet Şartları'na uygundur.
                     </p>
 
-                    <h2 data-i18n="privacy_data_collection">Toplanan Veriler</h2>
-                    <p data-i18n="privacy_data_collection_desc">
-                        Zoream, uygulama içi yetkilendirme ve topluluk erişimi için Google ve Discord ile giriş özelliği
-                        sunar. Giriş işlemleri sırasında yalnızca hizmeti sağlamak için gerekli minimum bilgiler alınır.
-                        Zoream, kullanıcıların şifrelerine hiçbir zaman erişmez ve şifreleri asla saklamaz.
+                    <!-- 1. Data Accessed / Erişilen Veriler -->
+                    <h2 data-i18n="privacy_data_accessed">
+                        <i class="fas fa-database"></i> 1. Erişilen Veriler (Data Accessed)
+                    </h2>
+                    <p data-i18n="privacy_data_accessed_desc">
+                        Zoream, işlevselliğini sağlamak için aşağıdaki verilere erişir:
+                    </p>
+                    <div class="policy-detail-box">
+                        <h3 data-i18n="privacy_google_data_title"><i class="fab fa-google"></i> Google / YouTube Verileri</h3>
+                        <p data-i18n="privacy_google_data_desc">
+                            Uygulamamız yalnızca <code>youtube.readonly</code> kapsamını (scope) kullanır. Bu kapsam
+                            aracılığıyla eriştiğimiz veriler:
+                        </p>
+                        <ul data-i18n="privacy_google_data_list">
+                            <li><strong>YouTube kanal bilgisi:</strong> Kanal ID'niz (belirli bir kanala abonelik
+                                kontrolü için).</li>
+                            <li><strong>Abonelik durumu:</strong> Belirtilen YouTube kanalına abone olup olmadığınız.</li>
+                            <li><strong>Beğeni durumu:</strong> Beğenilen videolar oynatma listesi (LL) üzerinden belirli
+                                bir videonun beğenilip beğenilmediği.</li>
+                            <li><strong>Yorum durumu:</strong> Belirli bir videoya yorum yapıp yapmadığınız (salt okunur
+                                erişim ile).</li>
+                        </ul>
+                        <p data-i18n="privacy_google_data_noaccess">
+                            <strong>Erişmediğimiz veriler:</strong> E-postalarınız, kişileriniz, Google Drive
+                            dosyalarınız, şifreleriniz, ödeme bilgileriniz veya başka herhangi bir özel Google verinize
+                            asla erişmeyiz. Yalnızca <code>youtube.readonly</code> kapsamı ile sınırlıyız; bu kapsam
+                            herhangi bir veriyi değiştirme, yazma veya silme izni vermez.
+                        </p>
+
+                        <h3 data-i18n="privacy_discord_data_title"><i class="fab fa-discord"></i> Discord Verileri</h3>
+                        <p data-i18n="privacy_discord_data_desc">
+                            Uygulamamız Discord OAuth ile giriş sağlar ve yalnızca <code>identify</code> ve
+                            <code>guilds</code> kapsamlarını (scope) kullanır. Bu kapsamlar aracılığıyla eriştiğimiz
+                            veriler:
+                        </p>
+                        <ul data-i18n="privacy_discord_data_list">
+                            <li><strong>Kullanıcı kimliği (identify):</strong> Kullanıcı adınız, kullanıcı ID'niz ve
+                                profil resminiz.</li>
+                            <li><strong>Sunucu listesi (guilds):</strong> Üye olduğunuz Discord sunucularının listesi
+                                (yalnızca Zoream Discord sunucusuna üyelik doğrulaması için kontrol edilir).</li>
+                        </ul>
+                        <p data-i18n="privacy_discord_data_noaccess">
+                            <strong>Erişmediğimiz veriler:</strong> Discord şifreniz, mesajlarınız, arkadaş listeniz,
+                            özel mesajlarınız, e-posta adresiniz veya başka herhangi bir özel Discord verinize asla
+                            erişmeyiz. Yalnızca <code>identify</code> ve <code>guilds</code> kapsamları ile
+                            sınırlıyız; bu kapsamlar hesabınızda herhangi bir değişiklik yapma izni vermez.
+                        </p>
+                        <p data-i18n="privacy_discord_data_storage">
+                            <strong>Discord veri saklama:</strong> Discord erişim belirteci (access token) yalnızca
+                            kullanıcının tarayıcısında (localStorage) saklanır. Sunucularımızda hiçbir Discord
+                            kullanıcı verisi saklanmaz. OAuth akışı tamamen istemci tarafında (client-side, Implicit
+                            Grant Flow) gerçekleşir; sunucumuz bu süreçte hiçbir aracılık yapmaz.
+                        </p>
+                    </div>
+
+                    <!-- 2. Data Usage / Verilerin Kullanımı -->
+                    <h2 data-i18n="privacy_data_usage">
+                        <i class="fas fa-cogs"></i> 2. Verilerin Kullanımı (Data Usage)
+                    </h2>
+                    <p data-i18n="privacy_data_usage_desc">
+                        Eriştiğimiz Google ve Discord kullanıcı verileri <strong>yalnızca</strong> aşağıdaki amaçlar
+                        için kullanılır:
+                    </p>
+                    <ul data-i18n="privacy_data_usage_list">
+                        <li><strong>Kimlik Doğrulama:</strong> Google ve Discord hesaplarınız ile oturum açma.</li>
+                        <li><strong>YouTube Abonelik Kontrolü:</strong> Belirli bir YouTube kanalına abone olup
+                            olmadığınızın doğrulanması.</li>
+                        <li><strong>YouTube Etkileşim Kontrolü:</strong> Belirli bir videonun beğenilip beğenilmediğinin
+                            ve yorum yapılıp yapılmadığının kontrolü.</li>
+                        <li><strong>Discord Üyelik Kontrolü:</strong> Zoream Discord sunucusuna üye olup olmadığınızın
+                            doğrulanması.</li>
+                    </ul>
+                    <p data-i18n="privacy_data_usage_noother">
+                        Verileriniz <strong>kesinlikle</strong> reklam, pazarlama, profil oluşturma, analitik, yapay
+                        zeka/makine öğrenimi model eğitimi veya yukarıda belirtilen amaçlar dışındaki hiçbir işlem için
+                        kullanılmaz. Verileriniz üçüncü taraf analiz araçlarıyla işlenmez.
                     </p>
 
-                    <h2 data-i18n="privacy_usage">Verilerin Kullanımı</h2>
-                    <p data-i18n="privacy_usage_desc">
-                        Elde edilen bilgiler yalnızca kimlik doğrulama, Discord sunucu üyeliği kontrolü ve uygulama içi
-                        erişim yetkilendirmesi için kullanılır. Veriler reklam, pazarlama veya üçüncü taraf analiz
-                        amaçlarıyla kullanılmaz, satılmaz veya paylaşılmaz.
+                    <!-- 3. Data Sharing / Verilerin Paylaşımı -->
+                    <h2 data-i18n="privacy_data_sharing">
+                        <i class="fas fa-share-alt"></i> 3. Verilerin Paylaşımı (Data Sharing)
+                    </h2>
+                    <p data-i18n="privacy_data_sharing_desc">
+                        Zoream, Google kullanıcı verilerinizi veya Discord verilerinizi <strong>hiçbir üçüncü tarafla
+                        paylaşmaz, satmaz, kiralamaz veya devretmez</strong>. Spesifik olarak:
+                    </p>
+                    <ul data-i18n="privacy_data_sharing_list">
+                        <li>Verileriniz hiçbir reklam ağı, veri komisyoncusu veya analiz şirketiyle paylaşılmaz.</li>
+                        <li>Verileriniz hiçbir üçüncü taraf hizmetine aktarılmaz.</li>
+                        <li>Verileriniz yapay zeka veya makine öğrenimi modellerinin eğitimi için kullanılmaz veya
+                            paylaşılmaz.</li>
+                        <li>Yasal bir zorunluluk olmadığı sürece verileriniz hiçbir kurum veya kuruluşa iletilmez.</li>
+                    </ul>
+
+                    <!-- 4. Data Storage & Protection / Veri Saklama ve Koruma -->
+                    <h2 data-i18n="privacy_data_storage">
+                        <i class="fas fa-shield-alt"></i> 4. Veri Saklama ve Koruma (Data Storage & Protection)
+                    </h2>
+                    <p data-i18n="privacy_data_storage_desc">
+                        Zoream, minimum veri prensibiyle çalışır ve aşağıdaki güvenlik uygulamalarını benimser:
+                    </p>
+                    <ul data-i18n="privacy_data_storage_list">
+                        <li><strong>Sunucu tarafı:</strong> Sunucumuz yalnızca OAuth kimlik doğrulama akışında bir
+                            "geçiş noktası" (relay) görevi görür. Google'dan alınan erişim belirteci (access token)
+                            sunucu tarafından istemciye (client) iletilir ve <strong>iletim tamamlandıktan hemen sonra
+                            sunucudan silinir</strong>. Sunucularımızda hiçbir Google kullanıcı verisi kalıcı olarak
+                            saklanmaz.</li>
+                        <li><strong>İstemci tarafı (Client-side):</strong> Erişim belirteci (access token) ve yenileme
+                            belirteci (refresh token), yalnızca kullanıcının kendi cihazında yerel olarak (Electron
+                            Store aracılığıyla) saklanır. Bu veriler başka hiçbir yere gönderilmez.</li>
+                        <li><strong>Şifre güvenliği:</strong> Zoream, kullanıcıların Google veya Discord şifrelerine
+                            asla erişmez ve hiçbir şifreyi saklamaz. Tüm kimlik doğrulama, OAuth 2.0 standardı
+                            aracılığıyla güvenli bir şekilde gerçekleştirilir.</li>
+                        <li><strong>İletişim güvenliği:</strong> Tüm API çağrıları ve veri aktarımları HTTPS (TLS)
+                            şifreli bağlantılar üzerinden gerçekleştirilir.</li>
+                    </ul>
+
+                    <!-- 5. Data Retention & Deletion / Veri Saklama Süresi ve Silme -->
+                    <h2 data-i18n="privacy_data_retention">
+                        <i class="fas fa-trash-alt"></i> 5. Veri Saklama Süresi ve Silme (Data Retention & Deletion)
+                    </h2>
+                    <p data-i18n="privacy_data_retention_desc">
+                        Zoream'in veri saklama politikası şu şekildedir:
+                    </p>
+                    <ul data-i18n="privacy_data_retention_list">
+                        <li><strong>Sunucu tarafında:</strong> Google kullanıcı verileri sunucuda
+                            <strong>saklanmaz</strong>. Erişim belirteci, OAuth akışı sırasında geçici olarak işlenir ve
+                            istemciye iletildikten hemen sonra silinir. Saklama süresi: <strong>0 (sıfır)</strong>.</li>
+                        <li><strong>İstemci tarafında:</strong> Erişim belirteci ve yenileme belirteci, kullanıcının
+                            kendi cihazında saklanır ve yalnızca kullanıcı oturumunu kapattığında veya uygulamayı
+                            kaldırdığında silinir.</li>
+                    </ul>
+                    <div class="policy-highlight-box">
+                        <h3 data-i18n="privacy_deletion_title"><i class="fas fa-user-times"></i> Veri Silme Talebi</h3>
+                        <p data-i18n="privacy_deletion_desc">
+                            Kullanıcılar herhangi bir zamanda verilerinin silinmesini talep edebilir. Veri silme
+                            yöntemleri:
+                        </p>
+                        <ul data-i18n="privacy_deletion_methods">
+                            <li><strong>Uygulama içinden:</strong> Zoream uygulamasında "Çıkış Yap" (Logout) butonuna
+                                tıklayarak tüm yerel verileri (token, oturum bilgileri) anında silebilirsiniz.</li>
+                            <li><strong>Google hesabınızdan:</strong> <a href="https://myaccount.google.com/permissions"
+                                target="_blank">Google Hesap İzinleri</a> sayfasından Zoream uygulamasının erişimini
+                                kaldırabilirsiniz.</li>
+                            <li><strong>E-posta ile:</strong> <strong>ktme156@gmail.com</strong> adresine e-posta
+                                göndererek veri silme talebinde bulunabilirsiniz. Talepler <strong>7 iş günü</strong>
+                                içinde işleme alınır.</li>
+                            <li><strong>Discord ile:</strong> Zoream Discord sunucumuz üzerinden destek ekibimize
+                                ulaşabilirsiniz.</li>
+                        </ul>
+                    </div>
+
+                    <!-- 6. Google API Compliance / Google API Uyumluluğu -->
+                    <h2 data-i18n="privacy_google_compliance">
+                        <i class="fab fa-google"></i> 6. Google API Hizmetleri Uyumluluğu
+                    </h2>
+                    <p data-i18n="privacy_google_compliance_desc">
+                        Zoream'in Google API Hizmetleri'nden aldığı bilgilerin kullanımı ve bu bilgilere yönelik
+                        aktarımlar, Sınırlı Kullanım gereksinimleri dahil olmak üzere
+                        <a href="https://developers.google.com/terms/api-services-user-data-policy"
+                        target="_blank">Google API Hizmetleri Kullanıcı Verileri Politikası</a>'na uygundur.
+                        Kullanıcılar ayrıca
+                        <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Hizmet Şartları</a>'nı ve
+                        <a href="https://policies.google.com/privacy" target="_blank">Google Gizlilik Politikası</a>'nı
+                        kabul etmiş sayılırlar.
                     </p>
 
-                    <h2 data-i18n="privacy_google_title">Google Kullanıcı Verileri</h2>
-                    <p data-i18n="privacy_google_desc">
-                        Uygulamamız, giriş ve bazı özellikler için Google OAuth ve YouTube API Hizmetlerini kullanabilir.
-                        Google hesabınızla işlem yaptığınızda yalnızca gerekli minimum bilgilere erişiriz (örneğin: temel
-                        profil bilgisi, kanal bilgisi ve abonelik durumu). Şifrenize, e-postalarınıza veya özel Google
-                        verilerinize asla erişmeyiz. Google API'lerinden alınan veriler yalnızca doğrulama amacıyla
-                        kullanılır ve zorunlu olmadıkça sunucularımızda saklanmaz. Uygulamamızın Google API'lerinden
-                        alınan bilgileri kullanımı, Sınırlı Kullanım gereksinimleri dahil olmak üzere
-                        <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank">
-                            Google API Hizmetleri Kullanıcı Verileri Politikası
-                        </a>'na uygundur. Daha fazla bilgi için
-                        <a href="https://policies.google.com/privacy" target="_blank">
-                            Google Gizlilik Politikası
-                        </a>'nı inceleyebilirsiniz.
+                    <!-- 7. Children's Privacy -->
+                    <h2 data-i18n="privacy_children">
+                        <i class="fas fa-child"></i> 7. Çocukların Gizliliği
+                    </h2>
+                    <p data-i18n="privacy_children_desc">
+                        Zoream, 13 yaşından küçük çocukları hedeflemez ve bilerek bu yaş grubundan kişisel veri toplamaz.
+                        13 yaşın altındaki bir kullanıcıdan veri toplandığını fark edersek, bu verileri derhal sileriz.
                     </p>
 
-                    <h2 data-i18n="privacy_discord_title">Discord Kullanıcı Verileri</h2>
-                    <p data-i18n="privacy_discord_desc">
-                        Uygulamamız Discord OAuth ile giriş sağlar. Bu işlem sırasında yalnızca temel Discord hesabı
-                        bilgilerinize (ör. kullanıcı adı, kullanıcı ID) ve Discord sunucumuza üyelik doğrulamasına yönelik
-                        bilgilere erişebiliriz. Discord şifrenize asla erişilmez. Bu bilgiler yalnızca üyelik kontrolü ve
-                        uygulama içi yetkilendirme için kullanılır.
+                    <!-- 8. Policy Changes -->
+                    <h2 data-i18n="privacy_changes">
+                        <i class="fas fa-sync-alt"></i> 8. Politika Değişiklikleri
+                    </h2>
+                    <p data-i18n="privacy_changes_desc">
+                        Bu Gizlilik Politikası zaman zaman güncellenebilir. Önemli değişiklikler yapıldığında
+                        kullanıcılar uygulama içi bildirim veya bu sayfa aracılığıyla bilgilendirilecektir. Politikayı
+                        düzenli olarak incelemenizi öneririz.
                     </p>
 
-                    <h2 data-i18n="privacy_security">Güvenlik</h2>
-                    <p data-i18n="privacy_security_desc">
-                        Erişim belirteçleri (token) güvenli şekilde işlenir. Zoream, gerekli olmayan hiçbir hassas veriyi
-                        saklamaz. Uygulama, güvenlik risklerini azaltmak için minimum veri prensibiyle çalışır.
-                    </p>
-
-                    <h2 data-i18n="privacy_contact">İletişim</h2>
+                    <!-- 9. Contact / İletişim -->
+                    <h2 data-i18n="privacy_contact">
+                        <i class="fas fa-envelope"></i> 9. İletişim
+                    </h2>
                     <p data-i18n="privacy_contact_desc">
-                        Gizlilik politikamızla ilgili sorularınız için Discord sunucumuzdan bize ulaşabilirsiniz.
+                        Bu Gizlilik Politikası veya veri uygulamalarımız hakkında sorularınız, endişeleriniz veya veri
+                        silme talepleriniz için aşağıdaki yollarla bizimle iletişime geçebilirsiniz:
                     </p>
+                    <div class="policy-contact-box">
+                        <p data-i18n="privacy_contact_info">
+                            <i class="fas fa-envelope"></i> <strong>E-posta:</strong> <a href="mailto:ktme156@gmail.com">ktme156@gmail.com</a><br>
+                            <i class="fab fa-discord"></i> <strong>Discord:</strong> <a href="https://discord.gg/zoream" target="_blank">Zoream Discord Sunucusu</a><br>
+                            <i class="fas fa-clock"></i> <strong>Yanıt süresi:</strong> Talepler 7 iş günü içinde işleme alınır.
+                        </p>
+                    </div>
 
                 </div>
             </div>
